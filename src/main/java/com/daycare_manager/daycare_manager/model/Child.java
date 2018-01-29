@@ -1,6 +1,10 @@
 package com.daycare_manager.daycare_manager.model;
 
+import antlr.collections.List;
+
 import javax.persistence.*;
+
+import static javax.persistence.CascadeType.ALL;
 
 @Entity
 @Table(name = "child")
@@ -23,10 +27,14 @@ public class Child {
     @Column(nullable = false)
     private String gender;
 
+    @ManyToOne
+    private User parent;
 
     @ManyToOne
-    @JoinColumn(name="user_id")  //This line is not necessary bc User hast the mapping to user in the one to many
-    private User user;
+    private User teacher;
+
+
 
 
 }
+

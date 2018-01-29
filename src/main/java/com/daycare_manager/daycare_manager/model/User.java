@@ -43,8 +43,11 @@ public class User {
 
     // one user can have multiple children.
     // Cascade all means is not going to allow to have empty users for a child.
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
-    private List<Child> childList;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "teacher")
+    private List<Child> students;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "parent")
+    private List<Child> children;
 
     public User(){
 
