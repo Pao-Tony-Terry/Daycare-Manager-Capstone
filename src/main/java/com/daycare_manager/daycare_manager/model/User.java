@@ -34,8 +34,17 @@ public class User {
     @Column(nullable = false)
     private String gender;
 
+    //Employee 0 (or false) is for parents
+    //Employee 1 (or true) is for teachers
     @Column(nullable = false)
     private boolean employee;
+
+
+
+    // one user can have multiple children.
+    // Cascade all means is not going to allow to have empty users for a child.
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+    private List<Child> childList;
 
     public User(){
 
@@ -125,11 +134,6 @@ public class User {
     }
 
 
-    // one user can have a few posts.  User is the main character.  Cascade all means is not going to allow
-    // to have empty users for a post.
-    // Data type list for the posts and the name of the instance in plural.
-//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
-//    private List<Post> posts;
 
 
 
