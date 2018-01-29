@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head></head>
+<body>
+
+<!-- Defines the fragment -->
+<footer th:fragment="footer-partial" id="asd" class="my-footer">
+    <!-- Using #dates : utility methods for java.util.Date objects: -->
+    <span style="text-align: center" class="text-muted">Pao - Terry - Tony-  DayCare 2018 &copy; <span th:text="${#dates.year(#dates.createNow())}"></span></span>
+</footer>
+
+</body>
+</html>

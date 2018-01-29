@@ -1,10 +1,17 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/head :: header" >
-</head>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head th:replace="fragments/head :: header"></head>
+
 <body>
+    <nav th:replace="fragments/navbar :: navbar-partial"></nav>
+
 
     <h1>This is the home page</h1>
 
+    <footer th:replace="fragments/footer :: footer-partial"></footer>
+
 </body>
 </html>
+
+
