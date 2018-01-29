@@ -49,6 +49,9 @@ public class User {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "parent")
     private List<Child> children;
 
+
+    // Contructors:
+
     public User(){
 
     }
@@ -64,6 +67,8 @@ public class User {
         this.employee = employee;
     }
 
+
+    // Getters and setters:
     public long getId() {
         return id;
     }
@@ -137,20 +142,20 @@ public class User {
     }
 
 
+    //Getters and setters for List of students
+    public List<Child> getStudents() {
+        return students;
+    }
 
+    public void setStudents(List<Child> students) {
+        this.students = students;
+    }
 
+    public List<Child> getChildren() {
+        return children;
+    }
 
-
-
-//    // Getters and setters for List<Post> for when is time to ask f
-//    public List<Post> getPosts() {
-//        return posts;
-//    }
-//
-//    public void setPosts(List<Post> posts) {
-//        this.posts = posts;
-//    }
-
-
-
+    public void setChildren(List<Child> children) {
+        this.children = children;
+    }
 }
