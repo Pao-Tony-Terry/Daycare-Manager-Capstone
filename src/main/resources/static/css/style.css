@@ -2,6 +2,10 @@ body {
     background-image: url("/img/daycare_bgimage.png");
 }
 
+.mainNavBar {
+    background-color: aquamarine;
+}
+
 .content-area {
     background-color: aquamarine;
 }
