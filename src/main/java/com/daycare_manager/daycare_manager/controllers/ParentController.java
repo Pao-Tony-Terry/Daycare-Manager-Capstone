@@ -41,7 +41,7 @@ public class ParentController {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         child.setParent(usersRepository.findOne(user.getId()));
         childrenRepository.save(child);
-        return "redirect: /user/parent";
+        return "redirect:/user/parent";
     }
 
 
