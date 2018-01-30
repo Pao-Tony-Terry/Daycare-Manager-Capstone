@@ -36,7 +36,7 @@ public class UsersController {
         user.setPassword(hash);
         usersRepository.save(user);
 
-        return "redirect:/  login";
+        return "redirect:/login";
 
     }
 }
