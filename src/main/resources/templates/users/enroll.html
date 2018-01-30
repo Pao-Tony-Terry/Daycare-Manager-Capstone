@@ -6,9 +6,8 @@
 <body>
 <div class="container">
     <nav th:replace="fragments/navbar :: navbar-partial"></nav>
-    <h1>Enrolling form</h1>
-    <fieldset>
-
+    <h1 class="display-1">Enrollment Form</h1>
+    <fieldset class="enrollForm text-white p-2">
         <form th:action="@{/parent/enroll}" method="POST" th:object="${child}">
            <!--Child row-->
             <h3>Child's Info:</h3>
@@ -23,22 +22,24 @@
                     <input type="text" id="last_name" th:field="*{last_name}" class="form-control" />
                 </div>
 
-                <!--<div class="col">-->
-                    <!--<div class="form-check">-->
-                        <!--<input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" />-->
-                        <!--<label class="form-check-label" for="exampleRadios1">-->
-                            <!--Male-->
-                        <!--</label>-->
-                        <!--<input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2" />-->
-                        <!--<label class="form-check-label" for="exampleRadios2">-->
-                            <!--Female-->
-                        <!--</label>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <div class="col">
-                    <label for="gender">Gender</label>
-                    <input type="text" id="gender" th:field="*{gender}" class="form-control" />
+                <div class="col-2 justify-content-center">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="gender" th:field="*{gender}" id="male" value="male" />
+                        <label class="form-check-label" for="male">
+                            Male
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="gender" th:field="*{gender}" id="female" value="female" />
+                        <label class="form-check-label" for="female">
+                            Female
+                        </label>
+                    </div>
                 </div>
+                <!--<div class="col">-->
+                    <!--<label for="gender">Gender</label>-->
+                    <!--<input type="text" id="gender" th:field="*{gender}" class="form-control" />-->
+                <!--</div>-->
 
                 <div class="col">
                     <div class="form-group">

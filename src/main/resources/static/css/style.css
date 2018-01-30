@@ -29,6 +29,10 @@ body {
     width: 1100px;
 }
 
+.enrollForm {
+    background-color: #6794c0;
+}
+
 
 /* Sticky footer styles
 -------------------------------------------------- */
