@@ -6,14 +6,25 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
-.mainNavBar {
-    background-color: aquamarine;
+.nav-link {
+    color: #6794c0;
+    font-weight: bold;
 }
 
 .content-area {
-    background-color: aquamarine;
+    background-color: #6794c0;
 }
 .carousel-inner {
+    height: 500px;
+    width: 1100px;
+}
+
+.aboutPage {
+    height: 500px;
+    width: 1100px;
+}
+
+.staffPage {
     height: 500px;
     width: 1100px;
 }

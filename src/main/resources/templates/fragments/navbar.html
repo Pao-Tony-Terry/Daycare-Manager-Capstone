@@ -6,8 +6,8 @@
 
 
 <!-- Navigation -->
-<nav th:fragment="navbar-partial" class="navbar navbar-expand-lg navbar-light bg-light mt-5 mb-3 justify-content-end">
-    <a class="navbar-brand" href="/home">Logo</a>
+<nav th:fragment="navbar-partial" class="navbar navbar-expand-lg bg-light mt-5 mb-3">
+    <a class="navbar-brand" href="#">Logo</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -40,7 +40,7 @@
             </li>
             <li class="nav-item">
                 <form th:action="@{/logout}" th:method="post">
-                    <button class="btn-link btn logout_btn">Logout</button>
+                    <button class="nav-link btn-link btn logout_btn">Logout</button>
                 </form>
                 <!--<a class="nav-link active" href="#">Logout</a>-->
             </li>
