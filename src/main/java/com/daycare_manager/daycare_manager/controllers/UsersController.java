@@ -45,16 +45,6 @@ public class UsersController {
 
     }
 
-//    @GetMapping("/user/profile")
-//    public String showProfile() {
-//        // if teacher
-//        // hpme for teacher
-//        // else
-//        // home page for aprent
-//        return "users/profile";
-//    }
-
-
     @GetMapping("/user/profile")
     public String showProfile() {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -74,18 +64,6 @@ public class UsersController {
     public String showTeacherProfile() {
         return "/users/teacher_profile";
     }
-
-
-
-//    @GetMapping("/dashboard")
-//    public String dashboard(HttpServletRequest request) {
-//        if (request.isUserInRole("ROLE_STUDENT")) {
-//            return "redirect:/dashboard/student"; // Suppose we already have an action for this one
-//        }
-//        return "redirect:/dashboard/teacher"; // And another for this one
-//    }
-
-
 
 }
 
