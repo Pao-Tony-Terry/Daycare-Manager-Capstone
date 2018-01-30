@@ -2,12 +2,13 @@ body {
     background-image: url("/img/daycare_bgimage.png");
 }
 
-.mainNavBar {
-    background-color: aquamarine;
+.nav-link {
+    color: #6794c0;
+    font-weight: bold;
 }
 
 .content-area {
-    background-color: aquamarine;
+    background-color: #6794c0;
 }
 .carousel-inner {
     height: 500px;
