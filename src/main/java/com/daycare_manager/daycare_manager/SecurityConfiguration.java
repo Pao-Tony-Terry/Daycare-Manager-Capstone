@@ -5,19 +5,13 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-<<<<<<< HEAD
-=======
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
->>>>>>> e37a316083091398fa7a61aa12e663e811b5f425
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
-<<<<<<< HEAD
-=======
 @EnableWebSecurity
->>>>>>> e37a316083091398fa7a61aa12e663e811b5f425
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     private UserDetailsLoader userDetailsLoader;
@@ -48,11 +42,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
             /* Login configuration */
                 .formLogin()
                 .loginPage("/login")
-<<<<<<< HEAD
                 .defaultSuccessUrl("/home") // user's home page, it can be any URL
-=======
                 .defaultSuccessUrl("/user/profile") // user's home page, it can be any URL
->>>>>>> e37a316083091398fa7a61aa12e663e811b5f425
                 .permitAll() // Anyone can go to the login page
             /* Logout configuration */
                 .and()
@@ -76,8 +67,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         ;
     }
 }
-<<<<<<< HEAD
-=======
 
 
 //@Configuration
@@ -108,4 +97,4 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 //        return "redirect:/dashboard/teacher"; // And another for this one
 //    }
 //}
->>>>>>> e37a316083091398fa7a61aa12e663e811b5f425
+
