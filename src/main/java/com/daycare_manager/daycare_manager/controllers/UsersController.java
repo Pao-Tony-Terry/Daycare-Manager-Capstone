@@ -45,7 +45,7 @@ public class UsersController {
 
     }
 
-//    @GetMapping("/user/profile")
+    //    @GetMapping("/user/profile")
 //    public String showProfile() {
 //        // if teacher
 //        // hpme for teacher
@@ -77,7 +77,7 @@ public class UsersController {
 
 
 
-//    @GetMapping("/dashboard")
+    //    @GetMapping("/dashboard")
 //    public String dashboard(HttpServletRequest request) {
 //        if (request.isUserInRole("ROLE_STUDENT")) {
 //            return "redirect:/dashboard/student"; // Suppose we already have an action for this one
