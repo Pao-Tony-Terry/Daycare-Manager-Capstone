@@ -1,5 +1,7 @@
 body {
     background-image: url("/img/daycare_bgimage.png");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .mainNavBar {
