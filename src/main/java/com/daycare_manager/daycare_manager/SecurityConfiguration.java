@@ -40,7 +40,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
             /* Login configuration */
                 .formLogin()
                 .loginPage("/login")
-                .defaultSuccessUrl("/posts") // user's home page, it can be any URL
+                .defaultSuccessUrl("/home") // user's home page, it can be any URL
                 .permitAll() // Anyone can go to the login page
             /* Logout configuration */
                 .and()
@@ -49,18 +49,18 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
             /* Pages that can be viewed without having to log in */
                 .and()
                 .authorizeRequests()
-                .antMatchers("/", "/posts") // anyone can see the home and the posts pages
+                .antMatchers("/", "/home") // anyone can see the home and the posts pages
                 .permitAll()
-            /* Pages that require athentication */
-                .and()
-                .authorizeRequests()
-                .antMatchers(
-                        "/posts/create", // only authenticated users can create posts
-                        "/posts/{id}/edit", // only authenticated users can edit posts
-                        "/posts/new",
-                        "posts/create"
-                )
-                .authenticated()
+//            /* Pages that require athentication */
+//                .and()
+//                .authorizeRequests()
+//                .antMatchers(
+//                        "/posts/create", // only authenticated users can create posts
+//                        "/posts/{id}/edit", // only authenticated users can edit posts
+//                        "/posts/new",
+//                        "posts/create"
+//                )
+//                .authenticated()
         ;
     }
 }
