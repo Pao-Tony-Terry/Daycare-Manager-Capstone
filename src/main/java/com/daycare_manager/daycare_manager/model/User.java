@@ -62,6 +62,10 @@ public class User {
         email = copy.email;
         username = copy.username;
         password = copy.password;
+        this.email = copy.email;
+        this.phone = copy.phone;
+        this.gender = copy.gender;
+        this.employee = copy.employee;
     }
 
     public User(String first_name, String last_name, String username, String password, String email, String phone, String gender, boolean employee) {

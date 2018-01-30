@@ -5,11 +5,13 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
+@EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     private UserDetailsLoader userDetailsLoader;
@@ -40,7 +42,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
             /* Login configuration */
                 .formLogin()
                 .loginPage("/login")
-                .defaultSuccessUrl("/home") // user's home page, it can be any URL
+                .defaultSuccessUrl("/user/profile") // user's home page, it can be any URL
                 .permitAll() // Anyone can go to the login page
             /* Logout configuration */
                 .and()
@@ -64,3 +66,34 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         ;
     }
 }
+
+
+//@Configuration
+//@EnableWebSecurity
+//public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
+//    /* ... */
+//
+//    @Override
+//    protected void configure(HttpSecurity http) throws Exception {
+//        http
+//                .formLogin()
+//                .loginPage("/login")
+//                .defaultSuccessUrl("/dahsboard") // We'll determine the home page based on the role here
+//                .permitAll()
+//                .and()
+//            /* ... */
+//        ;
+//    }
+//}
+
+//@Controller
+//public class UsersController {
+//    @GetMapping("/dashboard")
+//    public String dashboard(HttpServletRequest request) {
+//        if (request.isUserInRole("ROLE_STUDENT")) {
+//            return "redirect:/dashboard/student"; // Suppose we already have an action for this one
+//        }
+//        return "redirect:/dashboard/teacher"; // And another for this one
+//    }
+//}
+
