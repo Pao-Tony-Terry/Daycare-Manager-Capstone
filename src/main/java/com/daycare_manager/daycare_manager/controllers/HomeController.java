@@ -12,6 +12,7 @@ public class HomeController {
     }
 
 
+
     @GetMapping("/aboutus")
     public String aboutUs() {
         return "dcare_views/about_us";
