@@ -1,23 +1,26 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head th:replace="fragments/head :: header"></head>
+
 <body>
 <div class="container">
-    <h1>Create an account</h1>
-    <form th:action="@{/sign-up}" method="POST" th:object="${user}">
+    <nav th:replace="fragments/navbar :: navbar-partial"></nav>
+
+    <h1>Log In</h1>
+    <div th:if="${param.error}">
+        Invalid Username and Password.
+    </div>
+    <div th:if="${param.logout}">
+        You have been logged out.
+    </div>
+
+    <form th:action="@{/login}" method="post">
         <label for="username">Username</label>
-        <input id="username" th:field="*{username}" />
-
-        <label for="email">Email</label>
-        <input id="email" th:field="*{email}" />
-
+        <input id="username" name="username" type="text" />
         <label for="password">Password</label>
-        <input id="password" type="password" th:field="*{password}" />
-
-        <input value="Sign me up!" type="submit" />
+        <input id="password" name="password" type="password" />
+        <input type="submit" value="Log In" />
     </form>
 </div>
 </body>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head th:replace="fragments/head :: header"></head>
+
+<body>
+<div class="container">
+    <nav th:replace="fragments/navbar :: navbar-partial"></nav>
+    <h1>About Us</h1>
+    <div class="row aboutPage">
+        <img src="/img/cape.jpeg" alt="cape" class="img-fluid" />
+    </div>
+
+    <div class="row">
+        <div class="col-8">
+            <p>A whole bunch of text goes here</p>
+        </div>
+        <div class="col-4">
+            <h1>Calendar</h1>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

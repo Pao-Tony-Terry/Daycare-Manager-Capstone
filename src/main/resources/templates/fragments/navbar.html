@@ -1,33 +1,52 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head></head>
 <body>
 
-<nav th:fragment="navbar-partial" id="navbar-partial" class="navbar navbar-default navbar-partial">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="/ads">Mama's boy!</a>
-            <form class="navbar-form navbar-left" action="/search?searchTerm=searchTerm.value" method="GET">
-                <div class="form-group">
-                    <input type="text" class="form-control" name="searchTerm" placeholder="Search" />
+
+<!-- Navigation -->
+<nav th:fragment="navbar-partial" class="navbar navbar-expand-lg bg-light mt-5 mb-3">
+    <a class="navbar-brand" href="#">Logo</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse mainNavBar" id="navbarNavDropdown">
+        <ul class="nav">
+            <li class="nav-item user_welcome" sec:authorize="isAuthenticated()">
+                <span>Welcome, <span th:text="${#authentication.principal.username}" /></span>
+            </li>
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="/home" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Home
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="/aboutus">About us</a>
+                    <a class="dropdown-item" href="/staff">Staff</a>
+                    <a class="dropdown-item" href="/programs">Programs/Tuition and Fees</a>
+                    <a class="dropdown-item" href="/gallery">Gallery</a>
+                    <a class="dropdown-item" href="/contact">Contact</a>
                 </div>
-                <button type="submit" class="btn btn-default">Submit</button>
-            </form>
-        </div>
-        <ul class="nav navbar-nav navbar-right">
-
-            <li><a href="/ads/create"><span class="glyphicon glyphicon-tag"></span> Create A New Post</a></li>
-            <li><a href="/profile"><span class="glyphicon glyphicon-user"></span> View Profile</a></li>
-            <li><a href="/logout">Logout <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span></a>
             </li>
-
-            <li><a href="/register">Register <span class="glyphicon glyphicon-list-alt"
-                                                   aria-hidden="true"></span></a>
+            <li class="nav-item">
+                <a class="nav-link active" href="#">Calendar</a>
             </li>
-            <li><a href="/login">Login <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span></a></li>
-
+            <li class="nav-item" sec:authorize="!isAuthenticated()">
+                <a class="nav-link active" href="/user/sign-up">Enroll</a>
+            </li>
+            <li class="nav-item" sec:authorize="!isAuthenticated()">
+                <a class="nav-link active" href="/login">Login</a>
+            </li>
+            <li class="nav-item">
+                <form th:action="@{/logout}" th:method="post">
+                    <button class="nav-link btn-link btn logout_btn">Logout</button>
+                </form>
+                <!--<a class="nav-link active" href="#">Logout</a>-->
+            </li>
         </ul>
     </div>
 </nav>
+
 </body>
 </html>

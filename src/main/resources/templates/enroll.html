@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="fragments/head :: header"></head>
+<body>
+<div class="container">
+    <fieldset>
+
+        <form action="">
+           <!--Child row-->
+            <h3>Child's Info:</h3>
+            <div class="form-row">
+                <div class="col">
+                    <label for="firstName">First Name</label>
+                    <input type="text" id="firstName" class="form-control" />
+                </div>
+                <div class="col">
+                    <label for="lastName">First Name</label>
+                    <input type="text" id="lastName" class="form-control" />
+                </div>
+                <div class="col">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" />
+                        <label class="form-check-label" for="exampleRadios1">
+                            Male
+                        </label>
+                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2" />
+                        <label class="form-check-label" for="exampleRadios2">
+                            Female
+                        </label>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label class="control-label" for="date">Date</label>
+                        <input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text" />
+                    </div>
+                </div>
+            </div>
+            <!--/Child row-->
+            <!--Parent row-->
+            <h3>Parent's Info:</h3>
+            <div class="form-row">
+                <div class="col">
+                    <label for="parentFirstName">First Name</label>
+                    <input type="text" id="parentFirstName" class="form-control" />
+                </div>
+                <div class="col">
+                    <label for="parentLastName">First Name</label>
+                    <input type="text" id="parentLastName" class="form-control" />
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col">
+                    <label for="emailAddress">Email Address</label>
+                    <input type="text" id="emailAddress" class="form-control" />
+                </div>
+                <div class="col">
+                    <label for="phone">Phone</label>
+                    <input type="text" id="phone" class="form-control" />
+                </div>
+            </div>
+            <!--/Parent row-->
+        </form>
+    </fieldset>
+</div>
+
+</body>
+</html>
