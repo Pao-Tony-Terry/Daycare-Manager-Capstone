@@ -8,31 +8,33 @@
         <nav th:replace="fragments/navbar :: navbar-partial"></nav>
         <h1>Our Staff</h1>
         <p>More text here</p>
-        <div class="row staffPage">
-            <img src="/img/play.jpeg" alt="cape" class="img-fluid" />
+        <div class="content-area">
+            <div class="staffPage mb-3">
+                <img src="/img/play.jpeg" alt="cape" class="img-fluid" />
+            </div>
+            <!--Staff card deck-->
+            <div class="card-deck mb-5">
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="..." alt="Card image cap" />
+                    <div class="card-body">
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                </div>
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="..." alt="Card image cap" />
+                    <div class="card-body">
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                </div>
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="..." alt="Card image cap" />
+                    <div class="card-body">
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                </div>
+            </div>
+            <!--/Staff card deck-->
         </div>
-        <!--Staff card deck-->
-        <div class="card-deck">
-            <div class="card">
-                <img class="card-img-top" src="..." alt="Card image cap" />
-                <div class="card-body">
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" src="..." alt="Card image cap" />
-                <div class="card-body">
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" src="..." alt="Card image cap" />
-                <div class="card-body">
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-            </div>
-        </div>
-        <!--/Staff card deck-->
         <footer th:replace="fragments/footer :: footer-partial"></footer>
     </div>
 </body>
