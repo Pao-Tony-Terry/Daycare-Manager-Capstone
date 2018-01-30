@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class UsersController {
@@ -29,9 +30,10 @@ public class UsersController {
     }
 
     @PostMapping("/user/sign-up")
-    public String singUpNewUser(@ModelAttribute User user) {
+    public String singUpNewUser(@ModelAttribute User user, @RequestParam(name = "is_employee") boolean isEmployee) {
         // we need to hash passwords (using security configuration), after changing in the configuration class, create
         // the passwordEncoder in this controller.
+        user.setEmployee(isEmployee);
         String hash = encoder.encode(user.getPassword());
         user.setPassword(hash);
         usersRepository.save(user);
