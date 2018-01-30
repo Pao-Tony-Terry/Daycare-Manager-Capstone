@@ -2,6 +2,7 @@ package com.daycare_manager.daycare_manager.controllers;
 
 import com.daycare_manager.daycare_manager.daos.UsersRepository;
 import com.daycare_manager.daycare_manager.model.User;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,6 +10,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import javax.servlet.http.HttpServletRequest;
 
 @Controller
 public class UsersController {
@@ -42,10 +45,47 @@ public class UsersController {
 
     }
 
+//    @GetMapping("/user/profile")
+//    public String showProfile() {
+//        // if teacher
+//        // hpme for teacher
+//        // else
+//        // home page for aprent
+//        return "users/profile";
+//    }
+
+
     @GetMapping("/user/profile")
     public String showProfile() {
-        return "users/profile";
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if (!user.isEmployee()) {
+            return "redirect:/user/parent"; // Suppose we already have an action for this one
+        }
+        return "redirect:/user/teacher"; // And another for this one
     }
+
+    @GetMapping("/user/parent")
+    public String showParentProfile() {
+        return "/users/parent_profile";
+    }
+
+
+    @GetMapping("/user/teacher")
+    public String showTeacherProfile() {
+        return "/users/teacher_profile";
+    }
+
+
+
+//    @GetMapping("/dashboard")
+//    public String dashboard(HttpServletRequest request) {
+//        if (request.isUserInRole("ROLE_STUDENT")) {
+//            return "redirect:/dashboard/student"; // Suppose we already have an action for this one
+//        }
+//        return "redirect:/dashboard/teacher"; // And another for this one
+//    }
+
+
 
 }
 
