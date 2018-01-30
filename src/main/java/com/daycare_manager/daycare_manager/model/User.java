@@ -56,18 +56,6 @@ public class User {
 
     }
 
-    // It is cloning the user (for security measures):
-    public User(User copy) {
-        id = copy.id; // This line is SUPER important! Many things won't work if it's absent
-        email = copy.email;
-        username = copy.username;
-        password = copy.password;
-        this.email = copy.email;
-        this.phone = copy.phone;
-        this.gender = copy.gender;
-        this.employee = copy.employee;
-    }
-
     public User(String first_name, String last_name, String username, String password, String email, String phone, String gender, boolean employee) {
         this.first_name = first_name;
         this.last_name = last_name;
