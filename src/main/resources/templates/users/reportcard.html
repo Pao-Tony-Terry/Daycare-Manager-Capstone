@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <style>
+
+        input[type=text], select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-top: 6px;
+            margin-bottom: 16px;
+            resize: vertical;
+        }
+
+        input[type=submit] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+
+        .container {
+            border-radius: 5px;
+            background-color: aquamarine;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<h3><em>A Day in the Life of your Preschooler</em></h3>
+
+<div class="container">
+    <form action="/action_page.php">
+        <label for="cname"><b>Child Name</b></label>
+        <input type="text" id="cname" name="childname" placeholder="Child name..">
+
+        <label for="Today I felt">Today I felt..</label>
+        <select id="Today I felt" name="Today I felt">
+            <option value="Blank"></option>
+            <option value="happy">Happy</option>
+            <option value="energetic">Energetic</option>
+            <option value="engaged">Engaged</option>
+            <option value="sleepy">Sleepy</option>
+            <option value="sick">Sick</option>
+            <option value="not myself">Not Myself</option>
+        </select>
+
+        <label for="Today I Slept">Today I Slept..</label>
+        <select id="Today I Slept" name="Today I Slept">
+            <option value="Blank"></option>
+            <option value="very well">Very Well</option>
+            <option value="soundly">Soundly</option>
+            <option value="restless">Restless</option>
+            <option value="did not sleep">Did not Sleep</option>
+        </select>
+
+        <label for="Today I ate">Today I ate..</label>
+        <select id="Today I ate" name="Today I ate">
+            <option value="Blank"></option>
+            <option value="breakfast">Breakfast</option>
+            <option value="lunch">Lunch</option>
+            <option value="snack">Snack</option>
+        </select>
+
+        <label for="ate"> I ate...</label>
+        <select id="ate" name="ate">
+            <option value="Blank"></option>
+            <option value="all">All of my food</option>
+            <option value="most">Most of my food</option>
+            <option value="half">Half of my food</option>
+            <option value="little">a Little bit of my food</option>
+            <option value="none">None of my food</option>
+        </select>
+
+
+        <label for="changes">#Diaper Changes</label>
+        <select id="changes" name="changes">
+            <option value="#"></option>
+            <option value="#">1</option>
+            <option value="#">2</option>
+            <option value="#">3</option>
+            <option value="#">4</option>
+            <option value="#">5</option>
+            <option value="#">6</option>
+            <option value="#">7</option>
+            <option value="#">8</option>
+            <option value="#">9</option>
+            <option value="#">10</option>
+            <select>
+
+                <div class="form-group">
+                    <label for="comment">Comments:</label>
+                    <textarea class="form-control" rows="5" id="comment"placeholder="Comments.."></textarea>
+
+                </div>
+
+                <label for="items needed">Items Needed:</label>
+                <select id="items needed" name="items needed">
+                    <option value="Blank"></option>
+                    <option value="daipers">Daipers</option>
+                    <option value="wipes">Wipes</option>
+                    <option value="formula">Formula</option>
+                    <option value="sterile water">Sterile water</option>
+                    <option value="change of clothes">Change of clothes</option>
+                </select>
+
+    </form>
+</div>
+
+</body>
+</html>
+
