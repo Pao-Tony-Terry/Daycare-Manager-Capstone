@@ -3,11 +3,17 @@
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head th:replace="fragments/head :: header"></head>
 
+
 <body>
 <div class="container">
     <nav th:replace="fragments/navbar :: navbar-partial"></nav>
 
     <h1>TEACHER profile view here</h1>
+
+    <!--<a class="btn btn-warning btn-block edit_btn" th:href="${'/posts/'+post.id+'/edit'}">Enroll</a>-->
+    <a class="btn btn-warning btn-block">Report Card</a>
+    <a class="btn btn-warning btn-block">Add Events</a>
+    <a class="btn btn-warning btn-block">SMS</a>
 
 
 
