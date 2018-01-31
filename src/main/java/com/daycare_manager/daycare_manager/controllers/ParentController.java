@@ -98,8 +98,10 @@ public class ParentController {
     }
 
 
-    @PostMapping("/parent/kid/edit")
-    public String updateKid(@ModelAttribute Child child){
+    @PostMapping("/parent/kid/edit/{parentId}")
+    public String updateKid(@ModelAttribute Child child, @PathVariable long parentId){
+        User user = userService.findOne(parentId);
+        child.setParent(user);
         childrenRepository.save(child);
         return "redirect:/login";
     }

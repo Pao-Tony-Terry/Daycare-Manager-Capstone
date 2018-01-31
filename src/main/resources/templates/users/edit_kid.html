@@ -7,7 +7,7 @@
 <div class="container">
     <nav th:replace="fragments/navbar :: navbar-partial"></nav>
 
-    <form th:action="@{/parent/kid/edit}" method="post" th:object="${child}">
+    <form th:action="@{/parent/kid/edit/{parentId}(parentId=${#authentication.principal.id})}" method="post" th:object="${child}">
         <input type="hidden" th:field="*{id}" />
         <div class="row">
             <div class="col-lg-3">
