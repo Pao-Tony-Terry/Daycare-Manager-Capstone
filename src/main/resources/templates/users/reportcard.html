@@ -43,9 +43,9 @@
 <h3><em>A Day in the Life of your Preschooler</em></h3>
 
 <div class="container">
-    <form action="/action_page.php">
+    <form th:action="@{/teacher/reportcard}" method="POST" th:object="${reportcard}">
         <label for="cname"><b>Child Name</b></label>
-        <input type="text" id="cname" name="childname" placeholder="Child name..">
+        <input type="text" id="cname" th:field="*{full_name}" name="childname" placeholder="Child name..">
 
         <label for="Today I felt">Today I felt..</label>
         <select id="Today I felt" name="Today I felt">

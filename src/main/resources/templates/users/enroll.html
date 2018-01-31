@@ -7,7 +7,7 @@
 <div class="container">
     <nav th:replace="fragments/navbar :: navbar-partial"></nav>
     <h1 class="display-1">Enrollment Form</h1>
-    <fieldset class="enrollForm bg-light p-2">
+    <fieldset class="enrollForm bg-light p-2 rounded">
         <form th:action="@{/parent/enroll}" method="POST" th:object="${child}">
            <!--Child row-->
             <h3>Child's Info:</h3>
