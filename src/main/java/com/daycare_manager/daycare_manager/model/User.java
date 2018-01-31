@@ -60,10 +60,10 @@ public class User {
     public User(User copy) {
         id = copy.id; // This line is SUPER important! Many things won't work if it's absent
         first_name = copy.first_name;
-        email = copy.email;
+        last_name = copy.last_name;
         username = copy.username;
         password = copy.password;
-        this.email = copy.email;
+        email = copy.email;
         this.phone = copy.phone;
         this.gender = copy.gender;
         this.employee = copy.employee;
