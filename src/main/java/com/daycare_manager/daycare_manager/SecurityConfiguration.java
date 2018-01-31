@@ -53,16 +53,17 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/", "/home") // anyone can see the home and the posts pages
                 .permitAll()
-//            /* Pages that require athentication */
-//                .and()
-//                .authorizeRequests()
-//                .antMatchers(
-//                        "/posts/create", // only authenticated users can create posts
+            /* Pages that require athentication */
+                .and()
+                .authorizeRequests()
+                .antMatchers(
+                        "/user/parent", // only authenticated users can create posts
+                        "/user/teacher"
 //                        "/posts/{id}/edit", // only authenticated users can edit posts
 //                        "/posts/new",
 //                        "posts/create"
-//                )
-//                .authenticated()
+                )
+                .authenticated()
         ;
     }
 }

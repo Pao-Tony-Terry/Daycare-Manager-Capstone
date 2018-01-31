@@ -8,7 +8,14 @@
     <nav th:replace="fragments/navbar :: navbar-partial"></nav>
 
     <h1>PARENT profile view here</h1>
-    <!--<a class="btn btn-warning btn-block edit_btn" th:href="${'/posts/'+post.id+'/edit'}">Enroll</a>-->
+    <h1 th:text="${user.first_name}"></h1>
+    <h1 th:text="${user.last_name}"></h1>
+    <h1 th:text="${user.username}"></h1>
+    <h1 th:text="${user.email}"></h1>
+    <h1 th:text="${user.phone}"></h1>
+    <h1 th:text="${user.gender}"></h1>
+
+    <a class="btn btn-warning btn-block" th:href="${'/parent/'+user.id+'/edit'}">Edit profile</a>
     <a class="btn btn-warning btn-block" href="/parent/enroll">Enroll</a>
     <a class="btn btn-warning btn-block">View report card</a>
     <a class="btn btn-warning btn-block">Calendar</a>
@@ -17,7 +24,7 @@
 
 
 
-
 </div>
+
 </body>
 </html>

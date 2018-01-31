@@ -12,4 +12,5 @@ public interface UsersRepository extends CrudRepository<User, Long> {
     // query methods:
 
     User findByUsername(String username);
+
 }
