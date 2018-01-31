@@ -19,6 +19,11 @@ public class TwilioController {
     @Value("${twilio.token.id}")
     private String tokenId;
 
+    @Value("${twilio.number}")
+    private String twilioNumber;
+
+
+
     @GetMapping("/testTwilio")
     @ResponseBody
     public String testingTwilio(){
