@@ -11,21 +11,25 @@ body {
     font-weight: bold;
 }
 
+.navbar-toggler-icon {
+    color: #6794c0;
+}
+
 .content-area {
     background-color: #6794c0;
 }
 .carousel-inner {
-    height: 500px;
+    height: 75%;
     width: 100%;
 }
 
 .aboutPage {
-    height: 500px;
+    height: 75%;
     width: 100%;
 }
 
 .staffPage {
-    height: 500px;
+    height: 75%;
     width: 100%;
 }
 
