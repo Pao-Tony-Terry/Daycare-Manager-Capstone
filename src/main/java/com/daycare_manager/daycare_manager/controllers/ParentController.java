@@ -39,7 +39,7 @@ public class ParentController {
     @PostMapping("/parent/edit")
     public String updateUser(@ModelAttribute User user){
         userService.update(user);
-        return "redirect:/user/parent";
+        return "redirect:/login";
     }
 
 
@@ -73,10 +73,19 @@ public class ParentController {
 
     @GetMapping("/parent/children")
     public String allTheKids(Model viewModel) {
-        viewModel.addAttribute("children", childrenRepository.findAll());
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        viewModel.addAttribute("children", childrenRepository.findByParent(user));
         return "/users/kids_by_parent";
 
     }
+
+
+//    @GetMapping("/parent/children")
+//    public String allTheKids(Model viewModel) {
+//        viewModel.addAttribute("children", childrenRepository.findAll());
+//        return "/users/kids_by_parent";
+//
+//    }
 
 
 

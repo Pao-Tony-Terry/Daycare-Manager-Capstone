@@ -7,10 +7,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -50,7 +47,6 @@ public class UsersController {
         String hash = encoder.encode(user.getPassword());
         user.setPassword(hash);
         userService.save(user);
-
         return "redirect:/login";
 
     }
@@ -67,6 +63,7 @@ public class UsersController {
 
     @GetMapping("/user/parent")
     public String showParentProfile(Model viewModel) {
+//        User user = userService.findOne(id);
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         viewModel.addAttribute("user", user);
         return "/users/parent_profile";
