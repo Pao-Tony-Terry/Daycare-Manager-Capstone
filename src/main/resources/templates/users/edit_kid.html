@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head th:replace="fragments/head :: header"></head>
+
+<body>
+<div class="container">
+    <nav th:replace="fragments/navbar :: navbar-partial"></nav>
+
+    <form th:action="@{/parent/kid/edit/{parentId}(parentId=${#authentication.principal.id})}" method="post" th:object="${child}">
+        <input type="hidden" th:field="*{id}" />
+        <div class="row">
+            <div class="col-lg-3">
+                <h6>some text here</h6>
+            </div>
+            <div class="col-lg-offset-1 col-lg-8">
+                <input class="post-title" style="width: 100%;" th:field="*{first_name}" />
+                <input th:field="*{last_name}"/>
+                <input th:field="*{dob}"/>
+                <input th:field="*{gender}"/>
+            </div>
+        </div>
+        <br/>
+
+        <br/>
+        <div class="row">
+            <div class="col-lg-2" style="margin: 0 auto">
+                <input type="submit" class="btn btn-primary btn-block" />
+            </div>
+            <br/>
+        </div>
+    </form>
+
+
+
+
+
+
+
+</div>
+
+</body>
+</html>
