@@ -7,21 +7,29 @@
 <div class="container">
     <nav th:replace="fragments/navbar :: navbar-partial"></nav>
 
-    <h1>Log In</h1>
-    <div th:if="${param.error}">
+    <h1 class="display-1">Log In</h1>
+
+    <div th:if="${param.error}" class="invalid">
         Invalid Username and Password.
     </div>
     <div th:if="${param.logout}">
         You have been logged out.
     </div>
-
-    <form th:action="@{/login}" method="post">
-        <label for="username">Username</label>
-        <input id="username" name="username" type="text" />
-        <label for="password">Password</label>
-        <input id="password" name="password" type="password" />
-        <input type="submit" value="Log In" />
-    </form>
+    <fieldset class="loginForm bg-light p-2">
+        <form th:action="@{/login}" method="post">
+            <div class="mb-2">
+                <label for="username">Username</label>
+                <input id="username" name="username" type="text" />
+            </div>
+            <div class="mb-2">
+                <label for="password">Password</label>
+                <input id="password" name="password" type="password" />
+            </div>
+            <div class="mb-2">
+                <input type="submit" value="Log In" />
+            </div>
+        </form>
+    </fieldset>
 </div>
 </body>
 </html>
