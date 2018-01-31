@@ -36,6 +36,8 @@ public class ParentController {
         return "users/enroll";
     }
 
+
+    // Pending to assing teacher to each kid.
     @PostMapping("/parent/enroll")
     public String enrollAChild(@ModelAttribute Child child) {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -45,15 +47,16 @@ public class ParentController {
     }
 
 
+    @GetMapping("/parent/children")
+    public String allTheKids(Model viewModel) {
+        // to test if the authentication works, I need to sout it:
+//        User user = usersDao.findByUsername("pao");
+//        System.out.println(user.getEmail());
+        viewModel.addAttribute("children", childrenRepository.findAll());
+        return "/users/kids_by_parent";
 
-//    @PostMapping("posts/create")
-//    // we are not using pathvariable here because is comming from a form
-//    public String savePost(@ModelAttribute Post post){
-//        // this is coming form the db, and UserWithRoles is not mapped.
-//        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-//        post.setUser(usersDao.findOne(user.getId()));
-//        postService.save(post);
-//        return "redirect:/posts";
-//    }
+    }
+
+
 
 }
