@@ -1,10 +1,9 @@
 package com.daycare_manager.daycare_manager.model;
 
-import antlr.collections.List;
 
 import javax.persistence.*;
+import java.util.List;
 
-import static javax.persistence.CascadeType.ALL;
 
 @Entity
 @Table(name = "child")
@@ -33,6 +32,8 @@ public class Child {
     @ManyToOne
     private User teacher;
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "child")
+    private List<ReportCard> reportCards;
 
 
     public Child(){
@@ -102,6 +103,17 @@ public class Child {
 
     public void setTeacher(User teacher) {
         this.teacher = teacher;
+    }
+
+    // Getter and Setter for Report Card
+
+
+    public List<ReportCard> getReportCards() {
+        return reportCards;
+    }
+
+    public void setReportCards(List<ReportCard> reportCards) {
+        this.reportCards = reportCards;
     }
 }
 

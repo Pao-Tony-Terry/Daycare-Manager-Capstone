@@ -16,17 +16,33 @@ body {
 }
 .carousel-inner {
     height: 500px;
-    width: 1100px;
+    width: 100%;
 }
 
 .aboutPage {
     height: 500px;
-    width: 1100px;
+    width: 100%;
 }
 
 .staffPage {
     height: 500px;
-    width: 1100px;
+    width: 100%;
+}
+
+.invalid {
+    color: red;
+    font-weight: bold;
+}
+
+.enrollForm {
+    color: #6794c0;
+    font-weight: bold;
+}
+
+.loginForm {
+    color: #6794c0;
+    font-weight: bold;
+    width: 40%;
 }
 
 
