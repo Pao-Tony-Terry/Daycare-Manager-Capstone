@@ -76,7 +76,6 @@ public class ParentController {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         viewModel.addAttribute("children", childrenRepository.findByParent(user));
         return "/users/kids_by_parent";
-
     }
 
 
@@ -101,7 +100,7 @@ public class ParentController {
 
     @PostMapping("/parent/kid/edit")
     public String updateKid(@ModelAttribute Child child){
-//        childrenRepository.
+        childrenRepository.save(child);
         return "redirect:/login";
     }
 
