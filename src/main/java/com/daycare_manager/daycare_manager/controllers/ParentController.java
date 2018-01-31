@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
@@ -49,13 +50,31 @@ public class ParentController {
 
     @GetMapping("/parent/children")
     public String allTheKids(Model viewModel) {
-        // to test if the authentication works, I need to sout it:
-//        User user = usersDao.findByUsername("pao");
-//        System.out.println(user.getEmail());
         viewModel.addAttribute("children", childrenRepository.findAll());
         return "/users/kids_by_parent";
 
     }
+
+
+//    @GetMapping("posts/{id}/edit")
+//    public String showEditForm(@PathVariable long id, Model viewModel){
+//        Post post = postService.findOne(id);
+//        viewModel.addAttribute("post", post);
+//        return "/blog_template/edit";
+//    }
+//
+//    @GetMapping("posts/{id}/delete")
+//    public String deletePost(@PathVariable long id, Model viewModel){
+//        postService.delete(id);
+//        return "redirect:/posts";
+//    }
+//
+//
+//    @PostMapping("posts/edit")
+//    public String updatePost(@ModelAttribute Post post){
+//        postService.update(post);
+//        return "redirect:/posts";
+//    }
 
 
 
