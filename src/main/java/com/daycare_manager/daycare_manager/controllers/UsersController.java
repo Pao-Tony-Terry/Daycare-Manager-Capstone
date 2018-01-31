@@ -56,7 +56,9 @@ public class UsersController {
     }
 
     @GetMapping("/user/parent")
-    public String showParentProfile() {
+    public String showParentProfile(Model viewModel) {
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        viewModel.addAttribute("user", user);
         return "/users/parent_profile";
     }
 

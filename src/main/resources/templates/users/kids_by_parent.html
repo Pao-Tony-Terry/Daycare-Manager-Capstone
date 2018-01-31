@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head th:replace="fragments/head :: header"></head>
+
+<body>
+<div class="container">
+    <nav th:replace="fragments/navbar :: navbar-partial"></nav>
+    <h1>Showing all the kids</h1>
+
+    <div class="post-preview" th:each="child : ${children}">
+
+            <span th:text="${child.first_name}"></span>
+
+    </div>
+
+    <div class="clearfix">
+        <a class="btn btn-primary float-right" href="/user/parent">Back to profile &rarr;</a>
+    </div>
+
+</div>
+
+</body>
+</html>
