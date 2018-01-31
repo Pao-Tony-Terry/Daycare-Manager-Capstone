@@ -49,7 +49,6 @@ public class User {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "parent")
     private List<Child> children;
 
-
     // Contructors:
 
     public User(){
