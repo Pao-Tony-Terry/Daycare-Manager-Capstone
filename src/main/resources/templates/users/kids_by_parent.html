@@ -10,9 +10,21 @@
 
     <div class="post-preview" th:each="child : ${children}">
 
-            <span th:text="${child.first_name}"></span>
+        <span th:text="${child.first_name}"></span>
+        <div class="row edit_delete_row">
+            <div class="col-lg-4">
+                <a class="btn btn-warning btn-block edit_btn" th:href="${'/parent/kid/'+child.id+'/edit'}">Edit</a>
+            </div>
+            <div class="col-lg-4">
+            </div>
+            <!--<div class="col-lg-4">-->
+                <!--<a class="btn btn-danger btn-block delete_btn" th:href="${'/posts/'+post.id+'/delete'}">Delete</a>-->
+            <!--</div>-->
+        </div>
 
     </div>
+
+
 
     <div class="clearfix">
         <a class="btn btn-primary float-right" href="/user/parent">Back to profile &rarr;</a>

@@ -45,7 +45,7 @@ public class ParentController {
 
 
 
-
+    // We are not using this method yet.
     @GetMapping("parent/{id}/delete")
     public String deleteProfile(@PathVariable long id, Model viewModel){
         userService.delete(id);
@@ -72,7 +72,7 @@ public class ParentController {
 
 
     @GetMapping("/parent/children")
-    public String allTheKids(Model viewModel) {
+    public String kidsByParent(Model viewModel) {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         viewModel.addAttribute("children", childrenRepository.findByParent(user));
         return "/users/kids_by_parent";
@@ -80,6 +80,8 @@ public class ParentController {
     }
 
 
+
+    // Method to show all the kids from all the parents (not being used):
 //    @GetMapping("/parent/children")
 //    public String allTheKids(Model viewModel) {
 //        viewModel.addAttribute("children", childrenRepository.findAll());
@@ -87,7 +89,21 @@ public class ParentController {
 //
 //    }
 
+    @GetMapping("/parent/kid/{id}/edit")
+    public String showEditFormForKid(@PathVariable long id, Model viewModel){
+        User user = userService.findOne(id);
+        Child child = childrenRepository.findOne(id);
+        viewModel.addAttribute("user", user);
+        viewModel.addAttribute("child", child);
+        return "/users/edit_kid";
+    }
 
+
+    @PostMapping("/parent/kid/edit")
+    public String updateKid(@ModelAttribute Child child){
+//        childrenRepository.
+        return "redirect:/login";
+    }
 
 
 }
