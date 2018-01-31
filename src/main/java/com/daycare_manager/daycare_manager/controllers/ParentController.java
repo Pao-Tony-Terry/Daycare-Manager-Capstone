@@ -27,20 +27,24 @@ public class ParentController {
         this.userService = userService;
     }
 
-    @PostMapping("parent/edit")
-    public String updateUser(@ModelAttribute User user){
-        userService.update(user);
-        return "redirect:/users/parent_profile";
-    }
 
-
-
-    @GetMapping("parent/{id}/edit")
+    @GetMapping("/parent/{id}/edit")
     public String showEditForm(@PathVariable long id, Model viewModel){
         User user = userService.findOne(id);
         viewModel.addAttribute("user", user);
         return "/users/edit_parent_profile";
     }
+
+
+    @PostMapping("/parent/edit")
+    public String updateUser(@ModelAttribute User user){
+        userService.update(user);
+        return "redirect:/login";
+    }
+
+
+
+
 
     @GetMapping("parent/{id}/delete")
     public String deleteProfile(@PathVariable long id, Model viewModel){
@@ -69,10 +73,19 @@ public class ParentController {
 
     @GetMapping("/parent/children")
     public String allTheKids(Model viewModel) {
-        viewModel.addAttribute("children", childrenRepository.findAll());
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        viewModel.addAttribute("children", childrenRepository.findByParent(user));
         return "/users/kids_by_parent";
 
     }
+
+
+//    @GetMapping("/parent/children")
+//    public String allTheKids(Model viewModel) {
+//        viewModel.addAttribute("children", childrenRepository.findAll());
+//        return "/users/kids_by_parent";
+//
+//    }
 
 
 
