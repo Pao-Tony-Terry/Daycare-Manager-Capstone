@@ -5,6 +5,7 @@ import com.daycare_manager.daycare_manager.daos.ChildrenRepository;
 import com.daycare_manager.daycare_manager.daos.UsersRepository;
 import com.daycare_manager.daycare_manager.model.Child;
 import com.daycare_manager.daycare_manager.model.User;
+import com.daycare_manager.daycare_manager.services.UserService;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,14 +21,19 @@ public class ParentController {
 
     private UsersRepository usersRepository;
 
-//    public ParentController(ChildrenRepository childrenRepository) {
-//        this.childrenRepository = childrenRepository;
-//    }
+    private final UserService userService;
 
 
-    public ParentController(ChildrenRepository childrenRepository, UsersRepository usersRepository) {
+    public ParentController(ChildrenRepository childrenRepository, UsersRepository usersRepository, UserService userService) {
         this.childrenRepository = childrenRepository;
         this.usersRepository = usersRepository;
+        this.userService = userService;
+    }
+
+    @PostMapping("parent/edit")
+    public String updateUser(@ModelAttribute User user){
+        userService.update(user);
+        return "redirect:/posts";
     }
 
     @GetMapping("/parent/enroll")
