@@ -9,22 +9,28 @@
 
 
     <!--Modal-->
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="col-lg-8 col-md-10 mx-auto">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">Close</span></button>
-                    </div>
-                    <div class="modal-body">
+    <!--<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">-->
+        <!--<div class="col-lg-8 col-md-10 mx-auto">-->
+            <!--<div class="modal-dialog" role="document">-->
+                <!--<div class="modal-content">-->
+                    <!--<div class="modal-header">-->
+                        <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">Close</span></button>-->
+                    <!--</div>-->
+                    <!--<div class="modal-body">-->
                         <form th:action="@{/parent/edit}" method="post" th:object="${user}">
                             <input type="hidden" th:field="*{id}" />
                             <div class="row">
                                 <div class="col-lg-3">
-                                    <h6>New post title:</h6>
+                                    <h6>some text here</h6>
                                 </div>
                                 <div class="col-lg-offset-1 col-lg-8">
                                     <input class="post-title" style="width: 100%;" th:field="*{first_name}" />
+                                    <input th:field="*{last_name}"/>
+                                    <input th:field="*{username}"/>
+                                    <input th:field="*{password}"/>
+                                    <input th:field="*{email}"/>
+                                    <input th:field="*{phone}"/>
+                                    <input th:field="*{gender}"/>
                                 </div>
                             </div>
                             <br/>
@@ -44,11 +50,11 @@
                                 <br/>
                             </div>
                         </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
 
 
 
@@ -57,17 +63,17 @@
 
 </div>
 
-<script>
+<!--<script>-->
 
-    $(document).ready(function() {
-        "use strict";
+    <!--$(document).ready(function() {-->
+        <!--"use strict";-->
 
-        $("#myModal").delay(2000).queue(function () {
-            $(this).modal();
-        });
+        <!--$("#myModal").delay(2000).queue(function () {-->
+            <!--$(this).modal();-->
+        <!--});-->
 
-    });
-</script>
+    <!--});-->
+<!--</script>-->
 
 </body>
 </html>
