@@ -58,10 +58,11 @@ public class User {
     // It is cloning the user (for security measures):
     public User(User copy) {
         id = copy.id; // This line is SUPER important! Many things won't work if it's absent
-        email = copy.email;
+        first_name = copy.first_name;
+        last_name = copy.last_name;
         username = copy.username;
         password = copy.password;
-        this.email = copy.email;
+        email = copy.email;
         this.phone = copy.phone;
         this.gender = copy.gender;
         this.employee = copy.employee;
