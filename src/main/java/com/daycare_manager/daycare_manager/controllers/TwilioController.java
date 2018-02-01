@@ -87,7 +87,7 @@ public class TwilioController {
                     notification.getBody()).create();
             message.getSid();
         }
-        notitficationService.save(notification);
+        notitficationService.save(notification);  //  saves the notification to the table
         return "redirect:/user/teacher";
 
     }
