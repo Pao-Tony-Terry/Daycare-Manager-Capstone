@@ -34,9 +34,13 @@ public class TwilioService {
     }
 
     public String sendSMS(User user) {
-        String response = null;
 
         Twilio.init(this.accountId, this.tokenId);
+
+        String response = null;
+        for()
+
+
         PhoneNumber phoneNumberTo = new PhoneNumber(user.getPhone());
         PhoneNumber phoneNumberFrom = new PhoneNumber(twilioNumber);
 
@@ -44,5 +48,35 @@ public class TwilioService {
         return response;
 
     }
+
+    // for(DatatypeOfEachElementInTheArray   variableNameWeCallEachElement   : variableNameThatsTheArray)
+
+
+
+    // 1st test --> it works,  without using the service: //
+
+    // Find your Account Sid and Token at twilio.com/user/account
+//    @Value("${twilio.account.id}")
+//    private String accountId;
+//
+//    @Value("${twilio.token.id}")
+//    private String tokenId;
+//
+//    @Value("${twilio.number}")
+//    private String twilioNumber;
+//
+//    @GetMapping("/testTwilio")
+//    @ResponseBody
+//    public String testingTwilio(){
+//        Twilio.init(accountId, tokenId);
+//
+//        Message message = Message.creator(
+//                new PhoneNumber("+12107082724"),  // this is the user's number (to)
+//                new PhoneNumber("+12564748407"),    // this is my twilio number (from)
+//                "We are glad to inform you that RJ is doing great").create();
+//        return  message.getSid();
+//    }
+
+    // 1st test ends here.
 
 }
