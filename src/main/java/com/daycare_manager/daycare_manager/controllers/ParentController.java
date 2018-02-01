@@ -44,12 +44,11 @@ public class ParentController {
 
 
 
-
     // We are not using this method yet.
     @GetMapping("parent/{id}/delete")
     public String deleteProfile(@PathVariable long id, Model viewModel){
         userService.delete(id);
-        return "redirect:/home";
+        return "users/enroll";
     }
 
 
@@ -61,7 +60,7 @@ public class ParentController {
     }
 
 
-    // Pending to assing teacher to each kid.
+    // Pending to assign teacher to each kid.  ==================================================
     @PostMapping("/parent/enroll")
     public String enrollAChild(@ModelAttribute Child child) {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -79,14 +78,6 @@ public class ParentController {
     }
 
 
-
-    // Method to show all the kids from all the parents (not being used):
-//    @GetMapping("/parent/children")
-//    public String allTheKids(Model viewModel) {
-//        viewModel.addAttribute("children", childrenRepository.findAll());
-//        return "/users/kids_by_parent";
-//
-//    }
 
     @GetMapping("/parent/kid/{id}/edit")
     public String showEditFormForKid(@PathVariable long id, Model viewModel){
@@ -106,5 +97,14 @@ public class ParentController {
         return "redirect:/login";
     }
 
+
+
+    // Method to show all the kids from all the parents (not being used):
+//    @GetMapping("/parent/children")
+//    public String allTheKids(Model viewModel) {
+//        viewModel.addAttribute("children", childrenRepository.findAll());
+//        return "/users/kids_by_parent";
+//
+//    }
 
 }
