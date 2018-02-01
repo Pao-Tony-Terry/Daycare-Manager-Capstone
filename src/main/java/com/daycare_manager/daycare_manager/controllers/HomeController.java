@@ -33,4 +33,13 @@ public class HomeController {
         return "dcare_views/programs_tuition_fees";
     }
 
+    @GetMapping("/contact")
+    public String contactUs() {
+        return "dcare_views/contact";
+    }
+
+    @GetMapping("/calendar")
+    public String calendar() {
+        return "dcare_views/calendar";
+    }
 }

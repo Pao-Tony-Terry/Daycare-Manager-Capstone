@@ -17,5 +17,7 @@ public interface ChildrenRepository extends CrudRepository<Child, Long> {
 
     List<Child> findByParent(User parent);
 
+    List<Child> findByTeacher(User teacher);
+
 
 }

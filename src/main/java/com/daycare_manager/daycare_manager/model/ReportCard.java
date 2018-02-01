@@ -10,9 +10,6 @@ public class ReportCard {
     @GeneratedValue
     private long id;
 
-    @Column(nullable = false)
-    private String full_name;
-
     @Column
     private String feeling;
 
@@ -41,7 +38,6 @@ public class ReportCard {
     }
 
     public ReportCard(String full_name, String feeling, String sleep, String meal, String howAte, String change, String comments, String itemsNeeded) {
-        this.full_name = full_name;
         this.feeling = feeling;
         this.sleep = sleep;
         this.meal = meal;
@@ -57,14 +53,6 @@ public class ReportCard {
 
     public void setId(long id) {
         this.id = id;
-    }
-
-    public String getFull_name() {
-        return full_name;
-    }
-
-    public void setFull_name(String full_name) {
-        this.full_name = full_name;
     }
 
     public String getFeeling() {
