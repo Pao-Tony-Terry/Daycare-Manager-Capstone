@@ -32,7 +32,7 @@ public class TwilioController {
     public String showSMSform(Model viewModel) {
         // new User to catch the form
         viewModel.addAttribute("notification", new Notification());
-        return "users/sign-up";
+        return "users/notification_form";
     }
 
 //    @PostMapping("/user/sign-up")
