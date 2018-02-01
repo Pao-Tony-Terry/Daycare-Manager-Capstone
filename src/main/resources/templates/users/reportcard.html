@@ -1,51 +1,15 @@
 <!DOCTYPE html>
 
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-<head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Title</title>
-    <style>
-
-        input[type=text], select, textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-            margin-top: 6px;
-            margin-bottom: 16px;
-            resize: vertical;
-        }
-
-        input[type=submit] {
-            background-color: #4CAF50;
-            color: white;
-            padding: 12px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        input[type=submit]:hover {
-            background-color: #45a049;
-        }
-
-        .container {
-            border-radius: 5px;
-            background-color: aquamarine;
-            padding: 20px;
-        }
-    </style>
-</head>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: header"></head>
 <body>
 
 <h3><em>A Day in the Life of your Preschooler</em></h3>
 
 <div class="container">
-    <form th:action="@{/teacher/reportcard}" method="POST" th:object="${reportcard}">
-        <label for="cname"><b>Child Name</b></label>
-        <input type="text" id="cname" th:field="*{full_name}" name="childname" placeholder="Child name..">
+    <form th:action="@{/teacher/reportcard}" method="POST">
+        <label for="cname">Child Name</label>
+        <input type="text" id="cname" name="childname" placeholder="Child name.." />
 
         <label for="Today I felt">Today I felt..</label>
         <select id="Today I felt" name="Today I felt">
@@ -103,19 +67,20 @@
 
                 <div class="form-group">
                     <label for="comment">Comments:</label>
-                    <textarea class="form-control" rows="5" id="comment"placeholder="Comments.."></textarea>
-
+                    <textarea class="form-control" rows="5" id="comment" placeholder="Comments.."></textarea>
                 </div>
 
                 <label for="items needed">Items Needed:</label>
                 <select id="items needed" name="items needed">
                     <option value="Blank"></option>
-                    <option value="diapers">Daipers</option>
+                    <option value="diapers">Diapers</option>
                     <option value="wipes">Wipes</option>
                     <option value="formula">Formula</option>
                     <option value="sterile water">Sterile water</option>
                     <option value="change of clothes">Change of clothes</option>
                 </select>
+
+            <input value="Submit Report Card" type="submit" />
 
     </form>
 </div>

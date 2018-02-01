@@ -15,21 +15,18 @@ body {
     color: #6794c0;
 }
 
-.content-area {
-    background-color: #6794c0;
-}
 .carousel-inner {
-    height: 75%;
+    height: 500px;
     width: 100%;
 }
 
 .aboutPage {
-    height: 75%;
+    height: 500px;
     width: 100%;
 }
 
 .staffPage {
-    height: 75%;
+    height: 500px;
     width: 100%;
 }
 
