@@ -4,6 +4,7 @@ package com.daycare_manager.daycare_manager.controllers;
 import com.daycare_manager.daycare_manager.model.Notification;
 import com.daycare_manager.daycare_manager.model.User;
 import com.daycare_manager.daycare_manager.services.TwilioService;
+import com.daycare_manager.daycare_manager.services.UserService;
 import com.twilio.Twilio;
 import com.twilio.rest.api.v2010.account.Message;
 import com.twilio.type.PhoneNumber;
@@ -13,38 +14,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
 public class TwilioController {
 
     private final TwilioService twilioService;
 
-
-
-    // Constructor:
-    public TwilioController(TwilioService twilioService) {
-        this.twilioService = twilioService;
-    }
-
-
-
-    @GetMapping("/user/sendSMS")
-    public String showSMSform(Model viewModel) {
-        // new User to catch the form
-        viewModel.addAttribute("notification", new Notification());
-        return "users/notification_form";
-    }
-
-//    @PostMapping("/user/sendSMS")
-//    public String sendNotification(@ModelAttribute Notification notification) {
-//
-//
-//        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-//
-//        child.setParent(userService.findOne(user.getId()));
-//        childrenRepository.save(child);
-//        return "redirect:/user/parent";
-//
-//    }
+    private final UserService userService;
 
     @Value("${twilio.account.id}")
     private String accountId;
@@ -55,6 +32,65 @@ public class TwilioController {
     @Value("${twilio.number}")
     private String twilioNumber;
 
+
+
+    // Constructor:
+
+
+    public TwilioController(TwilioService twilioService, UserService userService) {
+        this.twilioService = twilioService;
+        this.userService = userService;
+    }
+
+
+    @GetMapping("/user/sendSMS")
+    public String showSMSform(Model viewModel) {
+        // new User to catch the form
+        viewModel.addAttribute("notification", new Notification());
+        return "users/notification_form";
+    }
+
+
+
+//    @PostMapping("/user/sendSMS")
+//    public String sendNotification(@ModelAttribute Notification notification, Model viewModel) {
+//
+//        viewModel.addAttribute("user", userService.findOne(3));
+//
+//        Twilio.init(accountId, tokenId);
+//        Message message = Message.creator(
+//                new PhoneNumber("+1"+userService.findOne(1).getPhone()),  // this is the user's number (to)
+//                new PhoneNumber("+12564748407"),    // this is my twilio number (from)
+//                notification.getBody()).create();
+//        message.getSid();
+//        return "redirect:/user/teacher";
+//
+//
+//    }
+
+
+    @PostMapping("/user/sendSMS")
+    public String sendNotification(@ModelAttribute Notification notification, Model viewModel) {
+
+        Iterable<User> users = userService.findAll();
+        for (User user: users){
+            long id = user.getId();
+            Twilio.init(accountId, tokenId);
+            Message message = Message.creator(
+                    new PhoneNumber("+1"+userService.findOne(id).getPhone()),  // this is the user's number (to)
+                    new PhoneNumber("+1"+twilioNumber),    // this is my twilio number (from)
+                    notification.getBody()).create();
+            message.getSid();
+        }
+
+
+
+
+        return "redirect:/user/teacher";
+
+    }
+
+
     @GetMapping("/testTwilio")
     @ResponseBody
     public String testingTwilio(){
@@ -63,7 +99,7 @@ public class TwilioController {
         Message message = Message.creator(
                 new PhoneNumber("+12107082724"),  // this is the user's number (to)
                 new PhoneNumber("+12564748407"),    // this is my twilio number (from)
-                "We are glad to inform you that RJ is doing great").create();
+                "working with Luis").create();
         return  message.getSid();
     }
 
