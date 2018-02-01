@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 import javax.servlet.http.HttpServlet;
 
 @Service
-public class TwilioService  extends HttpServlet {
+public class TwilioService {
 
     @Value("${twilio.account.id}")
     private String accountId;
@@ -24,14 +24,24 @@ public class TwilioService  extends HttpServlet {
 
     private UsersRepository usersRepository;
 
+
     public TwilioService(UsersRepository usersRepository) {
         this.usersRepository = usersRepository;
     }
 
+    public Iterable<User> findAll() {
+        return usersRepository.findAll();
+    }
+
     public String sendSMS(User user) {
+        String response = null;
+
         Twilio.init(this.accountId, this.tokenId);
         PhoneNumber phoneNumberTo = new PhoneNumber(user.getPhone());
         PhoneNumber phoneNumberFrom = new PhoneNumber(twilioNumber);
+
+
+        return response;
 
     }
 
