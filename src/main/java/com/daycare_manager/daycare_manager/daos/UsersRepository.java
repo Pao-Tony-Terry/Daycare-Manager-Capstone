@@ -19,6 +19,7 @@ public interface UsersRepository extends CrudRepository<User, Long> {
     // This is a list form the ChildrenRepository:
 //    List<Child> findByParent(User parent);
 
+    List<User> findAllByEmployeeIsTrue(User user);
 
 
 }
