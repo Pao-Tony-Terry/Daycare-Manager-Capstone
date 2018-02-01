@@ -36,5 +36,15 @@ public class TwilioController {
                 "We are glad to inform you that RJ is doing great").create();
         return  message.getSid();
     }
+
+
+//    @GetMapping ("/sendSMS")
+//    @ResponseBody
+//    public String sendSMS () {
+//
+//        return twilioSvc.sendInitialSMS(new PhoneNumber("+17203930339"), new PhoneNumber("+12104053232"), "https://cdn.pixabay.com/photo/2013/12/12/03/08/kitten-227009_960_720.jpg");
+//
+//    }
+
 }
 
