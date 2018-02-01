@@ -38,7 +38,7 @@ public class TwilioService {
         Twilio.init(this.accountId, this.tokenId);
 
         String response = null;
-        for()
+
 
 
         PhoneNumber phoneNumberTo = new PhoneNumber(user.getPhone());
