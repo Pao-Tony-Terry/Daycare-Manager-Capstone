@@ -29,10 +29,11 @@ public class TwilioController {
     @ResponseBody
     public String testingTwilio(){
         Twilio.init(accountId, tokenId);
+//        Message message = Message.creator(new PhoneNumber("+12102755716"), new PhoneNumber("+12564748407"), "testing again").create();
         Message message = Message.creator(
-                new PhoneNumber("+12107082724"),  // this is my sprint number
-                new PhoneNumber("+12564748407"),
-                "This is the ship that made the Kessel Run in fourteen parsecs?").create();
+                new PhoneNumber("+12107082724"),  // this is the user's number (to)
+                new PhoneNumber("+12564748407"),    // this is my twilio number (from)
+                "We are glad to inform you that RJ is doing great").create();
         return  message.getSid();
     }
 }
