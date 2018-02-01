@@ -1,5 +1,7 @@
 package com.daycare_manager.daycare_manager.model;
 
+import org.hibernate.validator.constraints.NotBlank;
+
 import javax.persistence.*;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -13,13 +15,19 @@ public class User {
     @Id  @GeneratedValue
     private long id;
 
+
     @Column(nullable = false)
     private String first_name;
+
+
+
 
     @Column(nullable = false)
     private String last_name;
 
+
     @Column(unique = true, nullable = false)
+//    @NotBlank(message = "Username can't be empty")
     private String username;
 
     @Column(nullable = false)

@@ -1,3 +1,4 @@
+
 package com.daycare_manager.daycare_manager.controllers;
 
 import com.twilio.Twilio;
@@ -27,15 +28,11 @@ public class TwilioController {
     @GetMapping("/testTwilio")
     @ResponseBody
     public String testingTwilio(){
-
         Twilio.init(accountId, tokenId);
-
         Message message = Message.creator(new PhoneNumber("+12564748407"),
-                new PhoneNumber("+2107082724"),
+                new PhoneNumber("+12107082724"),
                 "This is the ship that made the Kessel Run in fourteen parsecs?").create();
-
 //        System.out.println(message.getSid());
         return  message.getSid();
     }
 }
-
