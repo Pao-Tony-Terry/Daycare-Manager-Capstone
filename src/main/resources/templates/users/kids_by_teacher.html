@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head th:replace="fragments/head :: header"></head>
+
+<body>
+<div class="container">
+    <nav th:replace="fragments/navbar :: navbar-partial"></nav>
+    <h1>Showing all the kids</h1>
+
+    <div class="post-preview" th:each="child : ${children}">
+
+        <span th:text="${child.first_name}"></span>
+        <div class="row edit_delete_row">
+            <div class="col-lg-4">
+                <a class="btn btn-warning btn-block edit_btn" th:href="${'/teacher/reportcard'}">Report Card</a>
+            </div>
+            <div class="col-lg-4">
+            </div>
+            <!--<div class="col-lg-4">-->
+            <!--<a class="btn btn-danger btn-block delete_btn" th:href="${'/posts/'+post.id+'/delete'}">Delete</a>-->
+            <!--</div>-->
+        </div>
+
+    </div>
+
+
+
+    <div class="clearfix">
+        <a class="btn btn-primary float-right" href="/user/teacher">Back to profile &rarr;</a>
+    </div>
+
+</div>
+
+</body>
+</html>
