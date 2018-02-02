@@ -42,11 +42,6 @@
                     <p style="color: red" th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></p>
                 </div>
 
-                <!--<div class="mb-2">-->
-                    <!--<label for="gender">gender</label>-->
-                    <!--<input id="gender" th:field="*{gender}" />-->
-                <!--</div>-->
-
 
                 <div class="col-2 justify-content-center">
                     <div class="form-check">
@@ -61,14 +56,12 @@
                             Female
                         </label>
                     </div>
-                    <!--<p style="color: red" th:if="${#fields.hasErrors('gender')}" th:errors="*{gender}"></p>-->
                 </div>
 
 
                 <div class="mb-2">
                     <label>Employee</label>
                     <input type="checkbox" name="is_employee" />
-                    <!--<p style="color: red" th:if="${#fields.hasErrors('employee')}" th:errors="*{employee}"></p>-->
                 </div>
                 <div class="mb-2">
                     <input value="Sign me up!" type="submit" />

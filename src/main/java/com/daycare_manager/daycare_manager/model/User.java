@@ -54,13 +54,11 @@ public class User {
 
 
     @Column(nullable = false)
-//    @NotBlank(message = "Gender can't be empty")
     private String gender;
 
     //Employee 0 (or false) is for parents
     //Employee 1 (or true) is for teachers
     @Column(nullable = false)
-//    @NotBlank(message = "Employee can't be empty")
     private boolean employee;
 
 
@@ -69,6 +67,7 @@ public class User {
     // Cascade all means is not going to allow to have empty users for a child.
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "teacher")
     private List<Child> students;
+
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "parent")
     private List<Child> children;

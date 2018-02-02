@@ -54,20 +54,6 @@ public class UsersController {
     }
 
 
-//    @PostMapping("/ads/create")
-//    public String publishAd(
-//            @Valid Ad ad,
-//            Errors validation,
-//            Model model
-//    ) {
-//        if (validation.hasErrors()) {
-//            model.addAttribute("errors", validation);
-//            model.addAttribute("ad", ad);
-//            return "ads/create";
-//        }
-//        // Redirect to an appropriate page (show/edit ad or show all ads)
-//        return "redirect:/";
-
 
 
     @GetMapping("/user/profile")
