@@ -8,22 +8,11 @@
     <nav th:replace="fragments/navbar :: navbar-partial"></nav>
     <h1>Showing report cards for kid</h1>
 
-    <div class="post-preview" th:each="reportcard : ${reportcard}">
+    <div class="reportcard-view" th:each="reportcard : ${reportcard}">
 
         <span th:text="${reportcard}"></span>
-        <div class="row edit_delete_row">
-            <div class="col-lg-4">
-                <a class="btn btn-warning btn-block edit_btn" th:href="${'/parent/kid/'+child.id+'/reportcard'}">Edit</a>
-            </div>
-            <div class="col-lg-4">
-            </div>
-            <!--<div class="col-lg-4">-->
-            <!--<a class="btn btn-danger btn-block delete_btn" th:href="${'/posts/'+post.id+'/delete'}">Delete</a>-->
-            <!--</div>-->
-        </div>
 
     </div>
-
 
 
     <div class="clearfix">

@@ -2,8 +2,11 @@ package com.daycare_manager.daycare_manager.controllers;
 
 
 import com.daycare_manager.daycare_manager.daos.ChildrenRepository;
+import com.daycare_manager.daycare_manager.daos.ReportCardRepository;
+import com.daycare_manager.daycare_manager.daos.UsersRepository;
 import com.daycare_manager.daycare_manager.model.Child;
 import com.daycare_manager.daycare_manager.model.User;
+import com.daycare_manager.daycare_manager.services.ReportCardService;
 import com.daycare_manager.daycare_manager.services.UserService;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -18,13 +21,21 @@ public class ParentController {
 
     private ChildrenRepository childrenRepository;
 
-
     private final UserService userService;
 
+    private ReportCardRepository reportCardRepository;
 
-    public ParentController(ChildrenRepository childrenRepository, UserService userService) {
+    private final ReportCardService reportCardService;
+
+
+    public ParentController(ChildrenRepository childrenRepository,
+                            UserService userService,
+                            ReportCardRepository reportCardRepository,
+                            ReportCardService reportCardService) {
         this.childrenRepository = childrenRepository;
         this.userService = userService;
+        this.reportCardRepository = reportCardRepository;
+        this.reportCardService = reportCardService;
     }
 
 
@@ -96,11 +107,15 @@ public class ParentController {
         return "redirect:/login";
     }
 
-    @GetMapping("/parent/kid/reportcard/{childId}")
-    public String reportCardByKid(Model viewModel) {
-        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        viewModel.addAttribute("children", childrenRepository.findByParent(user));
-        return "/users/reportcard_by_child";
+    @GetMapping("/parent/kid//{childId}/reportcard_by_kid/{parentId}")
+    public String reportCardByKid(Model viewModel, @PathVariable long childId, @PathVariable long parentId) {
+        User parent = userService.findOne(parentId);
+        Child child = (Child) childrenRepository.findByParent(parent);
+        System.out.println(child);
+        viewModel.addAttribute("child", child);
+        viewModel.addAttribute("parent", parent);
+        viewModel.addAttribute("reportcard", reportCardRepository.findByChild(child));
+        return "/users/reportcard_by_kid";
     }
 
 

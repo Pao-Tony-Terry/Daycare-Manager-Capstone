@@ -1,6 +1,7 @@
 package com.daycare_manager.daycare_manager.controllers;
 
 import com.daycare_manager.daycare_manager.daos.ChildrenRepository;
+import com.daycare_manager.daycare_manager.daos.ReportCardRepository;
 import com.daycare_manager.daycare_manager.daos.UsersRepository;
 import com.daycare_manager.daycare_manager.model.ReportCard;
 import com.daycare_manager.daycare_manager.model.User;
@@ -18,10 +19,12 @@ public class TeacherController {
 
     private final ReportCardService reportCardService;
     private final ChildrenRepository childrenRepository;
+    private final ReportCardRepository reportCardRepository;
 
-    public TeacherController(ReportCardService reportCardService, ChildrenRepository childrenRepository) {
+    public TeacherController(ReportCardService reportCardService, ChildrenRepository childrenRepository,ReportCardRepository reportCardRepository) {
         this.reportCardService = reportCardService;
         this.childrenRepository = childrenRepository;
+        this.reportCardRepository = reportCardRepository;
     }
 
 
