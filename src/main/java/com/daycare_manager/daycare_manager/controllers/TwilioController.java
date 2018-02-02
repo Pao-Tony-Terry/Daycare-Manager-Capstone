@@ -1,7 +1,7 @@
 
 package com.daycare_manager.daycare_manager.controllers;
 
-import com.daycare_manager.daycare_manager.model.Nogit tification;
+import com.daycare_manager.daycare_manager.model.Notification;
 import com.daycare_manager.daycare_manager.model.User;
 import com.daycare_manager.daycare_manager.services.NotitficationService;
 import com.daycare_manager.daycare_manager.services.TwilioService;
