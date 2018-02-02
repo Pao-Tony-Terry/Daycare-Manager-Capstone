@@ -106,5 +106,12 @@ public class ParentController {
         return "redirect:/login";
     }
 
+    @GetMapping("/parent/kid/reportcard/{childId}")
+    public String reportCardByKid(Model viewModel) {
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        viewModel.addAttribute("children", childrenRepository.findByParent(user));
+        return "/users/reportcard_by_child";
+    }
+
 
 }
