@@ -1,7 +1,10 @@
 package com.daycare_manager.daycare_manager.model;
 
 
+import org.hibernate.validator.constraints.NotBlank;
+
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 import java.util.List;
 
 
@@ -14,13 +17,18 @@ public class Child {
     private long id;
 
     @Column(nullable = false)
+    @NotBlank(message = "Child must have a first name")
+    @Size(min = 3, message = "A first name must be at least 3 characters.")
     private String first_name;
 
     @Column(nullable = false)
+    @NotBlank(message = "Child must have a last name")
+    @Size(min = 3, message = "A last name must be at least 3 characters.")
     private String last_name;
 
     // date of birth:
     @Column(nullable = true)
+    @NotBlank(message = "User must pick a date")
     private String dob;
 
     @Column(nullable = false)
