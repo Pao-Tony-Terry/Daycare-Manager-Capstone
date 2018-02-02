@@ -38,8 +38,7 @@ public class UsersController {
 
     @PostMapping("/user/sign-up")
     public String singUpNewUser(@Valid User user, Errors validation, Model viewModel,  @RequestParam(name = "is_employee", defaultValue = "false") boolean isEmployee) {
-        // we need to hash passwords (using security configuration), after changing in the configuration class, create
-        // the passwordEncoder in this controller.
+
         if (validation.hasErrors()){
             viewModel.addAttribute("errors", validation);
             viewModel.addAttribute("user", user);
