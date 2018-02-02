@@ -45,7 +45,7 @@ public class ParentController {
 
 
     @GetMapping("parent/{id}/delete")
-    public String deleteParentProfile(@PathVariable long id, Model viewModel){
+    public String deleteParentProfile(@PathVariable long id){
         userService.delete(id);
         return "users/home";
     }
@@ -98,7 +98,7 @@ public class ParentController {
 
 
     @GetMapping("parent/kid/{id}/delete")
-    public String deleteChildRecord(@PathVariable long id, Model viewModel){
+    public String deleteChildRecord(@PathVariable long id){
         childrenRepository.delete(id);
         return "users/home";
     }
