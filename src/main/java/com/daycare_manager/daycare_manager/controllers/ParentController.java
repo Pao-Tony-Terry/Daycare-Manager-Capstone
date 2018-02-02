@@ -44,11 +44,10 @@ public class ParentController {
 
 
 
-    // We are not using this method yet.
     @GetMapping("parent/{id}/delete")
-    public String deleteProfile(@PathVariable long id, Model viewModel){
+    public String deleteParentProfile(@PathVariable long id, Model viewModel){
         userService.delete(id);
-        return "users/enroll";
+        return "users/home";
     }
 
 
@@ -97,6 +96,12 @@ public class ParentController {
         return "redirect:/login";
     }
 
+
+    @GetMapping("parent/kid/{id}/delete")
+    public String deleteChildRecord(@PathVariable long id, Model viewModel){
+        childrenRepository.delete(id);
+        return "users/home";
+    }
 
 
     // Method to show all the kids from all the parents (not being used):
