@@ -6,6 +6,7 @@ import javax.persistence.*;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
 import java.util.List;
 
 @Entity
@@ -17,6 +18,8 @@ public class User {
 
 
     @Column(nullable = false)
+    @NotBlank(message = "Users must have a first name")
+    @Size(min = 3, message = "A first name must be at least 3 characters.")
     private String first_name;
 
 

@@ -14,6 +14,7 @@
                 <div class="mb-2">
                     <label for="first_name">First Name: </label>
                     <input id="first_name" th:field="*{first_name}" />
+                    <p class="red darken-1" th:if="${#fields.hasErrors('first_name')}" th:errors="*{first_name}"></p>
                 </div>
                 <div class="mb-2">
                     <label for="last_name">last_name: </label>
@@ -22,7 +23,7 @@
                 <div class="mb-2">
                     <label for="username">Username</label>
                     <input id="username" th:field="*{username}" />
-                    <!--<p class="red darken-1" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></p>-->
+
 
                     <!--<label for="username">Username</label>-->
                     <!--<input class="form-control" th:field="*{username}" />-->
