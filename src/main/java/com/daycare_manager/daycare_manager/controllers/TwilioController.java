@@ -47,7 +47,6 @@ public class TwilioController {
     }
 
 
-
     @GetMapping("/user/sendSMS")
     public String showSMSform(Model viewModel) {
         // new User to catch the form

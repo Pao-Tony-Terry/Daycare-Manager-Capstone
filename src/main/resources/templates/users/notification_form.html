@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head th:replace="fragments/head :: header"></head>
+
+<body>
+<div class="container">
+    <nav th:replace="fragments/navbar :: navbar-partial"></nav>
+
+    <h1 class="display-1">Notifications to Users</h1>
+
+    <fieldset class="registerForm bg-light p-2 mb-5 rounded">
+        <form th:action="@{/user/sendSMS}" method="POST" th:object="${notification}">
+            <div class="mb-2">
+                <label for="first_name">Input your notification: </label>
+                <input id="first_name" name="body" th:field="*{body}" />
+            </div>
+
+
+            <div class="mb-2">
+                <input value="Send notification!" type="submit" />
+            </div>
+        </form>
+    </fieldset>
+</div>
+<footer th:replace="fragments/footer :: footer-partial"></footer>
+
+
+</body>
+</html>
