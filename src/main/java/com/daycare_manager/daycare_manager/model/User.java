@@ -6,6 +6,7 @@ import javax.persistence.*;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
 import java.util.List;
 
 @Entity
@@ -17,27 +18,40 @@ public class User {
 
 
     @Column(nullable = false)
+    @NotBlank(message = "Users must have a first name")
+    @Size(min = 3, message = "A first name must be at least 3 characters.")
     private String first_name;
 
 
-
-
     @Column(nullable = false)
+    @NotBlank(message = "Users must have a last name")
+    @Size(min = 3, message = "A last name must be at least 3 characters.")
     private String last_name;
 
 
     @Column(unique = true, nullable = false)
-//    @NotBlank(message = "Username can't be empty")
+    @NotBlank(message = "Username can't be empty")
+    @Size(min = 8, message = "Username must be at least 8 characters.")
     private String username;
 
+
     @Column(nullable = false)
+    @NotBlank(message = "Username can't be empty")
+    @Size(min = 8, message = "Username must be at least 8 characters.")
     private String password;
 
+
     @Column(nullable = false, unique = true)
+    @NotBlank(message = "email can't be empty")
+    @Size(min = 8, message = "email must be valid.")
     private String email;
 
+
     @Column(nullable = false, length = 20)
+    @NotBlank(message = "phone must be numeric")
+    @Size(min = 10, message = "Phone must be at least 10 numeric characters.")
     private String phone;
+
 
     @Column(nullable = false)
     private String gender;
@@ -53,6 +67,7 @@ public class User {
     // Cascade all means is not going to allow to have empty users for a child.
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "teacher")
     private List<Child> students;
+
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "parent")
     private List<Child> children;

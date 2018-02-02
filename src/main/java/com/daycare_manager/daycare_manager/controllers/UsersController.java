@@ -7,9 +7,11 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 
 @Controller
 public class UsersController {
@@ -19,11 +21,6 @@ public class UsersController {
     private final UserService userService;
 
     private PasswordEncoder encoder;
-
-//    public UsersController(UsersRepository usersRepository, PasswordEncoder encoder) {
-//        this.usersRepository = usersRepository;
-//        this.encoder = encoder;
-//    }
 
 
     public UsersController(UserService userService, PasswordEncoder encoder) {
@@ -40,9 +37,14 @@ public class UsersController {
     }
 
     @PostMapping("/user/sign-up")
-    public String singUpNewUser(@ModelAttribute User user, @RequestParam(name = "is_employee", defaultValue = "false") boolean isEmployee) {
-        // we need to hash passwords (using security configuration), after changing in the configuration class, create
-        // the passwordEncoder in this controller.
+    public String singUpNewUser(@Valid User user, Errors validation, Model viewModel,  @RequestParam(name = "is_employee", defaultValue = "false") boolean isEmployee) {
+
+        if (validation.hasErrors()){
+            viewModel.addAttribute("errors", validation);
+            viewModel.addAttribute("user", user);
+            return "users/sign-up";
+        }
+
         user.setEmployee(isEmployee);
         String hash = encoder.encode(user.getPassword());
         user.setPassword(hash);
@@ -50,6 +52,8 @@ public class UsersController {
         return "redirect:/login";
 
     }
+
+
 
 
     @GetMapping("/user/profile")
