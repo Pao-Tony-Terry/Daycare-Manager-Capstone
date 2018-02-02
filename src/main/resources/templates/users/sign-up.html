@@ -14,42 +14,53 @@
                 <div class="mb-2">
                     <label for="first_name">First Name: </label>
                     <input id="first_name" th:field="*{first_name}" />
+                    <p style="color: red" th:if="${#fields.hasErrors('first_name')}" th:errors="*{first_name}"></p>
                 </div>
                 <div class="mb-2">
                     <label for="last_name">last_name: </label>
                     <input id="last_name" th:field="*{last_name}" />
+                    <p style="color: red" th:if="${#fields.hasErrors('last_name')}" th:errors="*{last_name}"></p>
                 </div>
                 <div class="mb-2">
                     <label for="username">Username</label>
                     <input id="username" th:field="*{username}" />
-                    <!--<p class="red darken-1" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></p>-->
-
-                    <!--<label for="username">Username</label>-->
-                    <!--<input class="form-control" th:field="*{username}" />-->
-                    <!--<p class="card-panel  red darken-1" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></p>-->
-
+                    <p style="color: red" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></p>
                 </div>
                 <div class="mb-2">
                     <label for="email">Email</label>
                     <input id="email" th:field="*{email}" />
+                    <p style="color: red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p>
                 </div>
                 <div class="mb-2">
                     <label for="password">Password</label>
                     <input id="password" type="password" th:field="*{password}" />
+                    <p style="color: red" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></p>
                 </div>
                 <div class="mb-2">
                     <label for="phone">phone</label>
                     <input id="phone" th:field="*{phone}" />
+                    <p style="color: red" th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></p>
                 </div>
-                <div class="mb-2">
-                    <label for="gender">gender</label>
-                    <input id="gender" th:field="*{gender}" />
+
+
+                <div class="col-2 justify-content-center">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="gender" th:field="*{gender}" id="male" value="male" />
+                        <label class="form-check-label" for="male">
+                            Male
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="gender" th:field="*{gender}" id="female" value="female" />
+                        <label class="form-check-label" for="female">
+                            Female
+                        </label>
+                    </div>
                 </div>
+
+
                 <div class="mb-2">
                     <label>Employee</label>
-                    <!--<input id="employee" th:field="*{employee}" />-->
-                    <!--<input type="checkbox" name="active" th:checked="*{employee}" />-->
-                    <!--<input th:text="*{employee}? #{true} : #{false}"/><span>yes</span>-->
                     <input type="checkbox" name="is_employee" />
                 </div>
                 <div class="mb-2">
