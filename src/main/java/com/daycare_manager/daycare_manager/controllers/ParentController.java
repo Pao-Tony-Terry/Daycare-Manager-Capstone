@@ -91,9 +91,18 @@ public class ParentController {
     @GetMapping("/parent/children")
     public String kidsByParent(Model viewModel) {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        viewModel.addAttribute("children", childService.findAll());
+        viewModel.addAttribute("children", childService.findAll();  // fix this line ... RJ woke up  14:02
         return "/users/kids_by_parent";
     }
+
+
+    // Method to show all the kids from all the parents (not being used):
+//    @GetMapping("/parent/children")
+//    public String allTheKids(Model viewModel) {
+//        viewModel.addAttribute("children", childrenRepository.findAll());
+//        return "/users/kids_by_parent";
+//
+//    }
 
 
 
@@ -134,12 +143,5 @@ public class ParentController {
     }
 
 
-    // Method to show all the kids from all the parents (not being used):
-//    @GetMapping("/parent/children")
-//    public String allTheKids(Model viewModel) {
-//        viewModel.addAttribute("children", childrenRepository.findAll());
-//        return "/users/kids_by_parent";
-//
-//    }
 
 }

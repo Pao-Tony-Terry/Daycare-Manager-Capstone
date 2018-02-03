@@ -4,27 +4,29 @@
 <head th:replace="fragments/head :: header"></head>
 
 <body>
-<div class="container">
-    <nav th:replace="fragments/navbar :: navbar-partial"></nav>
-    <h1>Learn more about us </h1>
-    <div class="embed-responsive bg-light p-2">
-        <div class="aboutPage">
-            <img src="/img/cape.jpeg" alt="cape" class="img-fluid" />
+    <div class="container">
+        <nav th:replace="fragments/navbar :: navbar-partial"></nav>
+        <h1>Learn more about us </h1>
+        <div class="embed-responsive bg-light p-2">
+            <div class="aboutPage">
+                <img src="/img/cape.jpeg" alt="cape" class="img-fluid" />
+            </div>
         </div>
-    </div>
-    <div class="row about_us_row">
-        <div class="col-12 about_us_text">
-            <h5>Educational excellence, unwavering dedication and outstanding child care. Those are the values that Discovery Play House stands for.</h5>
-            <br/>
-            <h5>Demand for daycare facilities continue to grow day by day, but all too often, institutions are only able to focus on either allowing the child to enjoy their childhood and develop naturally or forcing the child to focus only on mental development in order to achieve high test scores later on in life.</h5>
-            <br/>
-            <h5>Discovery Play House is different. We promote physical activities in large open areas and a wide variety of educational games, but we also have a small library and various arts and crafts for your child to unleash his or her full creative and intellectual potential.</h5>
-            <br/>
-            <h5>Our goal is to promote every child's development individually using an appropriate mix of academic and recreational activities.</h5>
+        <div class="row about_us_row">
+            <div class="col-12 about_us_text">
+                <h5>Educational excellence, unwavering dedication and outstanding child care. Those are the values that Discovery Play House stands for.</h5>
+                <br/>
+                <h5>Demand for daycare facilities continue to grow day by day, but all too often, institutions are only able to focus on either allowing the child to enjoy their childhood and develop naturally or forcing the child to focus only on mental development in order to achieve high test scores later on in life.</h5>
+                <br/>
+                <h5>Discovery Play House is different. We promote physical activities in large open areas and a wide variety of educational games, but we also have a small library and various arts and crafts for your child to unleash his or her full creative and intellectual potential.</h5>
+                <br/>
+                <h5>Our goal is to promote every child's development individually using an appropriate mix of academic and recreational activities.</h5>
+                <br/>
+            </div>
         </div>
-    </div>
 
-</div>
+    </div>
+    <footer th:replace="fragments/footer :: footer-partial"></footer>
 
 </body>
 </html>
