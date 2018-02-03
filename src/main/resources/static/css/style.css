@@ -3,7 +3,8 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     margin-bottom: 60px; /* Margin bottom by footer height */
-    font-family: 'Roboto', sans-serif;
+    /*font-family: 'Roboto', sans-serif;*/
+    font-family: 'Poppins', sans-serif;
 }
 
 .nav-link {
@@ -68,5 +69,13 @@ footer {
     line-height: 60px; /* Vertically center the text there */
     background-color: #f5f5f5;
     text-align: center;
+}
+
+.about_us_row {
+    margin-top:30px;
+}
+
+.about_us_text {
+    text-align: justify;
 }
 
