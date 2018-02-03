@@ -2,8 +2,12 @@ package com.daycare_manager.daycare_manager.controllers;
 
 
 import com.daycare_manager.daycare_manager.daos.ChildrenRepository;
+import com.daycare_manager.daycare_manager.daos.ReportCardRepository;
+import com.daycare_manager.daycare_manager.daos.UsersRepository;
 import com.daycare_manager.daycare_manager.model.Child;
 import com.daycare_manager.daycare_manager.model.User;
+import com.daycare_manager.daycare_manager.services.ChildService;
+import com.daycare_manager.daycare_manager.services.ReportCardService;
 import com.daycare_manager.daycare_manager.services.UserService;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -19,17 +23,21 @@ import javax.validation.Valid;
 @Controller
 public class ParentController {
 
-    private ChildrenRepository childrenRepository;
-
+    private ChildService childService;
 
     private final UserService userService;
 
+    private ReportCardRepository reportCardRepository;
 
-    public ParentController(ChildrenRepository childrenRepository, UserService userService) {
-        this.childrenRepository = childrenRepository;
+    private final ReportCardService reportCardService;
+
+
+    public ParentController(ChildService childService, UserService userService, ReportCardRepository reportCardRepository, ReportCardService reportCardService) {
+        this.childService = childService;
         this.userService = userService;
+        this.reportCardRepository = reportCardRepository;
+        this.reportCardService = reportCardService;
     }
-
 
     @GetMapping("/parent/{id}/edit")
     public String showEditForm(@PathVariable long id, Model viewModel){
@@ -75,7 +83,7 @@ public class ParentController {
 
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         child.setParent(userService.findOne(user.getId()));
-        childrenRepository.save(child);
+        childService.save(child);
         return "redirect:/user/parent";
     }
 
@@ -83,7 +91,7 @@ public class ParentController {
     @GetMapping("/parent/children")
     public String kidsByParent(Model viewModel) {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        viewModel.addAttribute("children", childrenRepository.findByParent(user));
+        viewModel.addAttribute("children", childService.findAll());
         return "/users/kids_by_parent";
     }
 
@@ -92,7 +100,7 @@ public class ParentController {
     @GetMapping("/parent/kid/{id}/edit")
     public String showEditFormForKid(@PathVariable long id, Model viewModel){
         User user = userService.findOne(id);
-        Child child = childrenRepository.findOne(id);
+        Child child = childService.findOne(id);
         viewModel.addAttribute("user", user);
         viewModel.addAttribute("child", child);
         return "/users/edit_kid";
@@ -103,14 +111,25 @@ public class ParentController {
     public String updateKid(@ModelAttribute Child child, @PathVariable long parentId){
         User user = userService.findOne(parentId);
         child.setParent(user);
-        childrenRepository.save(child);
+        childService.save(child);
         return "redirect:/login";
+    }
+
+    @GetMapping("/parent/kid//{childId}/reportcard_by_kid/{parentId}")
+    public String reportCardByKid(Model viewModel, @PathVariable long childId, @PathVariable long parentId) {
+        User parent = userService.findOne(parentId);
+        Child child = childService.findOne(childId);
+        System.out.println(child);
+        viewModel.addAttribute("child", child);
+        viewModel.addAttribute("parent", parent);
+        viewModel.addAttribute("reportcard", reportCardRepository.findByChild(child));
+        return "/users/reportcard_by_kid";
     }
 
 
     @GetMapping("parent/kid/{id}/delete")
     public String deleteChildRecord(@PathVariable long id){
-        childrenRepository.delete(id);
+        childService.delete(id);
         return "users/home";
     }
 

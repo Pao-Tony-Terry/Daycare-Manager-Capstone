@@ -32,6 +32,7 @@ public class ReportCard {
     private String items_needed;
 
     @ManyToOne
+    @JoinColumn(name = "child_id")
     private Child child;
 
     public ReportCard() {

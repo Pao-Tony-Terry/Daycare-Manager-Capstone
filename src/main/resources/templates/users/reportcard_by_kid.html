@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head th:replace="fragments/head :: header"></head>
+
+<body>
+<div class="container">
+    <nav th:replace="fragments/navbar :: navbar-partial"></nav>
+    <h1>Showing report cards for kid</h1>
+
+    <div class="reportcard-view" th:each="reportcard : ${reportcard}">
+
+        <span th:text="${reportcard}"></span>
+
+    </div>
+
+
+    <div class="clearfix">
+        <a class="btn btn-primary float-right" href="/user/parent/reportcard">Back to profile &rarr;</a>
+    </div>
+
+</div>
+
+</body>
+</html>
