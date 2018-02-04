@@ -8,7 +8,7 @@
 
 <div class="container">
     <form th:action="@{/teacher/reportcard}" method="POST" th:object="${report_card}">
-
+        <input type="hidden" id="child_id" value="child_id"/>
         <label for="feeling">Today I felt..</label>
         <select id="feeling" name="feeling">
             <option value="Blank"></option>
@@ -37,8 +37,8 @@
             <option value="snack">Snack</option>
         </select>
 
-        <label for="ate"> I ate...</label>
-        <select id="ate" name="ate">
+        <label for="how_ate"> I ate...</label>
+        <select id="how_ate" name="how_ate">
             <option value="Blank"></option>
             <option value="all">All of my food</option>
             <option value="most">Most of my food</option>
@@ -65,7 +65,7 @@
 
                 <div class="form-group">
                     <label for="comments">Comments:</label>
-                    <textarea class="form-control" rows="5" id="comments" placeholder="Comments.."></textarea>
+                    <textarea class="form-control" rows="5" id="comments" value="comments" placeholder="Comments.."></textarea>
                 </div>
 
                 <label for="items_needed">Items Needed:</label>
