@@ -48,11 +48,11 @@ public class ReportCard {
         this.items_needed = items_needed;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -125,4 +125,6 @@ public class ReportCard {
     public void setChild(Child child) {
         this.child = child;
     }
+
+
 }
