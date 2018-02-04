@@ -91,7 +91,7 @@ public class ParentController {
     @GetMapping("/parent/children")
     public String kidsByParent(Model viewModel) {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        viewModel.addAttribute("children", childService.findAll();  // fix this line ... RJ woke up  14:02
+        viewModel.addAttribute("children", childService.findByParent(user));  // fix this line ... RJ woke up  14:02
         return "/users/kids_by_parent";
     }
 

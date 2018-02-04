@@ -5,6 +5,7 @@ import com.daycare_manager.daycare_manager.model.Child;
 import com.daycare_manager.daycare_manager.model.User;
 import org.springframework.stereotype.Service;
 
+import java.awt.event.ItemListener;
 import java.util.List;
 
 @Service
@@ -33,6 +34,10 @@ public class ChildService {
     public Iterable<Child> findAll(){
         return childrenRepository.findAll();
 
+    }
+
+    public Iterable<Child> findByParent(User parent) {
+        return childrenRepository.findByParent(parent);
     }
 
 }
