@@ -45,7 +45,7 @@ body {
 .loginForm {
     color: #6794c0;
     font-weight: bold;
-    width: 40%;
+    /*width: 40%;*/
 }
 
 .registerForm {
@@ -82,5 +82,15 @@ footer {
 
 .inputbox {
     width: 90%;
+}
+
+#profile_pic {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+}
+
+.profile_container{
+    margin-top: 50px;
 }
 
