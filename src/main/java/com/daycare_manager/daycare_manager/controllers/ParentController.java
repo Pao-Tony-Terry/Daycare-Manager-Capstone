@@ -124,6 +124,23 @@ public class ParentController {
         return "redirect:/login";
     }
 
+//    @GetMapping("parent/kid/{id}/delete")
+//    public String deleteChildRecord(@PathVariable long id){
+//        childService.delete(id);
+//        return "users/home";
+//    }
+
+
+    @GetMapping
+    public String deleteChildRecord (@PathVariable long parentID, @ModelAttribute Child child) {
+        User user = userService.findOne(parentID);
+        child.setParent(user);
+        childService.delete(child.getId());
+        return  "users/home";
+
+    }
+
+
     @GetMapping("/parent/kid//{childId}/reportcard_by_kid/{parentId}")
     public String reportCardByKid(Model viewModel, @PathVariable long childId, @PathVariable long parentId) {
         User parent = userService.findOne(parentId);
@@ -136,11 +153,6 @@ public class ParentController {
     }
 
 
-    @GetMapping("parent/kid/{id}/delete")
-    public String deleteChildRecord(@PathVariable long id){
-        childService.delete(id);
-        return "users/home";
-    }
 
 
 
