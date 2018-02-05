@@ -2,6 +2,7 @@ package com.daycare_manager.daycare_manager.services;
 
 import com.daycare_manager.daycare_manager.daos.ReportCardRepository;
 import com.daycare_manager.daycare_manager.daos.UsersRepository;
+import com.daycare_manager.daycare_manager.model.Child;
 import com.daycare_manager.daycare_manager.model.ReportCard;
 import org.springframework.stereotype.Service;
 
