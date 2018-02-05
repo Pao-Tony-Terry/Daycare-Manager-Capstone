@@ -3,7 +3,9 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     margin-bottom: 60px; /* Margin bottom by footer height */
-    font-family: 'Roboto', sans-serif;
+    /*font-family: 'Roboto', sans-serif;*/
+    /*font-family: 'Poppins', sans-serif;*/
+    font-family: 'Orbitron', sans-serif;
 }
 
 .nav-link {
@@ -48,7 +50,7 @@ body {
 
 .registerForm {
     color: #6794c0;
-    width: 40%;
+    /*width: 40%;*/
 }
 
 
@@ -68,5 +70,13 @@ footer {
     line-height: 60px; /* Vertically center the text there */
     background-color: #f5f5f5;
     text-align: center;
+}
+
+.about_us_row {
+    margin-top:30px;
+}
+
+.about_us_text {
+    text-align: justify;
 }
 
