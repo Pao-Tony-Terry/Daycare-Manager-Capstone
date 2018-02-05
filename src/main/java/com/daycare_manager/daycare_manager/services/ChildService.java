@@ -10,10 +10,16 @@ import java.util.List;
 
 @Service
 public class ChildService {
+
     private ChildrenRepository childrenRepository;
 
     public ChildService(ChildrenRepository childrenRepository) {
         this.childrenRepository = childrenRepository;
+    }
+
+    public Iterable<Child> findAll(){
+        return childrenRepository.findAll();
+
     }
 
     public Child findOne(long id) {
@@ -31,10 +37,8 @@ public class ChildService {
 
     }
 
-    public Iterable<Child> findAll(){
-        return childrenRepository.findAll();
 
-    }
+
 
     public Iterable<Child> findByParent(User parent) {
         return childrenRepository.findByParent(parent);

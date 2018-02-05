@@ -39,6 +39,8 @@ public class ParentController {
         this.reportCardService = reportCardService;
     }
 
+
+    // Edit parent profile (show the form):
     @GetMapping("/parent/{id}/edit")
     public String showEditForm(@PathVariable long id, Model viewModel){
         User user = userService.findOne(id);
@@ -46,7 +48,7 @@ public class ParentController {
         return "/users/edit_parent_profile";
     }
 
-
+    // Edit parent profile (populate the form):
     @PostMapping("/parent/edit")
     public String updateUser(@ModelAttribute User user){
         userService.update(user);
@@ -54,14 +56,14 @@ public class ParentController {
     }
 
 
-
+    // Delete parent profile (including children related to parent):
     @GetMapping("parent/{id}/delete")
     public String deleteParentProfile(@PathVariable long id){
         userService.delete(id);
         return "users/home";
     }
 
-
+    // Enroll a kid (show the form):
     @GetMapping("/parent/enroll")
     public String showEnrollForm(Model viewModel) {
         // new Child to catch the form to enroll one kid
@@ -71,10 +73,9 @@ public class ParentController {
 
 
 
-
-    // Pending to assign teacher to each kid.  ==================================================
+    // Enroll a kid (populate the form):
     @PostMapping("/parent/enroll")
-    public String enrollAChild(@Valid Child child, Errors validation, Model viewModel) {
+    public String enrollAChild(@Valid Child child, Errors validation, Model viewModel) {  // Pending to assing teacher to each kid
         if (validation.hasErrors()){
             viewModel.addAttribute("errors", validation);
             viewModel.addAttribute("child", child);
@@ -88,6 +89,7 @@ public class ParentController {
     }
 
 
+    // Show all the kids by parent:
     @GetMapping("/parent/children")
     public String kidsByParent(Model viewModel) {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -96,7 +98,7 @@ public class ParentController {
     }
 
 
-    // Method to show all the kids from all the parents (not being used):
+    // Show all the kids from all the parents (not being used):
 //    @GetMapping("/parent/children")
 //    public String allTheKids(Model viewModel) {
 //        viewModel.addAttribute("children", childrenRepository.findAll());
@@ -105,7 +107,7 @@ public class ParentController {
 //    }
 
 
-
+    // Edit a kid (show the form):
     @GetMapping("/parent/kid/{id}/edit")
     public String showEditFormForKid(@PathVariable long id, Model viewModel){
         User user = userService.findOne(id);
@@ -116,6 +118,7 @@ public class ParentController {
     }
 
 
+    // Edit a kid (populate the form):
     @PostMapping("/parent/kid/edit/{parentId}")
     public String updateKid(@ModelAttribute Child child, @PathVariable long parentId){
         User user = userService.findOne(parentId);
@@ -131,9 +134,9 @@ public class ParentController {
 //    }
 
 
-    @GetMapping
-    public String deleteChildRecord (@PathVariable long parentID, @ModelAttribute Child child) {
-        User user = userService.findOne(parentID);
+    @GetMapping("parent/kid/{id}/delete")
+    public String deleteChildRecord (@ModelAttribute Child child, @PathVariable long parentId) {
+        User user = userService.findOne(parentId);
         child.setParent(user);
         childService.delete(child.getId());
         return  "users/home";
