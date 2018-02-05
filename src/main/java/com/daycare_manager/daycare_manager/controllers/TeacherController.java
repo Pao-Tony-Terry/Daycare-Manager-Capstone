@@ -66,7 +66,7 @@ public class TeacherController {
     @GetMapping("/teacher/children")
     public String kidsByTeacher(Model viewModel) {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        viewModel.addAttribute("children", childService.findAll());
+        viewModel.addAttribute("children", childService.findByTeacher(user));
         return "/users/kids_by_teacher";
     }
 }
