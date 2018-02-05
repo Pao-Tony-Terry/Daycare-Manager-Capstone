@@ -61,6 +61,9 @@ public class User {
     @Column(nullable = false)
     private boolean employee;
 
+    @Column(nullable = false)
+    private boolean isAdmin;
+
 
 
     // one user can have multiple children.
@@ -89,6 +92,7 @@ public class User {
         this.phone = copy.phone;
         this.gender = copy.gender;
         this.employee = copy.employee;
+        this.isAdmin = copy.isAdmin;
     }
 
     public User(String first_name, String last_name, String username, String password, String email, String phone, String gender, boolean employee) {
@@ -176,6 +180,14 @@ public class User {
         this.employee = employee;
     }
 
+
+    public boolean isAdmin() {
+        return isAdmin;
+    }
+
+    public void setAdmin(boolean admin) {
+        isAdmin = admin;
+    }
 
     //Getters and setters for List of students
     public List<Child> getStudents() {
