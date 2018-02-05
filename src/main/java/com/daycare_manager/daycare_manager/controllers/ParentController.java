@@ -127,21 +127,21 @@ public class ParentController {
         return "redirect:/login";
     }
 
-//    @GetMapping("parent/kid/{id}/delete")
-//    public String deleteChildRecord(@PathVariable long id){
-//        childService.delete(id);
-//        return "users/home";
-//    }
-
-
     @GetMapping("parent/kid/{id}/delete")
-    public String deleteChildRecord (@ModelAttribute Child child, @PathVariable long parentId) {
-        User user = userService.findOne(parentId);
-        child.setParent(user);
-        childService.delete(child.getId());
-        return  "users/home";
-
+    public String deleteChildRecord(@PathVariable long id){
+        childService.delete(id);
+        return "/users/kids_by_parent";
     }
+
+
+//    @GetMapping("parent/kid/{id}/delete")
+//    public String deleteChildRecord (@ModelAttribute Child child, @PathVariable long parentId) {
+//        User user = userService.findOne(parentId);
+//        child.setParent(user);
+//        childService.delete(child.getId());
+//        return  "users/home";
+//
+//    }
 
 
     @GetMapping("/parent/kid//{childId}/reportcard_by_kid/{parentId}")
