@@ -124,26 +124,19 @@ public class ParentController {
         User user = userService.findOne(parentId);
         child.setParent(user);
         childService.save(child);
-        return "redirect:/login";
+        return "redirect:/user/parent";
     }
 
+    // Delete a kid record:
     @GetMapping("parent/kid/{id}/delete")
     public String deleteChildRecord(@PathVariable long id){
         childService.delete(id);
-        return "/users/kids_by_parent";
+        return "redirect:/user/parent";
     }
 
 
-//    @GetMapping("parent/kid/{id}/delete")
-//    public String deleteChildRecord (@ModelAttribute Child child, @PathVariable long parentId) {
-//        User user = userService.findOne(parentId);
-//        child.setParent(user);
-//        childService.delete(child.getId());
-//        return  "users/home";
-//
-//    }
 
-
+    //  Terry is working on this:
     @GetMapping("/parent/kid//{childId}/reportcard_by_kid/{parentId}")
     public String reportCardByKid(Model viewModel, @PathVariable long childId, @PathVariable long parentId) {
         User parent = userService.findOne(parentId);

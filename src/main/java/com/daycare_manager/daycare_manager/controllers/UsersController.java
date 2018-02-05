@@ -29,6 +29,7 @@ public class UsersController {
     }
 
 
+    // Sign-up an user:
     @GetMapping("/user/sign-up")
     public String showSignUpForm(Model viewModel) {
         // new User to catch the form
@@ -36,6 +37,8 @@ public class UsersController {
         return "users/sign-up";
     }
 
+
+    // Sign-up an user:
     @PostMapping("/user/sign-up")
     public String singUpNewUser(@Valid User user, Errors validation, Model viewModel,  @RequestParam(name = "is_employee", defaultValue = "false") boolean isEmployee) {
 
@@ -55,7 +58,7 @@ public class UsersController {
 
 
 
-
+    // Show user profile is it is employee or not:
     @GetMapping("/user/profile")
     public String showProfile() {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -65,15 +68,17 @@ public class UsersController {
         return "redirect:/user/teacher"; // And another for this one
     }
 
+
+    // Show parent profile:
     @GetMapping("/user/parent")
     public String showParentProfile(Model viewModel) {
-//        User user = userService.findOne(id);
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         viewModel.addAttribute("user", user);
         return "/users/parent_profile";
     }
 
 
+    // Show teacher profile:
     @GetMapping("/user/teacher")
     public String showTeacherProfile() {
         return "/users/teacher_profile";
