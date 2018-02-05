@@ -30,18 +30,19 @@ public class TeacherController {
         this.childService = childService;
     }
 
-    @GetMapping("/teacher/reportcard")
-    public String showReportCardForm(Model viewModel, Child child) {
-        child = childService.findOne(child.getId());
+
+    @GetMapping("/teacher/kid/{childId}/reportcard")
+    public String showReportCardForm(@PathVariable Long childId, Model viewModel) {
+        Child child = childService.findOne(childId);
         viewModel.addAttribute("child", child);
-        viewModel.addAttribute("reportCard", new ReportCard());
+        viewModel.addAttribute("report_card", new ReportCard());
         return "users/reportcard";
     }
 
-
-    @PostMapping("/teacher/reportcard")
-    public String saveReportCard (@ModelAttribute ReportCard reportCard, Child child){
-        child = childService.findOne(child.getId());
+//    ${'/teacher/kid/'+child.id+'/reportcard'}
+    @PostMapping("/teacher/kid/{childId}/reportcard")
+    public String saveReportCard (@ModelAttribute ReportCard reportCard, @PathVariable Long childId){
+        Child child = childService.findOne(childId);
         reportCard.setChild(child);
         reportCardService.save(reportCard);
         return "redirect:/user/teacher";

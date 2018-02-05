@@ -5,6 +5,7 @@ import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -41,7 +42,7 @@ public class Child {
     private User teacher;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "child")
-    private List<ReportCard> reportCards;
+    private List<ReportCard> reportCards = new ArrayList<>();
 
 
     public Child(){

@@ -13,7 +13,7 @@
         <span th:text="${child.first_name}"></span>
         <div class="row edit_delete_row">
             <div class="col-lg-4">
-                <a class="btn btn-warning btn-block edit_btn" th:href="${'/teacher/reportcard'}">Report Card</a>
+                <a class="btn btn-warning btn-block edit_btn" th:href="${'/teacher/kid/'+child.id+'/reportcard'}">Report Card</a>
             </div>
             <div class="col-lg-4">
             </div>
