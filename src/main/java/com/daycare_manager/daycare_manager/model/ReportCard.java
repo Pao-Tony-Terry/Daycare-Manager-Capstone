@@ -11,6 +11,9 @@ public class ReportCard {
     private long id;
 
     @Column
+    private String date;
+
+    @Column
     private String feeling;
 
     @Column
@@ -38,7 +41,8 @@ public class ReportCard {
     public ReportCard() {
     }
 
-    public ReportCard(String full_name, String feeling, String sleep, String meal, String howAte, String change, String comments, String itemsNeeded) {
+    public ReportCard(String date, String feeling, String sleep, String meal, String how_ate, String change, String comments, String items_needed) {
+        this.date = date;
         this.feeling = feeling;
         this.sleep = sleep;
         this.meal = meal;
@@ -54,6 +58,14 @@ public class ReportCard {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 
     public String getFeeling() {

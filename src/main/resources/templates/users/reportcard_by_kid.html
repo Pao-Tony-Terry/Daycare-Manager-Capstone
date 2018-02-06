@@ -10,15 +10,32 @@
 
     <div class="reportcard-view" th:each="report_card : ${report_cards}">
 
-        <p th:text="${report_card.child_id}"></p>
-        <p th:text="${report_card.meal}"></p>
-        <p th:text="${report_card.how_ate}"></p>
+        <div class="card mb-3 ml-5 bg-light" style="width: 18rem;">
+            <div class="card-body">
+                <div>Student ID</div>
+                <p th:text="${child.id}"></p>
+                <div>Date</div>
+                <p th:text="${report_card.date}"></p>
+                <div>Meal</div>
+                <p th:text="${report_card.meal}"></p>
+                <div>How I ate</div>
+                <p th:text="${report_card.how_ate}"></p>
+                <div>Changes</div>
+                <p th:text="${report_card.change}"></p>
+                <div>How I felt</div>
+                <p th:text="${report_card.feeling}"></p>
+                <div>How I slept</div>
+                <p th:text="${report_card.sleep}"></p>
+                <div>What I need</div>
+                <p th:text="${report_card.items_needed}"></p>
+            </div>
+        </div>
 
     </div>
 
 
     <div class="clearfix">
-        <a class="btn btn-primary float-right" href="/user/parent/reportcard">Back to profile &rarr;</a>
+        <a class="btn btn-primary float-right" href="/user/parent">Back to profile &rarr;</a>
     </div>
 
 </div>

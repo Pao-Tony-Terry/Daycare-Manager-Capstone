@@ -138,10 +138,9 @@ public class ParentController {
     //  Terry is working on this:
     @GetMapping("/parent/kid//{childId}/reportcard_by_kid")
     public String reportCardByKid(Model viewModel, @PathVariable long childId) {
-        List<ReportCard> reportCards = new ArrayList<>();
         Child child = childService.findOne(childId);
         viewModel.addAttribute("child", child);
-        viewModel.addAttribute("report_card", reportCards);
+        viewModel.addAttribute("report_cards", child.getReportCards());
         return "/users/reportcard_by_kid";
     }
 
