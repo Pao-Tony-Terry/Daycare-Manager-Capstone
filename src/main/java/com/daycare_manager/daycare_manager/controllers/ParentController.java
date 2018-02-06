@@ -5,6 +5,7 @@ import com.daycare_manager.daycare_manager.daos.ChildrenRepository;
 import com.daycare_manager.daycare_manager.daos.ReportCardRepository;
 import com.daycare_manager.daycare_manager.daos.UsersRepository;
 import com.daycare_manager.daycare_manager.model.Child;
+import com.daycare_manager.daycare_manager.model.ReportCard;
 import com.daycare_manager.daycare_manager.model.User;
 import com.daycare_manager.daycare_manager.services.ChildService;
 import com.daycare_manager.daycare_manager.services.ReportCardService;
@@ -19,6 +20,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 public class ParentController {
@@ -27,18 +30,14 @@ public class ParentController {
 
     private final UserService userService;
 
-    private ReportCardRepository reportCardRepository;
-
     private final ReportCardService reportCardService;
 
 
-    public ParentController(ChildService childService, UserService userService, ReportCardRepository reportCardRepository, ReportCardService reportCardService) {
+    public ParentController(ChildService childService, UserService userService, ReportCardService reportCardService) {
         this.childService = childService;
         this.userService = userService;
-        this.reportCardRepository = reportCardRepository;
         this.reportCardService = reportCardService;
     }
-
 
     // Edit parent profile (show the form):
     @GetMapping("/parent/{id}/edit")
@@ -137,14 +136,12 @@ public class ParentController {
 
 
     //  Terry is working on this:
-    @GetMapping("/parent/kid//{childId}/reportcard_by_kid/{parentId}")
-    public String reportCardByKid(Model viewModel, @PathVariable long childId, @PathVariable long parentId) {
-        User parent = userService.findOne(parentId);
+    @GetMapping("/parent/kid//{childId}/reportcard_by_kid")
+    public String reportCardByKid(Model viewModel, @PathVariable long childId) {
+        List<ReportCard> reportCards = new ArrayList<>();
         Child child = childService.findOne(childId);
-        System.out.println(child);
         viewModel.addAttribute("child", child);
-        viewModel.addAttribute("parent", parent);
-        viewModel.addAttribute("reportcard", reportCardRepository.findByChild(child));
+        viewModel.addAttribute("report_card", reportCards);
         return "/users/reportcard_by_kid";
     }
 

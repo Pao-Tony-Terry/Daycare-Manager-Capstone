@@ -32,4 +32,8 @@ public class ReportCardService {
     public ReportCard findOne(long id) {
         return reportCardRepository.findOne(id);
     }
+
+    public Iterable<ReportCard> findByChild(Child child) {
+        return reportCardRepository.findByChild(child);
+    }
 }

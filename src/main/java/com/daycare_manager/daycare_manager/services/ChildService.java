@@ -44,4 +44,8 @@ public class ChildService {
         return childrenRepository.findByParent(parent);
     }
 
+    public Iterable<Child> findByTeacher(User teacher) {
+        return childrenRepository.findByTeacher(teacher);
+    }
+
 }
