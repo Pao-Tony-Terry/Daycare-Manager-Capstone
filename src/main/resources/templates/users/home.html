@@ -4,14 +4,14 @@
 <head th:replace="fragments/head :: header"></head>
 
 <body>
-    <div class="container">
+    <div class="container mb-3">
         <nav th:replace="fragments/navbar :: navbar-partial"></nav>
 
-        <div class="embed-responsive content-area bg-light p-2">
+        <div class="embed-responsive content-area bg-light p-4">
             <!--Carousel starts here-->
             <div class="mb-3">
                 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                    <div class="carousel-inner mt-3">
+                    <div class="carousel-inner">
                         <div class="carousel-item active">
                             <img class="d-block w-100 img-fluid rounded" src="./img/play.jpeg" alt="First slide" />
                         </div>
@@ -70,7 +70,10 @@
         </div>
     </div>
 
+
+
     <footer th:replace="fragments/footer :: footer-partial"></footer>
+
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
