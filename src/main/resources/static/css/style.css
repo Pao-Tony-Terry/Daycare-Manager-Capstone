@@ -31,6 +31,11 @@ footer {
     font-weight: bold;
 }
 
+.nav-item {
+    color: #6794c0;
+    font-weight: bold;
+}
+
 .navbar-toggler-icon {
     color: #6794c0;
 }
