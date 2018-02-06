@@ -99,3 +99,8 @@ footer {
     margin-top: 50px;
 }
 
+#map {
+    width: 80vw;
+    height: 500px;
+}
+

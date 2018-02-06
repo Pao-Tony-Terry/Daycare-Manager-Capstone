@@ -4,10 +4,27 @@
 <head th:replace="fragments/head :: header"></head>
 
 <body>
+<div class="container">
+    <nav th:replace="fragments/navbar :: navbar-partial"></nav>
     <div class="container">
-        <nav th:replace="fragments/navbar :: navbar-partial"></nav>
-        <h1>contact here</h1>
-        <footer th:replace="fragments/footer :: footer-partial"></footer>
+        <div class="row">
+            <div class="col-lg-5">
+                <h1>contact here</h1>
+            </div>
+            <div id="map" class="col-lg-7">
+
+            </div>
+
+        </div>
     </div>
+
+
+</div>
+<footer th:replace="fragments/footer :: footer-partial"></footer>
+
+
+<div th:replace="fragments/scripts :: scripts"></div>
+
 </body>
 </html>
+

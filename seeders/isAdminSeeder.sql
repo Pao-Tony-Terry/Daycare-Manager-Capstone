@@ -7,3 +7,5 @@ INSERT INTO users (email, employee, first_name, gender, is_admin, last_name, pas
 VALUES ('aggiefan17@yahoo.com', 1, 'Terry', 'male', 1 , 'Hale', 'password', '2102755716', 'terryhale');
 
 
+
+
