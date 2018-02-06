@@ -7,9 +7,17 @@
 <div class="container">
     <nav th:replace="fragments/navbar :: navbar-partial"></nav>
     <div class="container">
+        <div class="row">
+            <div class="col-lg-5">
+                <h1>contact here</h1>
+            </div>
+            <div id="map" class="col-lg-7">
 
-        <h1>contact here</h1>
-        <div id="map"></div>
+            </div>
+
+        </div>
+
+        <!--<div id="map"></div>-->
 
 
     </div>
@@ -40,10 +48,10 @@
 
     // ============== BUILD MAP
     var mapOptions = {
-        zoom: 10,
+        zoom: 15,
         center: {
-            lat:  29.426791,
-            lng: -98.489602
+            lat:  29.301674,
+            lng: -98.173226
         }
     };
 
