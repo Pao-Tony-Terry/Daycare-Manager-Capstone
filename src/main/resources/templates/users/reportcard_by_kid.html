@@ -8,9 +8,11 @@
     <nav th:replace="fragments/navbar :: navbar-partial"></nav>
     <h1>Showing report cards for kid</h1>
 
-    <div class="reportcard-view" th:each="reportcard : ${reportcard}">
+    <div class="reportcard-view" th:each="report_card : ${report_cards}">
 
-        <span th:text="${reportcard}"></span>
+        <p th:text="${report_card.child_id}"></p>
+        <p th:text="${report_card.meal}"></p>
+        <p th:text="${report_card.how_ate}"></p>
 
     </div>
 
