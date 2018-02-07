@@ -60,18 +60,6 @@ footer {
 
 .enrollForm {
     color: #6794c0;
-    font-weight: bold;
-}
-
-.loginForm {
-    /*color: #6794c0;*/
-    font-weight: bold;
-    /*width: 40%;*/
-}
-
-.registerForm {
-    /*color: #6794c0;*/
-    /*width: 40%;*/
 }
 
 
@@ -103,7 +91,7 @@ footer {
     height: 500px;
 }
 
-.card-deck {
+.gallery-deck {
     height: 200px;
 }
 
