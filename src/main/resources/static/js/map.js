@@ -13,19 +13,19 @@
     //     initMap();
 
 
-// ============== BUILD MAP
+// ============== BUILD MAP (Codeup lat and lng)
     var mapOptions = {
         zoom: 15,
         center: {
-            lat:  29.301674,
-            lng: -98.173226
+            lat:  29.426791,
+            lng: -98.489602
         }
     };
 
     var daycare = [
         {
             name: "Discovery Play House",
-            address: "7218 FM 775, La Vernia, TX 78121",
+            address: "600 Navarro St #350, San Antonio, TX 78205",
             info: "The best child care provider in the area!"
         }
 
