@@ -6,9 +6,50 @@
 <body>
     <div class="container">
         <nav th:replace="fragments/navbar :: navbar-partial"></nav>
-        <h1>gallery here</h1>
+        <div class="card-deck mb-2">
+            <card class="card">
+                <img src="./img/bubbles.jpeg" class="img-fluid galleryPics" alt="" />
+            </card>
 
-        <footer th:replace="fragments/footer :: footer-fixed"></footer>
+            <card class="card">
+                <img src="./img/swing.jpg" class="img-fluid galleryPics" alt="" />
+            </card>
+
+            <card class="card">
+                <img src="./img/toybox.jpeg" class="img-fluid galleryPics" alt="" />
+            </card>
+        </div>
+
+        <div class="card-deck mb-2">
+            <card class="card">
+                <img src="./img/easter.jpeg" class="img-fluid galleryPics" alt="" />
+            </card>
+
+            <card class="card">
+                <img src="./img/huddle.jpeg" class="img-fluid galleryPics" alt="" />
+            </card>
+
+            <card class="card">
+                <img src="./img/IMG_9918.JPG" class="img-fluid galleryPics" alt="" />
+            </card>
+        </div>
+
+        <div class="card-deck mb-5">
+            <card class="card">
+                <img src="./img/kid_with_crayons.jpeg" class="img-fluid galleryPics" alt="" />
+            </card>
+
+            <card class="card">
+                <img src="./img/painting.jpeg" class="img-fluid galleryPics" alt="" />
+            </card>
+
+            <card class="card">
+                <img src="./img/playing_soccer.jpeg" class="img-fluid galleryPics" alt="" />
+            </card>
+        </div>
     </div>
+    <footer th:replace="fragments/footer :: footer-partial"></footer>
+
+    <div th:replace="fragments/scripts :: scripts"></div>
 </body>
 </html>
