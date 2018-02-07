@@ -7,9 +7,20 @@
 <div class="container">
     <nav th:replace="fragments/navbar :: navbar-partial"></nav>
     <div class="container">
-        <div class="row">
+        <div class="row bg-light p-4">
             <div class="col-lg-5">
-                <h1>contact here</h1>
+                <h3 class="text-center mb-2 font-weight-bold">Contact us today!</h3>
+                <p class="text-center font-weight-bold">Discovery Playhouse</p>
+                <p class="text-center">600 Navarro St. #35</p>
+                <p class="text-center">San Antonio, TX 78205</p>
+                <p class="text-center">(210) 802-7289</p>
+                <p class="text-center">jgomez.satx@gmail.com</p>
+                <br/>
+                <p class="text-center font-weight-bold">Hours of operation:</p>
+                <p class="text-center">Monday - Friday  / 6:30am - 6:00 pm</p>
+                <p class="text-center font-weight-bold">Age groups:</p>
+                <p class="text-center">6 weeks to 3 years old</p>
+
             </div>
             <div id="map" class="col-lg-7">
 
@@ -17,14 +28,14 @@
 
         </div>
     </div>
-
+    <div class="row translate my-2 justify-content-center">
+        <div id="google_translate_element"></div>
+    </div>
 
 </div>
 
-<div class="row translate my-2 justify-content-center">
-    <div id="google_translate_element"></div>
-</div>
-<footer th:replace="fragments/footer :: footer-partial"></footer>
+
+<footer th:replace="fragments/footer :: footer-fixed"></footer>
 
 
 <div th:replace="fragments/scripts :: scripts"></div>
