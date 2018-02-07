@@ -6,6 +6,7 @@ VALUES ('pao_gomez1@hotmail.com', 1, 'Paola', 'female', 1 , 'Gomez', 'password',
 INSERT INTO users (email, employee, first_name, gender, is_admin, last_name, password, phone, username)
 VALUES ('aggiefan17@yahoo.com', 1, 'Terry', 'male', 1 , 'Hale', 'password', '2102755716', 'terryhale');
 
-
+UPDATE child SET teacher_id = '4' WHERE id ='3';
+UPDATE child SET teacher_id = '4' WHERE id ='4';
 
 

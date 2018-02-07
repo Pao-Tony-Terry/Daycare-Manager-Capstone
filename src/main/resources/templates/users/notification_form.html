@@ -12,8 +12,8 @@
     <fieldset class="registerForm bg-light p-2 mb-5 rounded">
         <form th:action="@{/user/sendSMS}" method="POST" th:object="${notification}">
             <div class="mb-2">
-                <label for="first_name">Input your notification: </label>
-                <input id="first_name" name="body" th:field="*{body}" />
+                <label for="notification">Input your notification: </label>
+                <input id="notification" name="body" th:field="*{body}"/>
             </div>
 
 
