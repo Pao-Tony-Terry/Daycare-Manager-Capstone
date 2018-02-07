@@ -1,11 +1,20 @@
 body {
     background-image: url("/img/daycare_bgimage.png");
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 100vw 100vh;
+    background-attachment: fixed;
+    height: 40em;
+    margin-top: 0;
+    margin-bottom: 0;
     /*margin-bottom: 60px; !* Margin bottom by footer height *!*/
     font-family: 'Orbitron', sans-serif;
 }
 
+/* Google Translate
+---------------------------------------------------*/
+.translate {
+    margin-left: 128px;
+}
 
 /* Sticky footer styles
 -------------------------------------------------- */
@@ -83,6 +92,7 @@ footer {
 
 .about_us_text {
     text-align: justify;
+    color: #6794c0;
 }
 
 .inputbox {
