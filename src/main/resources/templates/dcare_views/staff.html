@@ -6,11 +6,9 @@
 <body>
     <div class="container">
         <nav th:replace="fragments/navbar :: navbar-partial"></nav>
-        <h1>Our Staff</h1>
-        <p>More text here</p>
-        <div class="bg-light p-2">
+        <div class="bg-light p-4">
             <div class="embed-responsive staffPage mb-3">
-                <img src="/img/play.jpeg" alt="cape" class="img-fluid rounded" />
+                <img src="/img/daycare_staff.jpeg" alt="cape" class="daycare_staff img-fluid rounded" />
             </div>
             <!--Staff card deck-->
             <div class="card-deck">
@@ -35,12 +33,9 @@
             </div>
             <!--/Staff card deck-->
 
-            <div class="row translate mb-2">
-                <div style="text-align: center">
-                    <div id="google_translate_element"></div>
-                </div>
-            </div>
-
+        </div>
+        <div class="row translate my-2 justify-content-center">
+            <div id="google_translate_element"></div>
         </div>
     </div>
     <footer th:replace="fragments/footer :: footer-partial"></footer>

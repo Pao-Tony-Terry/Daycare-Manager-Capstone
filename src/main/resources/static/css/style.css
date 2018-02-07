@@ -66,6 +66,11 @@ footer {
     width: 100%;
 }
 
+.daycare_staff {
+    width: 1110px;
+    height: 500px;
+}
+
 .invalid {
     color: red;
     font-weight: bold;
