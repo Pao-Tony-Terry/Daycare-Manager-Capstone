@@ -6,7 +6,7 @@
 <body>
     <div class="container">
         <nav th:replace="fragments/navbar :: navbar-partial"></nav>
-        <div class="container">
+
             <fieldset class="registerForm bg-light p-2 mb-5 rounded">
                 <form th:action="@{/user/sign-up}" method="POST" th:object="${user}">
                     <div class="row mb-2">
@@ -15,20 +15,20 @@
                         </div>
                     </div>
                     <div class="row mb-2">
-                        <div class="col-lg-3">
+                        <div class="col-lg-2">
                             <label for="first_name">First Name: </label>
                         </div>
-                        <div class="col-lg-9">
+                        <div class="col-lg-10">
                             <input class="inputbox" id="first_name" th:field="*{first_name}" />
                             <p style="color: red" th:if="${#fields.hasErrors('first_name')}" th:errors="*{first_name}"></p>
                         </div>
                     </div>
 
                     <div class="row mb-2">
-                        <div class="col-lg-3">
+                        <div class="col-lg-2">
                             <label for="last_name">Last Name: </label>
                         </div>
-                        <div class="col-lg-9">
+                        <div class="col-lg-10">
                             <input class="inputbox" id="last_name" th:field="*{last_name}" />
                             <p style="color: red" th:if="${#fields.hasErrors('last_name')}" th:errors="*{last_name}"></p>
                         </div>
@@ -36,10 +36,10 @@
 
 
                     <div class="row mb-2">
-                        <div class="col-lg-3">
+                        <div class="col-lg-2">
                             <label for="username">Username:</label>
                         </div>
-                        <div class="col-lg-9">
+                        <div class="col-lg-10">
                             <input class="inputbox" id="username" th:field="*{username}" />
                             <p style="color: red" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></p>
                         </div>
@@ -47,10 +47,10 @@
 
 
                     <div class="row mb-2">
-                        <div class="col-lg-3">
+                        <div class="col-lg-2">
                             <label for="email">Email:</label>
                         </div>
-                        <div class="col-lg-9">
+                        <div class="col-lg-10">
                             <input class="inputbox" id="email" th:field="*{email}" />
                             <p style="color: red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p>
                         </div>
@@ -58,10 +58,10 @@
 
 
                     <div class="row mb-2">
-                        <div class="col-lg-3">
+                        <div class="col-lg-2">
                             <label for="password">Password:</label>
                         </div>
-                        <div class="col-lg-9">
+                        <div class="col-lg-10">
                             <input class="inputbox" id="password" type="password" th:field="*{password}" />
                             <p style="color: red" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></p>
                         </div>
@@ -69,10 +69,10 @@
 
 
                     <div class="row mb-2">
-                        <div class="col-lg-3">
+                        <div class="col-lg-2">
                             <label for="phone">Phone:</label>
                         </div>
-                        <div class="col-lg-9">
+                        <div class="col-lg-10">
                             <input class="inputbox" id="phone" th:field="*{phone}" />
                             <p style="color: red" th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></p>
                         </div>
@@ -115,7 +115,7 @@
 
                 </form>
             </fieldset>
-        </div>
+
     </div>
     <footer th:replace="fragments/footer :: footer-partial"></footer>
 
