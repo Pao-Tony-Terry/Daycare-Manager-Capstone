@@ -6,38 +6,44 @@
 <body>
     <div class="container">
         <nav th:replace="fragments/navbar :: navbar-partial"></nav>
-        <div class="container">
+
+        <div class="bg-light about_us_text p-4">
             <div class="row mb-2">
-                <h1>Tuition and Fees</h1>
+                <h3>Tuition and Fees</h3>
+                <hr/>
             </div>
-                <div class="bg-light about_us_text p-4">
-                    <div class="row mb-2">
-                        <div class="col-lg-6">
-                            <h3>Weekly Rates:</h3>
-                            <p>Infants:     $150</p>
-                            <p>Toddlers:    $140</p>
-                            <p>Two's:       $135</p>
-                            <p>Three's:     $130</p>
-                        </div>
-                        <div class="col-lg-6">
-                            <h3>Other fees:</h3>
-                            <p>Registration fee:    $125</p>
-                            <p>Annual suppy fee:    $50</p>
-                            <p>Wait List fee:       $50</p>
-                        </div>
-                    </div>
-                    <div class="row mb-2">
-                        <h3>*Registration fees are non-refundable.</h3>
-                        <h3>*Additional children in the same family are given a 10% discount off the lessor of the tuition rates.</h3>
-                    </div>
+            <div class="row mb-2">
+                <div class="col-lg-6">
+                    <h3>Weekly Rates:</h3>
+                    <p>Infants:     $150</p>
+                    <p>Toddlers:    $140</p>
+                    <p>Two's:       $135</p>
+                    <p>Three's:     $130</p>
                 </div>
+                <div class="col-lg-6">
+                    <h3>Other fees:</h3>
+                    <p>Registration fee:    $125</p>
+                    <p>Annual suppy fee:    $50</p>
+                    <p>Wait List fee:       $50</p>
+                </div>
+            </div>
+
+            <div class="row mb-2">
+                <p>*Registration fees are non-refundable.</p>
+            </div>
+            <div class="row mb-2">
+                <p>*Additional children in the same family are given a 10% discount off the lessor of the tuition rates.</p>
+            </div>
         </div>
+
         <div class="row translate my-2 justify-content-center">
             <div id="google_translate_element"></div>
         </div>
     </div>
 
-    <footer th:replace="fragments/footer :: footer-partial"></footer>
+    <footer th:replace="fragments/footer :: footer-fixed"></footer>
+
+
     <div th:replace="fragments/scripts :: scripts"></div>
 </body>
 </html>
