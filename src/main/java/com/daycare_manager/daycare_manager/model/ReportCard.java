@@ -10,28 +10,28 @@ public class ReportCard {
     @GeneratedValue
     private long id;
 
-    @Column
+    @Column(nullable = false)
     private String date;
 
-    @Column
+    @Column(nullable = false)
     private String feeling;
 
-    @Column
+    @Column(nullable = false)
     private String sleep;
 
-    @Column
+    @Column(nullable = false)
     private String meal;
 
-    @Column
+    @Column(nullable = false)
     private String how_ate;
 
-    @Column(name = "`change`")
+    @Column(name = "`change`", nullable = false)
     private String change;
 
-    @Column
+    @Column(columnDefinition = "TEXT", nullable = false)
     private String comments;
 
-    @Column
+    @Column(nullable = false)
     private String items_needed;
 
     @ManyToOne
