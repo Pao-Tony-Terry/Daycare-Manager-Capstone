@@ -6,8 +6,7 @@
 <body>
 <div class="container">
     <nav th:replace="fragments/navbar :: navbar-partial"></nav>
-    <div class="container">
-        <fieldset class="loginForm bg-light p-2 rounded">
+        <fieldset class="loginForm bg-light p-4 mb-5 rounded">
             <form th:action="@{/login}" method="post">
                 <div class="row mb-2">
                     <div class="col-lg-12">
@@ -23,19 +22,19 @@
                 </div>
 
                 <div class="row mb-2">
-                    <div class="col-lg-3">
+                    <div class="col-lg-2 text-right">
                         <label for="username">Username</label>
                     </div>
-                    <div class="col-lg-9">
+                    <div class="col-lg-10">
                         <input class="inputbox" id="username" name="username" type="text" />
                     </div>
                 </div>
 
                 <div class="row mb-2">
-                    <div class="col-lg-3">
+                    <div class="col-lg-2 text-right">
                         <label for="password">Password</label>
                     </div>
-                    <div class="col-lg-9">
+                    <div class="col-lg-10">
                         <input class="inputbox" id="password" name="password" type="password" />
                     </div>
                 </div>
@@ -47,14 +46,15 @@
                 </div>
             </form>
         </fieldset>
-    </div>
-</div>
 
-<div class="row translate mb-2">
-    <div style="text-align: center">
+    <div class="row translate my-2 justify-content-center">
         <div id="google_translate_element"></div>
     </div>
 </div>
-<footer th:replace="fragments/footer :: footer-partial"></footer>
+
+
+<footer th:replace="fragments/footer :: footer-fixed"></footer>
+
+<div th:replace="fragments/scripts :: scripts"></div>
 </body>
 </html>
