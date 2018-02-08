@@ -205,4 +205,8 @@ public class User {
     public void setChildren(List<Child> children) {
         this.children = children;
     }
+
+    public void cleanUpPhoneFormat(){
+        this.phone = this.phone.replace("(", "").replace(") ", "").replace("-", "");
+    }
 }

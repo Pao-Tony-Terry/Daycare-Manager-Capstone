@@ -95,6 +95,9 @@ public class UsersController {
             validation.rejectValue("phone", "user.phone", "Invalid format: (xxx) xxx-xxxx");
         }
 
+        //Method in User Model to clean up the format:
+        user.cleanUpPhoneFormat();
+
         // duplicated phone number:
         User existingPhone = usersRepository.findByPhone(user.getPhone());
         if (existingPhone != null) {
