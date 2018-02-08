@@ -9,8 +9,8 @@
     <h1>Showing report cards for kid</h1>
 
     <div class="reportcard-view" th:each="report_card : ${report_cards}">
-
         <div class="card mb-3 ml-5 bg-light" style="width: 18rem;">
+        <h3>A day in the life of your preschooler</h3>
             <div class="card-body">
                 <div>Student ID</div>
                 <p th:text="${child.id}"></p>

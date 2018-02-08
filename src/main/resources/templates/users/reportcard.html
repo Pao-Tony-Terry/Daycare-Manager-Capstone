@@ -4,7 +4,6 @@
 <head th:replace="fragments/head :: header"></head>
 <body>
 
-<h3><em>A Day in the Life of your Preschooler</em></h3>
 
 <div class="container">
     <form th:action="@{'/teacher/kid/'+${child.id}+'/reportcard'}" method="POST" th:object="${report_card}">
