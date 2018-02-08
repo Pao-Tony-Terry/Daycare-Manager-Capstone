@@ -67,6 +67,7 @@ public class UsersController {
         String username = user.getUsername();
         User existingUsername = usersRepository.findByUsername(username);
         User existingEmail = usersRepository.findByEmail(user.getEmail());
+        User existingPhone = usersRepository.findByPhone(user.getPhone());
 
 
         if (existingUsername != null) {
@@ -78,6 +79,12 @@ public class UsersController {
         if (existingEmail != null) {
 
             validation.rejectValue("email", "user.email", "Duplicated email " + user.getEmail());
+
+        }
+
+        if (existingPhone != null) {
+
+            validation.rejectValue("phone", "user.phone", "Phone number already exists " + user.getPhone());
 
         }
 

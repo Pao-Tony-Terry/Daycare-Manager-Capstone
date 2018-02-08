@@ -19,6 +19,8 @@ public interface UsersRepository extends CrudRepository<User, Long> {
 
     User findByEmail(String email);
 
+    User findByPhone(String phone);
+
     // This is a list form the ChildrenRepository:
 //    List<Child> findByParent(User parent);
 
