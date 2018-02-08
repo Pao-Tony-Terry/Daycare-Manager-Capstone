@@ -20,12 +20,15 @@ public class UsersController {
 
     private final UserService userService;
 
+    private final UsersRepository usersRepository;
+
     private PasswordEncoder encoder;
 
 
-    public UsersController(UserService userService, PasswordEncoder encoder) {
+    public UsersController(UserService userService, PasswordEncoder encoder, UsersRepository usersRepository) {
         this.userService = userService;
         this.encoder = encoder;
+        this.usersRepository = usersRepository;
     }
 
 
@@ -39,18 +42,59 @@ public class UsersController {
 
 
     // Sign-up an user:
-    @PostMapping("/user/sign-up")
-    public String singUpNewUser(@Valid User user, Errors validation, Model viewModel,  @RequestParam(name = "is_employee", defaultValue = "false") boolean isEmployee) {
+//    @PostMapping("/user/sign-up")
+//    public String singUpNewUser(@Valid User user, Errors validation, Model viewModel,  @RequestParam(name = "is_employee", defaultValue = "false") boolean isEmployee) {
+//
+//        if (validation.hasErrors()){
+//            viewModel.addAttribute("errors", validation);
+//            viewModel.addAttribute("user", user);
+//            return "users/sign-up";
+//        }
+//
+//        user.setEmployee(isEmployee);
+//        String hash = encoder.encode(user.getPassword());
+//        user.setPassword(hash);
+//        userService.save(user);
+//        return "redirect:/login";
+//
+//    }
 
-        if (validation.hasErrors()){
+
+    // New method with validations for duplicated emails and usernames:
+    @PostMapping("/user/sign-up")
+    public String singUpNewUser2(@Valid User user, Errors validation, Model viewModel,  @RequestParam(name = "is_employee", defaultValue = "false") boolean isEmployee)  {
+
+        String username = user.getUsername();
+        User existingUsername = usersRepository.findByUsername(username);
+        User existingEmail = usersRepository.findByEmail(user.getEmail());
+
+
+        if (existingUsername != null) {
+
+            validation.rejectValue("username", "user.username", "Duplicated username " + username);
+
+        }
+
+        if (existingEmail != null) {
+
+            validation.rejectValue("email", "user.email", "Duplicated email " + user.getEmail());
+
+        }
+
+        if (validation.hasErrors()) {
             viewModel.addAttribute("errors", validation);
             viewModel.addAttribute("user", user);
             return "users/sign-up";
         }
 
+
+
+
         user.setEmployee(isEmployee);
+
         String hash = encoder.encode(user.getPassword());
         user.setPassword(hash);
+
         userService.save(user);
         return "redirect:/login";
 
