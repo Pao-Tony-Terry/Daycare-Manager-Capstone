@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<head th:replace="fragments/gallery_head :: header"></head>
+
+<body>
+
+<div class="container">
+    <nav th:replace="fragments/navbar :: navbar-partial"></nav>
+    <div class="card-deck gallery-deck mb-2">
+        <card class="card">
+            <img src="./img/bubbles.jpg" data-index="1" class="img-fluid galleryPics hover-shadow cursor" alt="" />
+        </card>
+
+        <card class="card">
+            <img src="./img/swing.jpg" data-index="2" class="img-fluid galleryPics hover-shadow cursor" alt="" />
+        </card>
+
+        <card class="card">
+            <img src="./img/toybox.jpg" data-index="3" class="img-fluid galleryPics hover-shadow cursor" alt="" />
+        </card>
+    </div>
+
+    <div class="card-deck gallery-deck mb-2">
+        <card class="card">
+            <img src="./img/easter.jpg" data-index="4" class="img-fluid galleryPics hover-shadow cursor" alt="" />
+        </card>
+
+        <card class="card">
+            <img src="./img/huddle.jpg" data-index="5" class="img-fluid galleryPics hover-shadow cursor" alt="" />
+        </card>
+
+        <card class="card">
+            <img src="./img/IMG_9918.JPG" data-index="6" class="img-fluid galleryPics hover-shadow cursor" alt="" />
+        </card>
+    </div>
+
+    <div class="card-deck gallery-deck mb-5">
+        <card class="card">
+            <img src="./img/kid_with_crayons.jpg" data-index="7"  class="img-fluid galleryPics hover-shadow cursor" alt="" />
+        </card>
+
+        <card class="card">
+            <img src="./img/painting.jpg" data-index="8"  class="img-fluid galleryPics hover-shadow cursor" alt="" />
+        </card>
+
+        <card class="card">
+            <img src="./img/playing_soccer.jpg" data-index="9"  class="img-fluid galleryPics hover-shadow cursor" alt="" />
+        </card>
+    </div>
+</div>
+
+<div id="myModal" class="modal">
+    <span class="close cursor" onclick="closeModal()">&times;</span>
+    <div class="modal-content">
+
+        <div class="mySlides img-fluid">
+            <div class="numbertext">1 / 9</div>
+            <img class="galleryWide" src="./img/bubbles.jpg"/>
+        </div>
+
+        <div class="mySlides img-fluid">
+            <div class="numbertext">2 / 9</div>
+            <img class="galleryWide" src="./img/swing.jpg"/>
+        </div>
+
+        <div class="mySlides img-fluid">
+            <div class="numbertext">3 / 9</div>
+            <img class="galleryWide" src="./img/toybox.jpg"/>
+        </div>
+
+        <div class="mySlides img-fluid">
+            <div class="numbertext">4 / 9</div>
+            <img class="galleryWide" src="./img/easter.jpg"/>
+        </div>
+
+        <div class="mySlides img-fluid">
+            <div class="numbertext">5 / 9</div>
+            <img  class="galleryWide" src="./img/huddle.jpg"/>
+        </div>
+
+        <div class="mySlides img-fluid">
+            <div class="numbertext">6 / 9</div>
+            <img class="galleryWide" src="./img/IMG_9918.jpg"/>
+        </div>
+
+        <div class="mySlides img-fluid">
+            <div class="numbertext">7 / 9</div>
+            <img class="galleryWide" src="./img/kid_with_crayons.jpg"/>
+        </div>
+
+        <div class="mySlides img-fluid">
+            <div class="numbertext">8 / 9</div>
+            <img class="galleryWide" src="./img/painting.jpg"/>
+        </div>
+
+        <div class="mySlides img-fluid">
+            <div class="numbertext">9 / 9</div>
+            <img class="galleryWide" src="./img/playing_soccer.jpg"/>
+        </div>
+
+        <a class="prev" id="prev">&#10094;</a>
+        <a class="next" id="next">&#10095;</a>
+
+        <div class="caption-container">
+            <p id="caption"></p>
+        </div>
+
+        <div class="card-deck gallery-deck mb-5">
+            <card class="card">
+                <img class="demo cursor img-fluid galleryPics" data-index="1" src="./img/bubbles.jpg"  alt="Playing with bubbles"/>
+            </card>
+            <card class="card">
+                <img class="demo cursor img-fluid galleryPics" data-index="2" src="./img/swing.jpg"  alt="Let's go to the playground"/>
+            </card>
+            <card class="card">
+                <img class="demo cursor img-fluid galleryPics" data-index="3" src="./img/toybox.jpg" alt="Gathered around a toybox"/>
+            </card>
+        </div>
+        <div class="card-deck gallery-deck mb-5">
+            <card class="card">
+                <img class="demo cursor img-fluid galleryPics" data-index="4" src="./img/easter.jpg" alt="some text here"/>
+            </card>
+            <card class="card">
+                <img class="demo cursor img-fluid galleryPics" data-index="5" src="./img/huddle.jpg" alt="some text here"/>
+            </card>
+            <card class="card">
+                <img class="demo cursor img-fluid galleryPics" data-index="6" src="./img/IMG_9918.jpg" alt="some text here"/>
+            </card>
+        </div>
+        <div class="card-deck gallery-deck mb-5">
+            <card class="card">
+                <img class="demo cursor img-fluid galleryPics" data-index="7" src="./img/kid_with_crayons.jpg" alt="some text here"/>
+            </card>
+            <card class="card">
+                <img class="demo cursor img-fluid galleryPics" data-index="8" src="./img/painting.jpg" alt="some text here"/>
+            </card>
+            <card class="card">
+                <img class="demo cursor img-fluid galleryPics" data-index="9" src="./img/playing_soccer.jpg" alt="some text here"/>
+            </card>
+        </div>
+
+
+
+        <!--<div class="column">-->
+            <!--<img class="demo cursor img-fluid galleryPics" src="./img/bubbles.jpg" style="width:100%" onclick="currentSlide(1)" alt="Playing with bubbles"/>-->
+        <!--</div>-->
+        <!--<div class="column">-->
+            <!--<img class="demo cursor img-fluid galleryPics" src="./img/swing.jpg" style="width:100%" onclick="currentSlide(2)" alt="Let's go to the playground"/>-->
+        <!--</div>-->
+        <!--<div class="column">-->
+            <!--<img class="demo cursor img-fluid galleryPics" src="./img/toybox.jpg" style="width:100%" onclick="currentSlide(3)" alt="Gathered around a toybox"/>-->
+        <!--</div>-->
+        <!--<div class="column">-->
+            <!--<img class="demo cursor img-fluid galleryPics" src="./img/easter.jpg" style="width:100%" onclick="currentSlide(4)" alt="some text here"/>-->
+        <!--</div>-->
+        <!--<div class="column">-->
+            <!--<img class="demo cursor img-fluid galleryPics" src="./img/huddle.jpg" style="width:100%" onclick="currentSlide(5)" alt="some text here"/>-->
+        <!--</div>-->
+        <!--<div class="column">-->
+            <!--<img class="demo cursor img-fluid galleryPics" src="./img/IMG_9918.jpg" style="width:100%" onclick="currentSlide(6)" alt="some text here"/>-->
+        <!--</div>-->
+        <!--<div class="column">-->
+            <!--<img class="demo cursor img-fluid galleryPics" src="./img/kid_with_crayons.jpg" style="width:100%" onclick="currentSlide(7)" alt="some text here"/>-->
+        <!--</div>-->
+        <!--<div class="column">-->
+            <!--<img class="demo cursor img-fluid galleryPics" src="./img/painting.jpg" style="width:100%" onclick="currentSlide(8)" alt="some text here"/>-->
+        <!--</div>-->
+        <!--<div class="column">-->
+            <!--<img class="demo cursor img-fluid galleryPics" src="./img/playing_soccer.jpg" style="width:100%" onclick="currentSlide(9)" alt="some text here"/>-->
+        <!--</div>-->
+
+    </div>
+</div>
+
+<div th:replace="fragments/scripts :: scripts"></div>
+
+<script src="/js/gallery.js"></script>
+
+</body>
+</html>
