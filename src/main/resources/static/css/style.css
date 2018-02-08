@@ -46,6 +46,7 @@ footer {
 .staffPage {
     height: 500px;
     width: 100%;
+    background-color: #eaa5a5;
 }
 
 .daycare_staff {
@@ -56,6 +57,10 @@ footer {
 .invalid {
     color: red;
     font-weight: bold;
+}
+
+.about_background {
+    background-color: #97c899;
 }
 
 .about_us_row {
@@ -91,6 +96,27 @@ footer {
 
 .galleryPics {
     height: 200px;
+}
+
+hr {
+    height: 5px;
+    background-color: #97c899;
+}
+
+.about_content {
+    background-color: #6794c0;
+}
+
+.tuition {
+    background-color: #eaa5a5;
+}
+
+.disclosure {
+    background-color: #6794c0;
+}
+
+.contact {
+    background-color: #6eb572;
 }
 
 
