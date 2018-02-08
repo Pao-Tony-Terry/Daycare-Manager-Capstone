@@ -2,6 +2,7 @@ package com.daycare_manager.daycare_manager.controllers;
 
 import com.daycare_manager.daycare_manager.daos.UsersRepository;
 import com.daycare_manager.daycare_manager.model.User;
+import com.daycare_manager.daycare_manager.services.PhoneService;
 import com.daycare_manager.daycare_manager.services.UserService;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -24,11 +25,14 @@ public class UsersController {
 
     private PasswordEncoder encoder;
 
+    private final PhoneService phoneService;
 
-    public UsersController(UserService userService, PasswordEncoder encoder, UsersRepository usersRepository) {
+
+    public UsersController(UserService userService, PasswordEncoder encoder, UsersRepository usersRepository, PhoneService phoneService) {
         this.userService = userService;
         this.encoder = encoder;
         this.usersRepository = usersRepository;
+        this.phoneService = phoneService;
     }
 
 
@@ -67,7 +71,7 @@ public class UsersController {
         String username = user.getUsername();
         User existingUsername = usersRepository.findByUsername(username);
         User existingEmail = usersRepository.findByEmail(user.getEmail());
-        User existingPhone = usersRepository.findByPhone(user.getPhone());
+
 
 
         if (existingUsername != null) {
@@ -82,11 +86,21 @@ public class UsersController {
 
         }
 
-        if (existingPhone != null) {
 
-            validation.rejectValue("phone", "user.phone", "Phone number already exists " + user.getPhone());
 
+
+        // right format for phone number:
+        boolean validatedPhone = phoneService.validatePhoneNumber(user.getPhone());
+        if (!validatedPhone) {
+            validation.rejectValue("phone", "user.phone", "Invalid format: (xxx) xxx-xxxx");
         }
+
+        // duplicated phone number:
+        User existingPhone = usersRepository.findByPhone(user.getPhone());
+        if (existingPhone != null) {
+            validation.rejectValue("phone", "user.phone", "Phone number already exists " + user.getPhone());
+        }
+
 
         if (validation.hasErrors()) {
             viewModel.addAttribute("errors", validation);
