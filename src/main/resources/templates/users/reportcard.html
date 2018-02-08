@@ -4,9 +4,9 @@
 <head th:replace="fragments/head :: header"></head>
 <body>
 
-<h3><em>A Day in the Life of your Preschooler</em></h3>
 
 <div class="container">
+    <nav th:replace="fragments/navbar :: navbar-partial"></nav>
     <form th:action="@{'/teacher/kid/'+${child.id}+'/reportcard'}" method="POST" th:object="${report_card}">
         <!--<input type="hidden" th:field="*{child.id}" />-->
         <div>
@@ -93,6 +93,10 @@
         <a class="btn btn-primary float-right" href="/user/teacher">Back to profile &rarr;</a>
     </div>
 </div>
+
+<footer th:replace="fragments/footer :: footer-fixed"></footer>
+
+<div th:replace="fragments/scripts :: scripts"></div>
 
 </body>
 </html>

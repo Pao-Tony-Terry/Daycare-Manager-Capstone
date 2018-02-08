@@ -9,28 +9,28 @@
     <h1>Showing all the kids</h1>
 
     <div class="post-preview" th:each="child : ${children}">
-
-        <span th:text="${child.first_name}"></span>
-        <div class="row edit_delete_row">
-            <div class="col">
-                <a class="btn btn-warning btn-block" th:href="${'/parent/kid/'+child.id+'/reportcard_by_kid'}">View report card</a>
+            <div class="bg-light p-4 mb-3 edit_delete_row">
+                <div class="row">
+                    <h3><span th:text="${child.first_name}"></span></h3>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <a class="btn btn-warning btn-block" th:href="${'/parent/kid/'+child.id+'/reportcard_by_kid'}">View report card</a>
+                    </div>
+                    <div class="col">
+                        <a class="btn btn-warning btn-block edit_btn" th:href="${'/parent/kid/'+child.id+'/edit'}">Edit</a>
+                    </div>
+                    <div class="col">
+                        <a class="btn btn-danger btn-block delete_btn" th:href="${'/parent/kid/'+child.id+'/delete'}">Delete</a>
+                    </div>
+                </div>
             </div>
-            <div class="col">
-                <a class="btn btn-warning btn-block edit_btn" th:href="${'/parent/kid/'+child.id+'/edit'}">Edit</a>
-            </div>
-            <div class="col">
-            </div>
-            <div class="col">
-                <a class="btn btn-danger btn-block delete_btn" th:href="${'/parent/kid/'+child.id+'/delete'}">Delete</a>
-            </div>
-        </div>
-
     </div>
 
 
 
     <div class="clearfix">
-        <a class="btn btn-primary float-right" href="/user/parent">Back to profile &rarr;</a>
+        <a class="btn btn-primary float-right mt-3" href="/user/parent">Back to profile &rarr;</a>
     </div>
 
 </div>

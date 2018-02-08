@@ -7,16 +7,25 @@
 <body>
 <div class="container">
     <nav th:replace="fragments/navbar :: navbar-partial"></nav>
+    <div class="row bg-light p-4">
+        <div class="col-lg-4">
+            <img id="profile_pic" src="/img/user_pic.png" alt=""/>
 
-    <h1>TEACHER profile view here</h1>
-
-    <!--<a class="btn btn-warning btn-block edit_btn" th:href="${'/posts/'+post.id+'/edit'}">Enroll</a>-->
-    <a class="btn btn-warning btn-block" href="/teacher/children">Report Card</a>
-    <a class="btn btn-warning btn-block">Add Events</a>
-    <a class="btn btn-warning btn-block" href="/user/sendSMS">SMS</a>
-
-
-
+            <!--<h5>First name:  <span th:text="${user.first_name}"></span></h5>-->
+            <!--<h5>Last name:  <span th:text="${user.last_name}"></span></h5>-->
+            <!--<h5>Username:  <span th:text="${user.username}"></span></h5>-->
+            <!--<h5>e-mail:  <span th:text="${user.email}"></span></h5>-->
+            <!--<h5>Phone:  <span th:text="${user.phone}"></span></h5>-->
+        </div>
+        <div class="col-lg-8">
+            <!--<a class="btn btn-warning btn-block edit_btn" th:href="${'/posts/'+post.id+'/edit'}">Enroll</a>-->
+            <a class="btn btn-warning btn-block" href="/teacher/children">Report Card</a>
+            <a class="btn btn-warning btn-block" href="/user/sendSMS">SMS</a>
+        </div>
+    </div>
 </div>
+
+<footer th:replace="fragments/footer :: footer-fixed"></footer>
+<div th:replace="fragments/scripts :: scripts"></div>
 </body>
 </html>
