@@ -6,7 +6,6 @@
 <body>
 <div class="container">
     <nav th:replace="fragments/navbar :: navbar-partial"></nav>
-    <h1>Showing all the kids</h1>
 
     <div class="post-preview" th:each="child : ${children}">
 

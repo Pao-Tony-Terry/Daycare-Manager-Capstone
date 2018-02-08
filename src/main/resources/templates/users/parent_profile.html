@@ -7,7 +7,7 @@
 <div class="container">
     <nav th:replace="fragments/navbar :: navbar-partial"></nav>
 
-    <div class="container profile_container">
+    <div class="profile_container bg-light p-4">
         <div class="row">
             <div class="col-lg-4">
 
@@ -43,8 +43,12 @@
             </div>
         </div>
     </div>
+    <div class="row translate my-2 justify-content-center">
+        <div id="google_translate_element"></div>
+    </div>
 </div>
-<footer th:replace="fragments/footer :: footer-partial"></footer>
+<footer th:replace="fragments/footer :: footer-fixed"></footer>
+<div th:replace="fragments/scripts :: scripts"></div>
 
 </body>
 </html>
