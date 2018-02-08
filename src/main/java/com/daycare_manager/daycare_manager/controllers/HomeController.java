@@ -18,9 +18,14 @@ public class HomeController {
         return "dcare_views/about_us";
     }
 
+//    @GetMapping("/gallery")
+//    public String gallery() {
+//        return "dcare_views/gallery";
+//    }
+
     @GetMapping("/gallery")
     public String gallery() {
-        return "dcare_views/gallery";
+        return "dcare_views/gallery_test";
     }
 
     @GetMapping("/staff")
