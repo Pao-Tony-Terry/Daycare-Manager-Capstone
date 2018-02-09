@@ -56,7 +56,6 @@ public class TeacherController {
         return "/users/kids_by_teacher";
     }
 
-    // Missing edit and delete teacher profile
 
     // Edit parent profile (show the form):
     @GetMapping("/teacher/{id}/edit")

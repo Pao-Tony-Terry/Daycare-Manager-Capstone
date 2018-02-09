@@ -10,7 +10,7 @@
     <div class="profile_container bg-light p-4">
         <div class="row">
             <div class="col-lg-4">
-                <img id="profile_pic" src="/img/user_pic.png" alt=""/>
+                <img class="mb-5" id="profile_pic" src="/img/user_pic.png" alt=""/>
 
                 <h5>First name:  <span th:text="${user.first_name}"></span></h5>
                 <h5>Last name:  <span th:text="${user.last_name}"></span></h5>
@@ -23,10 +23,6 @@
 
                 <div class="mb-2 row">
                     <a class="btn btn-warning btn-block" th:href="${'/teacher/'+user.id+'/edit'}">Edit profile</a>
-                </div>
-
-                <div class="mb-2 row">
-                    <a class="btn btn-danger btn-block" th:href="${'/teacher/'+user.id+'/delete'}">Delete profile</a>
                 </div>
 
 
