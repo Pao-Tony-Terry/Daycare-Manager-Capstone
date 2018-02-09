@@ -27,10 +27,12 @@
                                     <input class="post-title" style="width: 100%;" th:field="*{first_name}" />
                                     <input th:field="*{last_name}"/>
                                     <input th:field="*{username}"/>
-                                    <input th:field="*{password}"/>
+                                    <input type="hidden" th:field="*{password}">
                                     <input th:field="*{email}"/>
                                     <input th:field="*{phone}"/>
                                     <input th:field="*{gender}"/>
+                                    <input type="hidden" th:field="*{employee}">
+                                    <input type="hidden" th:field="*{is_admin}"/>
                                 </div>
                             </div>
                             <br/>

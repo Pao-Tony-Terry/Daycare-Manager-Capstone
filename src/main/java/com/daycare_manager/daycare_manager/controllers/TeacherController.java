@@ -58,5 +58,18 @@ public class TeacherController {
 
     // Missing edit and delete teacher profile
 
+    // Edit parent profile (show the form):
+    @GetMapping("/teacher/{id}/edit")
+    public String showEditForm(@PathVariable long id, Model viewModel){
+        User user = userService.findOne(id);
+        viewModel.addAttribute("user", user);
+        return "/users/edit_teacher_profile";
+    }
 
+    // Edit parent profile (populate the form):
+    @PostMapping("/teacher/edit")
+    public String updateUser(@ModelAttribute User user){
+        userService.update(user);
+        return "redirect:/login";
+    }
 }

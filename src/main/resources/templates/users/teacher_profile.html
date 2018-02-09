@@ -21,6 +21,15 @@
 
             <div class="col-lg-8">
 
+                <div class="mb-2 row">
+                    <a class="btn btn-warning btn-block" th:href="${'/teacher/'+user.id+'/edit'}">Edit profile</a>
+                </div>
+
+                <div class="mb-2 row">
+                    <a class="btn btn-danger btn-block" th:href="${'/teacher/'+user.id+'/delete'}">Delete profile</a>
+                </div>
+
+
                 <a class="btn btn-warning btn-block" href="/teacher/children">Report Card</a>
                 <a class="btn btn-warning btn-block" href="/user/sendSMS">SMS</a>
             </div>
