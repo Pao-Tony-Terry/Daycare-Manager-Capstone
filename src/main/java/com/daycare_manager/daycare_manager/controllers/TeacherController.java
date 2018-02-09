@@ -39,7 +39,7 @@ public class TeacherController {
         return "users/reportcard";
     }
 
-//    ${'/teacher/kid/'+child.id+'/reportcard'}
+
     @PostMapping("/teacher/kid/{childId}/reportcard")
     public String saveReportCard (@ModelAttribute ReportCard reportCard, @PathVariable Long childId){
         Child child = childService.findOne(childId);
@@ -49,24 +49,14 @@ public class TeacherController {
     }
 
 
-    //    @PostMapping("/ads/create")
-//    public String publishAd(
-//            @Valid Ad ad,
-//            Errors validation,
-//            Model model
-//    ) {
-//        if (validation.hasErrors()) {
-//            model.addAttribute("errors", validation);
-//            model.addAttribute("ad", ad);
-//            return "ads/create";
-//        }
-//        // Redirect to an appropriate page (show/edit ad or show all ads)
-//        return "redirect:/";
-
     @GetMapping("/teacher/children")
     public String kidsByTeacher(Model viewModel) {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         viewModel.addAttribute("children", childService.findByTeacher(user));
         return "/users/kids_by_teacher";
     }
+
+    // Missing edit and delete teacher profile
+
+
 }

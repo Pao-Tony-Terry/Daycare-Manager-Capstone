@@ -64,7 +64,7 @@ public class TwilioController {
         Twilio.init(accountId, tokenId);
         Message message = Message.creator(
                 new PhoneNumber("+1"+userService.findOne(1).getPhone()),  // this is the user's number (to)
-                new PhoneNumber("+12564748407"),    // this is my twilio number (from)
+                new PhoneNumber("+16122605615"),    // this is my twilio number (from)
                 notification.getBody()).create();
         message.getSid();
         return "redirect:/user/teacher";
