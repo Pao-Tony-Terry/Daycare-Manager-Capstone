@@ -8,6 +8,18 @@ body {
     margin-bottom: 0;
 }
 
+.navbar-brand {
+    max-height: 40px;
+    overflow: visible;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.logo {
+    position: relative;
+    top:-80px;
+}
+
 
 footer {
     /*position: absolute;*/
@@ -114,36 +126,3 @@ hr {
 .contact {
     background-color: #6eb572;
 }
-
-/*// logo stuff*/
-
-.logo {
-    height: 200px;
-    display: inline;
-    float: left;
-    position: relative;
-    bottom: 40px;
-    width: 200px;
-    border-radius: 50%;
-}
-
-/*nav {*/
-    /*margin-top: 40px;*/
-    /*background-color: white;*/
-    /*font-size: 16px;*/
-    /*text-transform: uppercase;*/
-    /*height: 100%;*/
-/*}*/
-/*.nav-text {*/
-    /*position: relative;*/
-    /*top: 2px;*/
-    /*color: black;*/
-/*}*/
-/*.left-logo {*/
-    /*float: right;*/
-/*}*/
-/*.right-logo {*/
-    /*float: right;*/
-/*}*/
-
-
