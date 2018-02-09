@@ -15,7 +15,7 @@
     <div class="collapse navbar-collapse mainNavBar" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item user_welcome" sec:authorize="isAuthenticated()">
-                <span>Welcome, <span th:text="${#authentication.principal.username}" /></span>
+                <span>Welcome, <span th:text="${#authentication.principal.username} " /></span>
             </li>
 
             <li class="nav-item dropdown text-white">
