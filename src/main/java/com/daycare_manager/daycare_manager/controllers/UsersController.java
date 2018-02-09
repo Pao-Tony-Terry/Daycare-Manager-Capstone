@@ -17,8 +17,6 @@ import javax.validation.Valid;
 @Controller
 public class UsersController {
 
-//    private UsersRepository usersRepository;
-
     private final UserService userService;
 
     private final UsersRepository usersRepository;
@@ -87,8 +85,6 @@ public class UsersController {
         }
 
 
-
-
         // right format for phone number:
         boolean validatedPhone = phoneService.validatePhoneNumber(user.getPhone());
         if (!validatedPhone) {
@@ -112,8 +108,6 @@ public class UsersController {
         }
 
 
-
-
         user.setEmployee(isEmployee);
 
         String hash = encoder.encode(user.getPassword());
@@ -131,9 +125,9 @@ public class UsersController {
     public String showProfile() {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         if (!user.isEmployee()) {
-            return "redirect:/user/parent"; // Suppose we already have an action for this one
+            return "redirect:/user/parent";
         }
-        return "redirect:/user/teacher"; // And another for this one
+        return "redirect:/user/teacher";
     }
 
 
@@ -149,6 +143,7 @@ public class UsersController {
     // Show teacher profile:
     @GetMapping("/user/teacher")
     public String showTeacherProfile() {
+        // Missing the information about the teacher in the view =========================================
         return "/users/teacher_profile";
     }
 

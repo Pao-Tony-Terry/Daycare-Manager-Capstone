@@ -7,14 +7,7 @@
 
 <!-- Navigation -->
 <nav th:fragment="navbar-partial" class="navbar navbar-expand-lg navbar-light bg-info mt-5 mb-3 rounded">
-<<<<<<< HEAD
-    <a class="navbar-brand text-white" href="/">Discovery Playhouse</a>
-    <!--<a class="navbar-brand text-white" href="/">-->
-        <!--<img class="logo" src="./img/logo3.png" alt="logo"/>-->
-    <!--</a>-->
-=======
     <a class="navbar-brand" href="/"><img src="./img/DiscoveryPlayhouse_Logo.png" class="logo" style="height: 200px; width: 200px;" alt="" /></a>
->>>>>>> master
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -22,7 +15,7 @@
     <div class="collapse navbar-collapse mainNavBar" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item user_welcome" sec:authorize="isAuthenticated()">
-                <span>Welcome, <span th:text="${#authentication.principal.username}" /></span>
+                <span>Welcome, <span th:text="${#authentication.principal.username} " /></span>
             </li>
 
             <li class="nav-item dropdown text-white">
