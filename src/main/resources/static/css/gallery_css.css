@@ -9,6 +9,18 @@ body {
     margin-bottom: 0;
 }
 
+.navbar-brand {
+    max-height: 40px;
+    overflow: visible;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.logo {
+    position: relative;
+    top:-80px;
+}
+
 
 footer {
     /*position: absolute;*/
