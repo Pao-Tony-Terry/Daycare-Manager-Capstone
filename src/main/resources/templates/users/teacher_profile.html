@@ -5,39 +5,48 @@
 
 
 <body>
-<div class="container">
-    <nav th:replace="fragments/navbar :: navbar-partial"></nav>
-    <div class="profile_container bg-light p-4">
-        <div class="row">
-            <div class="col-lg-4">
-                <img class="mb-5" id="profile_pic" src="/img/user_pic.png" alt=""/>
+    <div class="container mb-3">
+        <nav th:replace="fragments/navbar :: navbar-partial"></nav>
+        <div class="embed-responsive content-area p-4 rounded">
+                <div class="row rounded contact_in_profile">
+                    <div class="text-light col-lg-5">
+                        <h3 class="text-center mb-2 font-weight-bold">Contact us today!</h3>
+                        <p class="text-center font-weight-bold">Discovery Playhouse</p>
+                        <p class="text-center">600 Navarro St. #35</p>
+                        <p class="text-center">San Antonio, TX 78205</p>
+                        <p class="text-center">(210) 802-7289</p>
+                        <p class="text-center">jgomez.satx@gmail.com</p>
+                        <br/>
+                        <p class="text-center font-weight-bold">Hours of operation:</p>
+                        <p class="text-center">Monday - Friday  / 6:30am - 6:00 pm</p>
+                        <p class="text-center font-weight-bold">Age groups:</p>
+                        <p class="text-center">6 weeks to 3 years old</p>
+                    </div>
 
-                <h5>First name:  <span th:text="${user.first_name}"></span></h5>
-                <h5>Last name:  <span th:text="${user.last_name}"></span></h5>
-                <h5>Username:  <span th:text="${user.username}"></span></h5>
-                <h5>e-mail:  <span th:text="${user.email}"></span></h5>
-                <h5>Phone:  <span th:text="${user.phone}"></span></h5>
-            </div>
+                    <div class="text-light col-lg-6">
+                        <!--<img class="mb-5" id="profile_pic" src="/img/user_pic.png" alt=""/>-->
+                        <h4>You are viewing your Employee profile</h4>
+                        <h5>First name:  <span th:text="${user.first_name}"></span></h5>
+                        <h5>Last name:  <span th:text="${user.last_name}"></span></h5>
+                        <h5>Username:  <span th:text="${user.username}"></span></h5>
+                        <h5>e-mail:  <span th:text="${user.email}"></span></h5>
+                        <h5>Phone:  <span th:text="${user.phone}"></span></h5>
 
-            <div class="col-lg-8">
 
-                <div class="mb-2 row">
-                    <a class="btn btn-warning btn-block" th:href="${'/teacher/'+user.id+'/edit'}"><i class="fas fa-id-card"></i> Edit profile</a>
+                        <a class="btn btn-warning btn-block" th:href="${'/teacher/'+user.id+'/edit'}"><i class="fas fa-id-card"></i> Edit profile</a>
+                        <a class="btn btn-warning btn-block" href="/teacher/children"><i class="far fa-list-alt"></i> Report Card</a>
+                        <a class="btn btn-warning btn-block" href="/user/sendSMS"><i class="fas fa-envelope"></i> Sent notifications</a>
+                    </div>
                 </div>
-
-
-                <a class="btn btn-warning btn-block" href="/teacher/children"><i class="far fa-list-alt"></i> Report Card</a>
-                <a class="btn btn-warning btn-block" href="/user/sendSMS"><i class="fas fa-envelope"></i> Sent notifications</a>
-            </div>
-
         </div>
 
+        <div class="row translate my-2 justify-content-center">
+            <div id="google_translate_element"></div>
+        </div>
+
+        <footer th:replace="fragments/footer :: footer-partial"></footer>
     </div>
 
-
-</div>
-
-<footer th:replace="fragments/footer :: footer-fixed"></footer>
-<div th:replace="fragments/scripts :: scripts"></div>
+    <div th:replace="fragments/scripts :: scripts"></div>
 </body>
 </html>
