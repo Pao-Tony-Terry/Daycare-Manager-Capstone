@@ -143,8 +143,10 @@ public class UsersController {
 
     // Show teacher profile:
     @GetMapping("/user/teacher")
-    public String showTeacherProfile() {
+    public String showTeacherProfile(Model viewModel) {
         // Missing the information about the teacher in the view =========================================
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        viewModel.addAttribute("user", user);
         return "/users/teacher_profile";
     }
 

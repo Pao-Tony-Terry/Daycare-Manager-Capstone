@@ -10,19 +10,24 @@
     <div class="profile_container bg-light p-4">
         <div class="row">
             <div class="col-lg-4">
-                <img id="profile_pic" src="/img/user_pic.png" alt=""/>
+                <img class="mb-5" id="profile_pic" src="/img/user_pic.png" alt=""/>
 
-                <!--<h5>First name:  <span th:text="${user.first_name}"></span></h5>-->
-                <!--<h5>Last name:  <span th:text="${user.last_name}"></span></h5>-->
-                <!--<h5>Username:  <span th:text="${user.username}"></span></h5>-->
-                <!--<h5>e-mail:  <span th:text="${user.email}"></span></h5>-->
-                <!--<h5>Phone:  <span th:text="${user.phone}"></span></h5>-->
+                <h5>First name:  <span th:text="${user.first_name}"></span></h5>
+                <h5>Last name:  <span th:text="${user.last_name}"></span></h5>
+                <h5>Username:  <span th:text="${user.username}"></span></h5>
+                <h5>e-mail:  <span th:text="${user.email}"></span></h5>
+                <h5>Phone:  <span th:text="${user.phone}"></span></h5>
             </div>
 
             <div class="col-lg-8">
 
-                <a class="btn btn-warning btn-block" href="/teacher/children">Report Card</a>
-                <a class="btn btn-warning btn-block" href="/user/sendSMS">SMS</a>
+                <div class="mb-2 row">
+                    <a class="btn btn-warning btn-block" th:href="${'/teacher/'+user.id+'/edit'}"><i class="fas fa-id-card"></i> Edit profile</a>
+                </div>
+
+
+                <a class="btn btn-warning btn-block" href="/teacher/children"><i class="far fa-list-alt"></i> Report Card</a>
+                <a class="btn btn-warning btn-block" href="/user/sendSMS"><i class="fas fa-envelope"></i> Sent notifications</a>
             </div>
 
         </div>

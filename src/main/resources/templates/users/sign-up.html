@@ -4,122 +4,283 @@
 <head th:replace="fragments/head :: header"></head>
 
 <body>
-<div class="container">
+<div class="container mb-3 rounded">
     <nav th:replace="fragments/navbar :: navbar-partial"></nav>
-    <!--<div class="container">-->
-    <fieldset class="registerForm p-4 mb-5 rounded" style="background-color: #f6e5a4">
-        <form th:action="@{/user/sign-up}" method="POST" th:object="${user}">
-            <div class="row mb-2">
-                <div class="col-lg-12">
-                    <h3>Create an account</h3>
+
+    <div class="embed-responsive content-area bg-info p-4 rounded">
+        <!--Carousel starts here-->
+        <div class="mb-3 p-2 rounded" style="background-color: #6eb572">
+            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img class="d-block w-100 img-fluid rounded" src="./img/art_supplies.jpg" alt="First slide" />
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100 img-fluid rounded" src="./img/baby.jpg" alt="Second slide" />
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100 img-fluid rounded" src="./img/color_pencils.jpg" alt="Third slide" />
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+        <!--Carousel ends here-->
+
+        <!--Modal-->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Create an account</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        </div>
+
+                        <div class="modal-body">
+
+                            <form th:action="@{/user/sign-up}" method="POST" th:object="${user}">
+
+                                <div class="row mb-2">
+                                    <div class="col-lg-3">
+                                        <h6>First Name: </h6>
+                                    </div>
+                                    <div class="col-lg-offset-1 col-lg-8">
+                                        <input class="post-title" style="width: 100%;" th:field="*{first_name}" />
+                                        <p style="color: red" th:if="${#fields.hasErrors('first_name')}" th:errors="*{first_name}"></p>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-2">
+                                    <div class="col-lg-3">
+                                        <h6>Last Name:</h6>
+                                    </div>
+                                    <div class="col-lg-offset-1 col-lg-8">
+                                        <input class="post-title" style="width: 100%;" th:field="*{last_name}" />
+                                        <p style="color: red" th:if="${#fields.hasErrors('last_name')}" th:errors="*{last_name}"></p>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-2">
+                                    <div class="col-lg-3">
+                                        <h6>Username: </h6>
+                                    </div>
+                                    <div class="col-lg-offset-1 col-lg-8">
+                                        <input class="post-title" style="width: 100%;" th:field="*{username}" />
+                                        <p style="color: red" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></p>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-2">
+                                    <div class="col-lg-3">
+                                        <h6>e-mail:</h6>
+                                    </div>
+                                    <div class="col-lg-offset-1 col-lg-8">
+                                        <input class="post-title" style="width: 100%;" th:field="*{email}" />
+                                        <p style="color: red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-2">
+                                    <div class="col-lg-3">
+                                        <h6>Password: </h6>
+                                    </div>
+                                    <div class="col-lg-offset-1 col-lg-8">
+                                        <input class="post-title" id="password" type="password" style="width: 100%;" th:field="*{password}" />
+                                        <p style="color: red" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></p>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-2">
+                                    <div class="col-lg-3">
+                                        <h6>Phone number: </h6>
+                                    </div>
+                                    <div class="col-lg-offset-1 col-lg-8">
+                                        <input class="post-title" style="width: 100%;" th:field="*{phone}" />
+                                        <p style="color: red" th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></p>
+                                    </div>
+                                </div>
+
+
+                                <div class="row mb-2">
+                                    <div class="col-lg-3">
+                                        <h6>Male: </h6>
+                                    </div>
+                                    <div class="col-lg-offset-1 col-lg-1">
+                                        <input class="form-check-input ml-1" type="radio" name="gender" th:field="*{gender}" id="male" value="male" />
+                                    </div>
+
+                                    <div class="col-lg-3">
+                                        <h6>Female: </h6>
+                                    </div>
+                                    <div class="col-lg-offset-1 col-lg-1">
+                                        <input class="form-check-input ml-1" type="radio" name="gender" th:field="*{gender}" id="female" value="female" />
+                                    </div>
+                                </div>
+
+                                <div class="row mb-2">
+                                    <div class="col-lg-3">
+                                        <h6>Employee?: </h6>
+                                    </div>
+                                    <div class="col-lg-offset-1 col-lg-8">
+                                        <input class="ml-1" type="checkbox" name="is_employee" />
+                                    </div>
+                                </div>
+
+                                <br/>
+                                <div class="row">
+                                    <div class="col-lg-2" style="margin: 0 auto">
+                                        <input type="submit"  value="Sign me up!" class="btn btn-primary btn-block" />
+                                    </div>
+                                    <br/>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="row mb-2">
-                <div class="col-lg-2 text-right">
-                    <label for="first_name">First Name: </label>
-                </div>
-                <div class="col-lg-10">
-                    <input class="inputbox" id="first_name" th:field="*{first_name}" />
-                    <p style="color: red" th:if="${#fields.hasErrors('first_name')}" th:errors="*{first_name}"></p>
-                </div>
-            </div>
-
-            <div class="row mb-2">
-                <div class="col-lg-2 text-right">
-                    <label for="last_name">Last Name: </label>
-                </div>
-                <div class="col-lg-10">
-                    <input class="inputbox" id="last_name" th:field="*{last_name}" />
-                    <p style="color: red" th:if="${#fields.hasErrors('last_name')}" th:errors="*{last_name}"></p>
-                </div>
-            </div>
-
-
-            <div class="row mb-2">
-                <div class="col-lg-2 text-right">
-                    <label for="username">Username:</label>
-                </div>
-                <div class="col-lg-10">
-                    <input class="inputbox" id="username" th:field="*{username}" />
-                    <p style="color: red" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></p>
-                </div>
-            </div>
-
-
-            <div class="row mb-2">
-                <div class="col-lg-2 text-right">
-                    <label for="email">Email:</label>
-                </div>
-                <div class="col-lg-10">
-                    <input class="inputbox" id="email" th:field="*{email}" />
-                    <p style="color: red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p>
-                </div>
-            </div>
-
-
-            <div class="row mb-2">
-                <div class="col-lg-2 text-right">
-                    <label for="password">Password:</label>
-                </div>
-                <div class="col-lg-10">
-                    <input class="inputbox" id="password" type="password" th:field="*{password}" />
-                    <p style="color: red" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></p>
-                </div>
-            </div>
-
-
-            <div class="row mb-2">
-                <div class="col-lg-2 text-right">
-                    <label for="phone">Phone:</label>
-                </div>
-                <div class="col-lg-10">
-                    <input class="inputbox" id="phone" th:field="*{phone}" />
-                    <p style="color: red" th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></p>
-                </div>
-            </div>
-
-
-            <div class="row mb-2">
-                <div class="col-lg-2 text-right">
-                    <p>Male: </p>
-                </div>
-                <div class="col-lg-1">
-                    <input class="form-check-input ml-1" type="radio" name="gender" th:field="*{gender}" id="male" value="male" />
-                </div>
-                <div class="col-lg-2 text-right">
-                    <p>Female: </p>
-                </div>
-                <div class="col-lg-1">
-                    <input class="form-check-input ml-1" type="radio" name="gender" th:field="*{gender}" id="female" value="female" />
-                </div>
-
-            </div>
+        </div>
+    </div>
 
 
 
-            <div class="row mb-2">
-                <div class="col-lg-2 text-right">
-                    <label>Employee</label>
-                </div>
-                <div class="col-lg-1">
-                    <input class="ml-1" type="checkbox" name="is_employee" />
-                </div>
-            </div>
 
 
-            <div class="row mb-2">
-                <div class="col-lg-2" style="margin: 0 auto">
-                    <input type="submit"  value="Sign me up!" class="btn btn-info btn-block" />
-                </div>
-            </div>
 
-        </form>
-    </fieldset>
+
+
+
+
+
+
+<!--this is the original one:-->
+<!--<div class="container">-->
+    <!--<nav th:replace="fragments/navbar :: navbar-partial"></nav>-->
+    <!--<fieldset class="registerForm p-4 mb-5 rounded" style="background-color: #f6e5a4">-->
+        <!--<form th:action="@{/user/sign-up}" method="POST" th:object="${user}">-->
+            <!--<div class="row mb-2">-->
+                <!--<div class="col-lg-12">-->
+                    <!--<h3>Create an account</h3>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="row mb-2">-->
+                <!--<div class="col-lg-2 text-right">-->
+                    <!--<label for="first_name">First Name: </label>-->
+                <!--</div>-->
+                <!--<div class="col-lg-10">-->
+                    <!--<input class="inputbox" id="first_name" th:field="*{first_name}" />-->
+                    <!--<p style="color: red" th:if="${#fields.hasErrors('first_name')}" th:errors="*{first_name}"></p>-->
+                <!--</div>-->
+            <!--</div>-->
+
+            <!--<div class="row mb-2">-->
+                <!--<div class="col-lg-2 text-right">-->
+                    <!--<label for="last_name">Last Name: </label>-->
+                <!--</div>-->
+                <!--<div class="col-lg-10">-->
+                    <!--<input class="inputbox" id="last_name" th:field="*{last_name}" />-->
+                    <!--<p style="color: red" th:if="${#fields.hasErrors('last_name')}" th:errors="*{last_name}"></p>-->
+                <!--</div>-->
+            <!--</div>-->
+
+
+            <!--<div class="row mb-2">-->
+                <!--<div class="col-lg-2 text-right">-->
+                    <!--<label for="username">Username:</label>-->
+                <!--</div>-->
+                <!--<div class="col-lg-10">-->
+                    <!--<input class="inputbox" id="username" th:field="*{username}" />-->
+                    <!--<p style="color: red" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></p>-->
+                <!--</div>-->
+            <!--</div>-->
+
+
+            <!--<div class="row mb-2">-->
+                <!--<div class="col-lg-2 text-right">-->
+                    <!--<label for="email">Email:</label>-->
+                <!--</div>-->
+                <!--<div class="col-lg-10">-->
+                    <!--<input class="inputbox" id="email" th:field="*{email}" />-->
+                    <!--<p style="color: red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p>-->
+                <!--</div>-->
+            <!--</div>-->
+
+
+            <!--<div class="row mb-2">-->
+                <!--<div class="col-lg-2 text-right">-->
+                    <!--<label for="password">Password:</label>-->
+                <!--</div>-->
+                <!--<div class="col-lg-10">-->
+                    <!--<input class="inputbox" id="password" type="password" th:field="*{password}" />-->
+                    <!--<p style="color: red" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></p>-->
+                <!--</div>-->
+            <!--</div>-->
+
+
+            <!--<div class="row mb-2">-->
+                <!--<div class="col-lg-2 text-right">-->
+                    <!--<label for="phone">Phone:</label>-->
+                <!--</div>-->
+                <!--<div class="col-lg-10">-->
+                    <!--<input class="inputbox" id="phone" th:field="*{phone}" />-->
+                    <!--<p style="color: red" th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></p>-->
+                <!--</div>-->
+            <!--</div>-->
+
+
+            <!--<div class="row mb-2">-->
+                <!--<div class="col-lg-2 text-right">-->
+                    <!--<p>Male: </p>-->
+                <!--</div>-->
+                <!--<div class="col-lg-1">-->
+                    <!--<input class="form-check-input ml-1" type="radio" name="gender" th:field="*{gender}" id="male" value="male" />-->
+                <!--</div>-->
+                <!--<div class="col-lg-2 text-right">-->
+                    <!--<p>Female: </p>-->
+                <!--</div>-->
+                <!--<div class="col-lg-1">-->
+                    <!--<input class="form-check-input ml-1" type="radio" name="gender" th:field="*{gender}" id="female" value="female" />-->
+                <!--</div>-->
+
+            <!--</div>-->
+
+
+
+            <!--<div class="row mb-2">-->
+                <!--<div class="col-lg-2 text-right">-->
+                    <!--<label>Employee</label>-->
+                <!--</div>-->
+                <!--<div class="col-lg-1">-->
+                    <!--<input class="ml-1" type="checkbox" name="is_employee" />-->
+                <!--</div>-->
+            <!--</div>-->
+
+
+            <!--<div class="row mb-2">-->
+                <!--<div class="col-lg-2" style="margin: 0 auto">-->
+                    <!--<input type="submit"  value="Sign me up!" class="btn btn-info btn-block" />-->
+                <!--</div>-->
+            <!--</div>-->
+
+        <!--</form>-->
+    <!--</fieldset>-->
     <!--</div>-->
+
+
+
     <div class="row translate my-2 justify-content-center">
         <div id="google_translate_element"></div>
     </div>
 </div>
+
+
 <footer th:replace="fragments/footer :: footer-fixed"></footer>
 
 <div th:replace="fragments/scripts :: scripts"></div>
