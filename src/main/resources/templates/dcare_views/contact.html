@@ -6,10 +6,9 @@
 <body>
 <div class="container">
     <nav th:replace="fragments/navbar :: navbar-partial"></nav>
-    <div class="container">
-        <div class="row p-4" style="background-color: #4aa0b5">
-            <div class="contact text-light col-lg-5 p-4">
-                <h3 class="text-center mb-2 font-weight-bold">Contact us today!</h3>
+        <div class="content-area p-4">
+            <div class="contact text-light p-4" style="width: 420px; height: 500px; float: left;">
+                <h3 class="text-center font-weight-bold">Contact us today!</h3>
                 <p class="text-center font-weight-bold">Discovery Playhouse</p>
                 <p class="text-center">600 Navarro St. #35</p>
                 <p class="text-center">San Antonio, TX 78205</p>
@@ -22,20 +21,19 @@
                 <p class="text-center">6 weeks to 3 years old</p>
 
             </div>
-            <div id="map" class="col-lg-7">
+            <div id="map" class="" style="width: 640px">
 
             </div>
 
         </div>
-    </div>
     <div class="row translate my-2 justify-content-center">
         <div id="google_translate_element"></div>
     </div>
 
+<footer th:replace="fragments/footer :: footer-partial"></footer>
 </div>
 
 
-<footer th:replace="fragments/footer :: footer-fixed"></footer>
 
 
 <div th:replace="fragments/scripts :: scripts"></div>

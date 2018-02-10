@@ -6,7 +6,7 @@
 <body>
     <div class="container">
         <nav th:replace="fragments/navbar :: navbar-partial"></nav>
-        <div class="embed-responsive bg-info p-4 rounded">
+        <div class="embed-responsive content-area p-4 rounded">
             <div class="about_background p-2 rounded">
                 <div class="aboutPage rounded">
                     <img src="/img/cape.jpeg" alt="cape" class="cape img-fluid rounded" />
@@ -15,7 +15,7 @@
         </div>
 
         <div class="bg-info rounded">
-            <div class="about_us_row p-4 rounded">
+            <div class="about_us_row p-4 content-area rounded">
                 <div class="about_us_text lead rounded">
                     <h3 class="text-danger">About Us</h3>
                     <hr/>
@@ -37,9 +37,9 @@
             <div id="google_translate_element"></div>
         </div>
 
+    <footer th:replace="fragments/footer :: footer-partial"></footer>
     </div>
 
-    <footer th:replace="fragments/footer :: footer-partial"></footer>
 
     <div th:replace="fragments/scripts :: scripts"></div>
 
