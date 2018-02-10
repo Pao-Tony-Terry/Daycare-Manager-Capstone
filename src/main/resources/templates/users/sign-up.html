@@ -52,8 +52,8 @@
                                     <div class="col-lg-3">
                                         <h6>First Name: </h6>
                                     </div>
-                                    <div class="col-lg-offset-1 col-lg-8">
-                                        <input class="post-title" style="width: 100%;" th:field="*{first_name}" />
+                                    <div class="col-lg-8">
+                                        <input class="rounded" placeholder="must be at least 3 characters long" th:field="*{first_name}" />
                                         <p style="color: red" th:if="${#fields.hasErrors('first_name')}" th:errors="*{first_name}"></p>
                                     </div>
                                 </div>
@@ -62,8 +62,8 @@
                                     <div class="col-lg-3">
                                         <h6>Last Name:</h6>
                                     </div>
-                                    <div class="col-lg-offset-1 col-lg-8">
-                                        <input class="post-title" style="width: 100%;" th:field="*{last_name}" />
+                                    <div class="col-lg-8">
+                                        <input class="rounded" placeholder="must be at least 3 characters long" th:field="*{last_name}" />
                                         <p style="color: red" th:if="${#fields.hasErrors('last_name')}" th:errors="*{last_name}"></p>
                                     </div>
                                 </div>
@@ -72,8 +72,8 @@
                                     <div class="col-lg-3">
                                         <h6>Username: </h6>
                                     </div>
-                                    <div class="col-lg-offset-1 col-lg-8">
-                                        <input class="post-title" style="width: 100%;" th:field="*{username}" />
+                                    <div class="col-lg-8">
+                                        <input class="rounded" placeholder="must be at least 8 characters long" th:field="*{username}" />
                                         <p style="color: red" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></p>
                                     </div>
                                 </div>
@@ -82,8 +82,8 @@
                                     <div class="col-lg-3">
                                         <h6>e-mail:</h6>
                                     </div>
-                                    <div class="col-lg-offset-1 col-lg-8">
-                                        <input class="post-title" style="width: 100%;" th:field="*{email}" />
+                                    <div class="col-lg-8">
+                                        <input class="rounded" placeholder="example@example.com" th:field="*{email}" />
                                         <p style="color: red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p>
                                     </div>
                                 </div>
@@ -92,8 +92,8 @@
                                     <div class="col-lg-3">
                                         <h6>Password: </h6>
                                     </div>
-                                    <div class="col-lg-offset-1 col-lg-8">
-                                        <input class="post-title" id="password" type="password" style="width: 100%;" th:field="*{password}" />
+                                    <div class="col-lg-8">
+                                        <input class="rounded" id="password" type="password" placeholder="must be at least 8 characters long" th:field="*{password}" />
                                         <p style="color: red" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></p>
                                     </div>
                                 </div>
@@ -102,8 +102,8 @@
                                     <div class="col-lg-3">
                                         <h6>Phone number: </h6>
                                     </div>
-                                    <div class="col-lg-offset-1 col-lg-8">
-                                        <input class="post-title" style="width: 100%;" th:field="*{phone}" />
+                                    <div class="col-lg-8">
+                                        <input class="rounded" placeholder="(###) ###-####" th:field="*{phone}" />
                                         <p style="color: red" th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></p>
                                     </div>
                                 </div>
@@ -136,7 +136,7 @@
 
                                 <br/>
                                 <div class="row">
-                                    <div class="col-lg-2" style="margin: 0 auto">
+                                    <div class="col-lg-4" style="margin: 0 auto">
                                         <input type="submit"  value="Sign me up!" class="btn btn-primary btn-block" />
                                     </div>
                                     <br/>
@@ -149,18 +149,7 @@
         </div>
         <!--/ Modal-->
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
+    
 <!--this is the original one:-->
 <!--<div class="container">-->
     <!--<nav th:replace="fragments/navbar :: navbar-partial"></nav>-->

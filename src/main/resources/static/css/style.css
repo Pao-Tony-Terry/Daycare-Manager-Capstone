@@ -132,3 +132,7 @@ hr {
     margin-right: 15px;
     color: white;
 }
+
+input {
+    width: 100%;
+}
