@@ -4,12 +4,12 @@
 <body>
 
 <!-- Defines the fragment -->
-<footer th:fragment="footer-partial" class="my-footer">
+<footer th:fragment="footer-partial" class="my-footer rounded">
     <!-- Using #dates : utility methods for java.util.Date objects: -->
     <span style="text-align: center" class="text-white">Johanna Gomez - Terry Hale - Discovery Playhouse <span th:text="${#dates.year(#dates.createNow())}"></span>&copy;</span>
 </footer>
 
-<footer th:fragment="footer-fixed"  class="my-footer-fixed fixed-bottom">
+<footer th:fragment="footer-fixed"  class="my-footer-fixed fixed-bottom rounded">
     <!-- Using #dates : utility methods for java.util.Date objects: -->
     <span style="text-align: center" class="text-white">Johanna Gomez - Terry Hale - Discovery Playhouse <span th:text="${#dates.year(#dates.createNow())}"></span>&copy;</span>
 </footer>
