@@ -6,9 +6,9 @@
 <body>
     <div class="container mb-3 rounded">
         <nav th:replace="fragments/navbar :: navbar-partial"></nav>
-        <div class="embed-responsive content-area bg-info p-4 rounded">
+        <div class="embed-responsive content-area p-4 rounded">
             <!--Carousel starts here-->
-            <div class="mb-3 p-2 rounded" style="background-color: #6eb572">
+            <div class="mb-3 p-2 rounded" style="background-color: #f6e5a4">
                 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
@@ -33,12 +33,12 @@
             </div>
             <!--Carousel ends here-->
             <div class="card-deck">
-                <div class="card p-2" style="width: 18rem; background-color: #eaa5a5">
+                <div class="card p-2" style="width: 18rem; background-color: #bfced7">
                     <img class="card-img-top img-fluid" src="./img/coloring.jpeg" alt="Card image cap" />
                     <div class="card-body">
                         <h5 class="card-title">About Us</h5>
                         <p class="card-text">Educational excellence, unwavering dedication and outstanding child care are the pillars and the values that Discovery Play House stands for.</p>
-                        <a href="/aboutus" class="btn btn-primary">Read more</a>
+                        <a href="/aboutus" class="btn text-white">Read more</a>
                     </div>
                 </div>
                 <div class="card p-2" style="width: 18rem; background-color: #bfced7">
@@ -46,23 +46,23 @@
                     <div class="card-body">
                         <h5 class="card-title">Programs</h5>
                         <p class="card-text">Exposure to multiple challenging and rewarding curriculum that will get your pre-schooler off to a head start ahead of their peers.</p>
-                        <a href="/programs" class="btn btn-primary">Read more</a>
+                        <a href="/programs" class="btn text-white">Read more</a>
                     </div>
                 </div>
-                <div class="card p-2" style="width: 18rem; background-color: #97c899">
+                <div class="card p-2" style="width: 18rem; background-color: #bfced7">
                     <img class="card-img-top img-fluid" src="./img/laptop.jpeg" alt="Card image cap" />
                     <div class="card-body">
                         <h5 class="card-title">Meet Our Staff</h5>
                         <p class="card-text">Our staff is dedicated to providing the best possible early childhood development by providing a positive environment conducive to learning.</p>
-                        <a href="/staff" class="btn btn-primary">Read more</a>
+                        <a href="/staff" class="btn text-white">Read more</a>
                     </div>
                 </div>
-                <div class="card p-2" style="width: 18rem; background-color: #f6e5a4">
+                <div class="card p-2" style="width: 18rem; background-color: #bfced7">
                     <img class="card-img-top img-fluid" src="./img/phone.jpg" alt="Card image cap" />
                     <div class="card-body">
                         <h5 class="card-title">Contact Us</h5>
                         <p class="card-text">We look forward to hearing from you to answering questions that you may have about our state-of-the-art facilities and award winning programs.</p>
-                        <a href="/contact" class="btn btn-primary">Read more</a>
+                        <a href="/contact" class="btn text-white">Read more</a>
                     </div>
                 </div>
             </div>
@@ -72,9 +72,9 @@
             <div id="google_translate_element"></div>
         </div>
 
+    <footer th:replace="fragments/footer :: footer-partial"></footer>
     </div>
 
-    <footer th:replace="fragments/footer :: footer-partial"></footer>
 
     <div th:replace="fragments/scripts :: scripts"></div>
 
