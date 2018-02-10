@@ -6,7 +6,7 @@
 <body>
     <div class="container">
         <nav th:replace="fragments/navbar :: navbar-partial"></nav>
-        <div class="bg-info p-4 rounded">
+        <div class="content-area p-4 rounded">
             <div class="embed-responsive staffPage mb-3 p-2 rounded">
                 <img src="/img/daycare_staff.jpeg" alt="cape" class="daycare_staff img-fluid rounded" />
             </div>
@@ -31,8 +31,8 @@
         <div class="row translate my-2 justify-content-center">
             <div id="google_translate_element"></div>
         </div>
-    </div>
     <footer th:replace="fragments/footer :: footer-partial"></footer>
+    </div>
     <div th:replace="fragments/scripts :: scripts"></div>
 </body>
 </html>

@@ -7,7 +7,7 @@
     <div class="container">
         <nav th:replace="fragments/navbar :: navbar-partial"></nav>
 
-        <div class="about_us_text p-4" style="background-color: #4aa0b5">
+        <div class="content-area about_us_text p-4">
             <div class="row mb-2">
                 <h3 class="text-white">Tuition and Fees</h3>
             </div>
@@ -39,9 +39,9 @@
         <div class="row translate my-2 justify-content-center">
             <div id="google_translate_element"></div>
         </div>
+    <footer th:replace="fragments/footer :: footer-partial"></footer>
     </div>
 
-    <footer th:replace="fragments/footer :: footer-fixed"></footer>
 
 
     <div th:replace="fragments/scripts :: scripts"></div>
