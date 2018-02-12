@@ -108,6 +108,7 @@ public class TwilioController {
                 message.getSid();
             }
         } catch (ApiException e){
+            e.printStackTrace();
             return "redirect:/user/teacher";
         }
         notitficationService.save(notification);  //  saves the notification to the table
