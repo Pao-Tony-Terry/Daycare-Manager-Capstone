@@ -3,44 +3,53 @@
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head th:replace="fragments/head :: header"></head>
 
+
 <body>
-    <div class="container mb-3">
-        <nav th:replace="fragments/navbar :: navbar-partial"></nav>
-        <div class="embed-responsive content-area p-4 rounded">
-            <div class="row rounded">
-                <div class="text-white col-lg-6">
-                    <h2 class="mb-2">Your Parent profile</h2>
-
-                    <h4>First name:  <span th:text="${user.first_name}"></span></h4>
-                    <h4>Last name:  <span th:text="${user.last_name}"></span></h4>
-                    <h4>Username:  <span th:text="${user.username}"></span></h4>
-                    <h4>e-mail:  <span th:text="${user.email}"></span></h4>
-                    <h4>Phone:  <span th:text="${user.phone}"></span></h4>
+<div class="container mb-3">
+    <nav th:replace="fragments/navbar :: navbar-partial"></nav>
+    <div class="embed-responsive content-area p-4 rounded">
+        <div class="row rounded pb-2">
+            <div class="text-white col-lg-6">
+                <div class="row pb-2">
+                    <div class="col-lg-12">
+                        <h2 style="text-align: center" class="mb-4">Your parent profile:</h2>
+                    </div>
                 </div>
-
-                <div class="text-white offset-lg-3 col-lg-3">
-
-
-
-                    <a class="btn btn-warning btn-block" th:href="${'/parent/'+user.id+'/edit'}"><i class="fas fa-id-card"></i> Edit profile</a>
-                    <a class="btn btn-danger btn-block" th:href="${'/parent/'+user.id+'/delete'}"><i class="fas fa-trash-alt"></i> Delete profile</a>
-                    <a class="btn btn-warning btn-block" href="/parent/enroll">Enroll</a>
-                    <a class="btn btn-warning btn-block" href="/calendar">Calendar</a>
-                    <a class="btn btn-warning btn-block" href="/parent/children">Show all my kids</a>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <h4>First name:</h4>
+                        <h4>Last name: </h4>
+                        <h4>Username: </h4>
+                        <h4>e-mail:</h4>
+                        <h4>Phone: </h4>
+                    </div>
+                    <div class="offset-lg-1 col-lg-7">
+                        <h4><span th:text="${user.first_name}"></span></h4>
+                        <h4><span th:text="${user.last_name}"></span></h4>
+                        <h4><span th:text="${user.username}"></span></h4>
+                        <h4><span th:text="${user.email}"></span></h4>
+                        <h4><span th:text="${user.phone}"></span></h4>
+                    </div>
                 </div>
             </div>
+
+            <div class="text-white offset-lg-3 col-lg-3 move_btns_down_parent">
+                <a class="btn btn-warning btn-block" th:href="${'/parent/'+user.id+'/edit'}"><i class="fas fa-id-card"></i> Edit profile</a>
+                <a class="btn btn-danger btn-block" th:href="${'/parent/'+user.id+'/delete'}"><i class="fas fa-trash-alt"></i> Delete profile</a>
+                <a class="btn btn-warning btn-block" href="/parent/enroll">Enroll</a>
+                <a class="btn btn-warning btn-block" href="/calendar">Calendar</a>
+                <a class="btn btn-warning btn-block" href="/parent/children">Show all my kids</a>
+            </div>
         </div>
-
-        <div class="row translate my-2 justify-content-center">
-            <div id="google_translate_element"></div>
-        </div>
-
-        <footer th:replace="fragments/footer :: footer-partial"></footer>
-
     </div>
 
+    <div class="row translate my-2 justify-content-center">
+        <div id="google_translate_element"></div>
+    </div>
 
-    <div th:replace="fragments/scripts :: scripts"></div>
+    <footer th:replace="fragments/footer :: footer-partial"></footer>
+</div>
 
+<div th:replace="fragments/scripts :: scripts"></div>
 </body>
 </html>
