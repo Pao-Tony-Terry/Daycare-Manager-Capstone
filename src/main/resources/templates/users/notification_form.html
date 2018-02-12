@@ -7,23 +7,25 @@
 <div class="container">
     <nav th:replace="fragments/navbar :: navbar-partial"></nav>
 
-    <h1 class="display-1">Notifications to Users</h1>
+    <div class="content-area p-4">
+    <h2 class="text-white">Notifications to Users</h2>
 
-    <fieldset class="registerForm bg-light p-2 mb-5 rounded">
+    <fieldset class="registerForm p-2 mb-5 rounded text-white">
         <form th:action="@{/user/sendSMS}" method="POST" th:object="${notification}">
             <div class="mb-2">
-                <label for="notification">Input your notification: </label>
+                <h4><label for="notification">Input your notification:</label></h4>
                 <input id="notification" name="body" th:field="*{body}"/>
             </div>
 
 
-            <div class="mb-2">
-                <input value="Send notification!" type="submit" />
+            <div class="offset-lg-9 col-lg-3 mt-4">
+                <input class="btn btn-warning btn-block" value="Send notification!" type="submit" />
             </div>
         </form>
     </fieldset>
+    </div>
+<footer th:replace="fragments/footer :: footer-fixed"></footer>
 </div>
-<footer th:replace="fragments/footer :: footer-partial"></footer>
 
 
 </body>

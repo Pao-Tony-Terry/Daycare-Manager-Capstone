@@ -6,12 +6,12 @@
 <body>
 <div class="container">
     <nav th:replace="fragments/navbar :: navbar-partial"></nav>
-    <h1>Showing all the kids</h1>
+    <h1>My kids</h1>
 
     <div class="post-preview" th:each="child : ${children}">
-            <div class="bg-light p-4 mb-3 edit_delete_row">
-                <div class="row">
-                    <h3><span th:text="${child.first_name}"></span></h3>
+            <div class="embed-responsive content-area mb-2 p-4 rounded edit_delete_row">
+                <div class="row mb-2">
+                    <h3 class="text-white"><strong><span th:text="${child.first_name}"></span></strong></h3>
                 </div>
                 <div class="row">
                     <div class="col">

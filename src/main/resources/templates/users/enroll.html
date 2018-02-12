@@ -6,42 +6,37 @@
 <body>
 <div class="container">
     <nav th:replace="fragments/navbar :: navbar-partial"></nav>
-    <h1 class="display-1">Enrollment Form</h1>
-    <fieldset class="enrollForm bg-light p-2 rounded">
+    <fieldset class="enrollForm content-area p-2 text-white rounded">
+    <h2 class="mb-4">Enrollment Form</h2>
         <form th:action="@{/parent/enroll}" method="POST" th:object="${child}">
            <!--Child row-->
-            <h3>Child's Info:</h3>
-            <div class="form-row">
-                <div class="col-m">
-                    <label for="first_name">First Name</label>
+            <div class="form-row mb-4">
+                <div class="col-lg-3">
+                    <h4><label for="first_name">Child's First Name</label></h4>
                     <input type="text" id="first_name" th:field="*{first_name}" class="form-control" />
                     <p style="color: red" th:if="${#fields.hasErrors('first_name')}" th:errors="*{first_name}"></p>
                 </div>
 
-                <div class="col-m">
-                    <label for="last_name">Last Name</label>
+                <div class="col-lg-3 ml-2">
+                    <h4><label for="last_name">Child's Last Name</label></h4>
                     <input type="text" id="last_name" th:field="*{last_name}" class="form-control" />
                     <p style="color: red" th:if="${#fields.hasErrors('last_name')}" th:errors="*{last_name}"></p>
                 </div>
 
-                <div class="col-m">
-                    <div class="form-check ml-5 mt-4">
+                <div class="col-lg-1 ml-4">
+                    <div class="form-check mt-4">
                         <input class="form-check-input" type="radio" name="gender" th:field="*{gender}" id="male" value="male" />
-                        <label class="form-check-label" for="male">
-                            Male
-                        </label>
+                        <h4><label class="form-check-label" for="male">Male</label></h4>
                     </div>
-                    <div class="form-check ml-5">
+                    <div class="form-check">
                         <input class="form-check-input" type="radio" name="gender" th:field="*{gender}" id="female" value="female" />
-                        <label class="form-check-label" for="female">
-                            Female
-                        </label>
+                        <h4><label class="form-check-label" for="female">Female</label></h4>
                     </div>
                 </div>
 
-                <div class="col-m">
+                <div class="col-lg-2 ml-5">
                     <div class="form-group">
-                        <label class="control-label" for="date">Date</label>
+                        <h4><label class="control-label" for="date">Date of Birth</label></h4>
                         <input class="form-control" id="date" name="date" th:field="*{dob}" placeholder="MM/DD/YYY" type="date" />
                         <p style="color: red" th:if="${#fields.hasErrors('dob')}" th:errors="*{dob}"></p>
                     </div>
@@ -49,8 +44,9 @@
             </div>
 
 
-
-            <input value="Enroll your child!" type="submit" />
+            <div class="offset-lg-9 col-lg-3 mb-2">
+                <input class="btn btn-warning btn-block" value="Enroll your child!" type="submit" />
+            </div>
         </form>
     </fieldset>
 </div>

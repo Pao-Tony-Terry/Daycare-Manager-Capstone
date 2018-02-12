@@ -6,50 +6,50 @@
 <body>
 <div class="container">
     <nav th:replace="fragments/navbar :: navbar-partial"></nav>
-    <h1>A day in the life of your preschooler</h1>
 
     <div class="reportcard-view" th:each="report_card : ${report_cards}">
-        <div class="mb-3 p-4 bg-light rounded">
-            <div class="row">
+        <div class="mb-3 p-4 content-area text-white rounded">
+        <h2 class="mb-5">A Day in the Life of Your Preschooler</h2>
+            <div class="row mb-4">
                 <div class="col">
-                    <div>Student ID:</div>
-                    <p th:text="${child.id}"></p>
+                    <h4>Student ID:<span class="ml-2" th:text="${child.id}"></span></h4>
+
                 </div>
                 <div class="col">
-                    <div>Date:</div>
-                    <p th:text="${report_card.date}"></p>
+                    <h4>Date:<span class="ml-2" th:text="${report_card.date}"></span></h4>
+
                 </div>
             </div>
 
-            <div class="row">
+            <div class="row mb-4">
                 <div class="col">
-                    <div>Meal:</div>
-                    <p th:text="${report_card.meal}"></p>
+                    <h4>Meal:<span class="ml-2" th:text="${report_card.meal}"></span></h4>
+
                 </div>
                 <div class="col">
-                    <div>How I ate:</div>
-                    <p th:text="${report_card.how_ate}"></p>
+                    <h4>How I ate:<span class="ml-2" th:text="${report_card.how_ate}"></span></h4>
+
                 </div>
             </div>
 
-            <div class="row">
+            <div class="row mb-4">
                 <div class="col">
-                    <div>How I felt:</div>
-                    <p th:text="${report_card.feeling}"></p>
+                    <h4>How I felt:<span class="ml-2" th:text="${report_card.feeling}"></span></h4>
+
                 </div>
                 <div class="col">
-                    <div>How I slept:</div>
-                    <p th:text="${report_card.sleep}"></p>
+                    <h4>How I slept:<span class="ml-2" th:text="${report_card.sleep}"></span></h4>
+
                 </div>
             </div>
-            <div class="row">
+            <div class="row mb-4">
                 <div class="col">
-                    <div>Changes:</div>
-                    <p th:text="${report_card.change}"></p>
+                    <h4>Changes:<span class="ml-2" th:text="${report_card.change}"></span></h4>
+
                 </div>
                 <div class="col">
-                    <div>What I need:</div>
-                    <p th:text="${report_card.items_needed}"></p>
+                    <h4>What I need:<span class="ml-2" th:text="${report_card.items_needed}"></span></h4>
+
                 </div>
             </div>
         </div>
