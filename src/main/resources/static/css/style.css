@@ -147,3 +147,8 @@ input {
 .contact_in_profile {
     background-color: #6eb572;
 }
+
+.move_btns_down {
+    position: relative !important;
+    top: 50px !important;
+}
