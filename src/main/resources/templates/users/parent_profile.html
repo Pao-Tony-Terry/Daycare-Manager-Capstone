@@ -23,7 +23,7 @@
                 </div>
 
                 <div class="text-light col-lg-6">
-                    <h4>You are viewing your Employee profile</h4>
+                    <h4>You are viewing your Parent profile</h4>
 
                     <h5>First name:  <span th:text="${user.first_name}"></span></h5>
                     <h5>Last name:  <span th:text="${user.last_name}"></span></h5>
@@ -32,11 +32,11 @@
                     <h5>Phone:  <span th:text="${user.phone}"></span></h5>
 
 
-                    <a class="btn btn-warning" th:href="${'/parent/'+user.id+'/edit'}"><i class="fas fa-id-card"></i> Edit profile</a>
-                    <a class="btn btn-danger" th:href="${'/parent/'+user.id+'/delete'}"><i class="fas fa-trash-alt"></i> Delete profile</a>
-                    <a class="btn btn-warning" href="/parent/enroll">Enroll</a>
-                    <a class="btn btn-warning" href="/calendar">Calendar</a>
-                    <a class="btn btn-warning" href="/parent/children">Show all my kids</a>
+                    <a class="btn btn-warning btn-block" th:href="${'/parent/'+user.id+'/edit'}"><i class="fas fa-id-card"></i> Edit profile</a>
+                    <a class="btn btn-danger btn-block" th:href="${'/parent/'+user.id+'/delete'}"><i class="fas fa-trash-alt"></i> Delete profile</a>
+                    <a class="btn btn-warning btn-block" href="/parent/enroll">Enroll</a>
+                    <a class="btn btn-warning btn-block" href="/calendar">Calendar</a>
+                    <a class="btn btn-warning btn-block" href="/parent/children">Show all my kids</a>
                 </div>
             </div>
         </div>

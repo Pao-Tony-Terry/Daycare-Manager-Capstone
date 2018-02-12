@@ -6,12 +6,12 @@
 <body>
 <div class="container">
     <nav th:replace="fragments/navbar :: navbar-partial"></nav>
-
+    <div class="embed-responsive content-area mb-2 p-4 rounded">
     <div class="post-preview" th:each="child : ${children}">
 
-        <span th:text="${child.first_name}"></span>
+        <h3><strong><span th:text="${child.first_name}"></span></strong></h3>
         <div class="row edit_delete_row">
-            <div class="col-lg-4">
+            <div class="col-lg-3">
                 <a class="btn btn-warning btn-block edit_btn" th:href="${'/teacher/kid/'+child.id+'/reportcard'}">Report Card</a>
             </div>
             <div class="col-lg-4">
@@ -22,6 +22,7 @@
         </div>
 
     </div>
+    </div>
 
 
 
@@ -29,7 +30,10 @@
         <a class="btn btn-primary float-right" href="/user/teacher">Back to profile &rarr;</a>
     </div>
 
+    <footer th:replace="fragments/footer :: footer-fixed"></footer>
+
 </div>
 
+<div th:replace="fragments/scripts :: scripts"></div>
 </body>
 </html>
