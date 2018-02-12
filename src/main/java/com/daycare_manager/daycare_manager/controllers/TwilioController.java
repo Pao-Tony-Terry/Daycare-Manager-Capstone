@@ -7,6 +7,7 @@ import com.daycare_manager.daycare_manager.services.NotitficationService;
 import com.daycare_manager.daycare_manager.services.TwilioService;
 import com.daycare_manager.daycare_manager.services.UserService;
 import com.twilio.Twilio;
+import com.twilio.exception.ApiException;
 import com.twilio.rest.api.v2010.account.Message;
 import com.twilio.type.PhoneNumber;
 import org.springframework.beans.factory.annotation.Value;
@@ -73,23 +74,47 @@ public class TwilioController {
     }
 
     // Method to all the users:
-    @PostMapping("/user/sendSMS")
-    public String sendNotification(@ModelAttribute Notification notification, Model viewModel) {
+//    @PostMapping("/user/sendSMS")
+//    public String sendNotification(@ModelAttribute Notification notification, Model viewModel) {
+//
+//        Iterable<User> users = userService.findAll();
+//        for (User user: users){
+//            long id = user.getId();
+//            Twilio.init(accountId, tokenId);
+//            Message message = Message.creator(
+//                    new PhoneNumber("+1"+userService.findOne(id).getPhone()),  // this is the user's number (to)
+//                    new PhoneNumber("+1"+twilioNumber),                         // this is my twilio number (from)
+//                    notification.getBody()).create();
+//            message.getSid();
+//        }
+//        notitficationService.save(notification);  //  saves the notification to the table
+//        return "redirect:/user/teacher";
+//
+//    }
 
-        Iterable<User> users = userService.findAll();
-        for (User user: users){
-            long id = user.getId();
-            Twilio.init(accountId, tokenId);
-            Message message = Message.creator(
-                    new PhoneNumber("+1"+userService.findOne(id).getPhone()),  // this is the user's number (to)
-                    new PhoneNumber("+1"+twilioNumber),                         // this is my twilio number (from)
-                    notification.getBody()).create();
-            message.getSid();
+
+    // Method to all the users:
+    @PostMapping("/user/sendSMS")
+    public String sendNotification(@ModelAttribute Notification notification) throws ApiException {
+        try {
+            Iterable<User> users = userService.findAll();
+            for (User user: users){
+                long id = user.getId();
+                Twilio.init(accountId, tokenId);
+                Message message = Message.creator(
+                        new PhoneNumber("+1"+userService.findOne(id).getPhone()),  // this is the user's number (to)
+                        new PhoneNumber("+1"+twilioNumber),                         // this is my twilio number (from)
+                        notification.getBody()).create();
+                message.getSid();
+            }
+        } catch (ApiException e){
+            return "redirect:/user/teacher";
         }
         notitficationService.save(notification);  //  saves the notification to the table
         return "redirect:/user/teacher";
-
     }
+
+
 
     // 1st Test:
     @GetMapping("/testTwilio")
