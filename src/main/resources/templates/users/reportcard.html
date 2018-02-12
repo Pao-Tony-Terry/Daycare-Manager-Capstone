@@ -7,76 +7,88 @@
 
 <div class="container">
     <nav th:replace="fragments/navbar :: navbar-partial"></nav>
+    <div class="embed-responsive content-area mb-2 p-4 rounded">
     <form th:action="@{'/teacher/kid/'+${child.id}+'/reportcard'}" method="POST" th:object="${report_card}">
         <!--<input type="hidden" th:field="*{child.id}" />-->
         <div>
             <div class="form-group">
-                <label class="control-label" for="date">Date</label>
-                <input class="form-control" id="date" name="date" th:field="*{date}" placeholder="MM/DD/YYY" type="date" />
+                <h4><label class="control-label text-white" for="date">Date</label></h4>
+                <input class="form-control col-lg-3" id="date" name="date" th:field="*{date}" placeholder="MM/DD/YYY" type="date" />
                 <p style="color: red" th:if="${#fields.hasErrors('date')}" th:errors="*{date}"></p>
             </div>
         </div>
 
-        <label for="feeling">Today I felt..</label>
-        <select id="feeling" name="feeling">
-            <option value="Blank"></option>
-            <option value="happy">Happy</option>
-            <option value="energetic">Energetic</option>
-            <option value="engaged">Engaged</option>
-            <option value="sleepy">Sleepy</option>
-            <option value="sick">Sick</option>
-            <option value="not myself">Not Myself</option>
-        </select>
+        <div class="row">
+            <div class="col-lg-2">
+                <h4><label class="text-white" for="feeling">Today I felt..</label></h4>
+                <select id="feeling" name="feeling"> s
+                    <option value="Blank"></option>
+                    <option value="happy">Happy</option>
+                    <option value="energetic">Energetic</option>
+                    <option value="engaged">Engaged</option>
+                    <option value="sleepy">Sleepy</option>
+                    <option value="sick">Sick</option>
+                    <option value="not myself">Not Myself</option>
+                </select>
+            </div>
 
-        <label for="sleep">Today I Slept..</label>
-        <select id="sleep" name="sleep">
-            <option value="NA"></option>
-            <option value="very well">Very Well</option>
-            <option value="soundly">Soundly</option>
-            <option value="restless">Restless</option>
-            <option value="did not sleep">Did not Sleep</option>
-        </select>
+            <div class="col-lg-2">
+                <h4><label class="text-white" for="sleep">Today I Slept..</label></h4>
+                <select id="sleep" name="sleep">
+                    <option value="NA"></option>
+                    <option value="very well">Very Well</option>
+                    <option value="soundly">Soundly</option>
+                    <option value="restless">Restless</option>
+                    <option value="did not sleep">Did not Sleep</option>
+                </select>
+            </div>
 
-        <label for="meal">Today I ate..</label>
-        <select id="meal" name="meal">
-            <option value="NA"></option>
-            <option value="breakfast">Breakfast</option>
-            <option value="lunch">Lunch</option>
-            <option value="snack">Snack</option>
-        </select>
+            <div class="col-lg-2">
+                <h4><label class="text-white" for="meal">Today I ate..</label></h4>
+                <select id="meal" name="meal">
+                    <option value="NA"></option>
+                    <option value="breakfast">Breakfast</option>
+                    <option value="lunch">Lunch</option>
+                    <option value="snack">Snack</option>
+                </select>
+            </div>
 
-        <label for="how_ate"> I ate...</label>
-        <select id="how_ate" name="how_ate">
-            <option value="Blank"></option>
-            <option value="all">All of my food</option>
-            <option value="most">Most of my food</option>
-            <option value="half">Half of my food</option>
-            <option value="little">a Little bit of my food</option>
-            <option value="none">None of my food</option>
-        </select>
+            <div class="col-lg-2">
+                <h4><label class="text-white" for="how_ate"> I ate...</label></h4>
+                <select id="how_ate" name="how_ate">
+                    <option value="Blank"></option>
+                    <option value="all">All of my food</option>
+                    <option value="most">Most of my food</option>
+                    <option value="half">Half of my food</option>
+                    <option value="little">Little bit of my food</option>
+                    <option value="none">None of my food</option>
+                </select>
+            </div>
 
+            <div class="offset-lg-1 col-lg-3">
+                <h4><label class="text-white" for="change">Diaper Changes</label></h4>
+                <select id="change" name="change">
+                    <option value="NA"></option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    </select>
+            </div>
+        </div>
 
-        <label for="change">#Diaper Changes</label>
-        <select id="change" name="change">
-            <option value="NA"></option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-            <option value="10">10</option>
-            </select>
-
-                <div class="form-group">
-                    <label for="comments">Comments:</label>
+                <div class="form-group mt-2">
+                    <h4><label class="text-white" for="comments">Comments:</label></h4>
                     <input th:field="*{comments}" id="comments" value="comments" class="form-control" rows="5" placeholder="Comments.."></input>
                 </div>
 
-                <label for="items_needed">Items Needed:</label>
+                <h4><label class="text-white" for="items_needed">Items Needed:</label></h4>
                 <select id="items_needed" name="items_needed">
                     <option value="NA"></option>
                     <option value="diapers">Diapers</option>
@@ -85,10 +97,11 @@
                     <option value="sterile water">Sterile water</option>
                     <option value="change of clothes">Change of clothes</option>
                 </select>
-
-            <input value="Submit Report Card" type="submit" />
-
+            <div class="offset-lg-9 col-lg-3">
+                <input class="btn btn-warning btn-block" value="Submit Report Card" type="submit" />
+            </div>
     </form>
+    </div>
     <div class="clearfix">
         <a class="btn btn-primary float-right" href="/user/teacher">Back to profile &rarr;</a>
     </div>
