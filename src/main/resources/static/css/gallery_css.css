@@ -178,6 +178,17 @@ img.hover-shadow {
 }
 
 .galleryWide {
+    height: 50vw;
+    width: 100%;
+}
+
+/*.galleryWide {*/
+    /*height: 500px;*/
+    /*width: 1198px;*/
+/*}*/
+
+
+.galleryWideRj {
     height: 500px;
-    width: 1198px;
+    /*width: 1198px;*/
 }
