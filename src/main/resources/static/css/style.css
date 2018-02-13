@@ -157,3 +157,7 @@ input {
     position: relative !important;
     top: 30px !important;
 }
+
+.fa-github, .fa-linkedin {
+ font-size: 50px;
+}
