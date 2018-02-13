@@ -24,9 +24,12 @@
         </form>
     </fieldset>
     </div>
-<footer th:replace="fragments/footer :: footer-fixed"></footer>
+    <div class="row translate my-2 justify-content-center">
+        <div id="google_translate_element"></div>
+    </div>
+    <footer th:replace="fragments/footer :: footer-partial"></footer>
 </div>
-
+<div th:replace="fragments/scripts :: scripts"></div>
 
 </body>
 </html>
