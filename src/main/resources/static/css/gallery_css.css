@@ -181,3 +181,32 @@ img.hover-shadow {
     height: 50vw;
     width: 100%;
 }
+
+@media screen and (max-width:768px) {
+    .navbar-toggler {
+        margin-top: -30px;
+        margin-left: 82%;
+    }
+    .homepage-cards {
+        width: 18.5rem !important;
+    }
+    .card-deck {
+        margin-left: 0;
+    }
+    .navbar-brand {
+        margin-left: -15px;
+    }
+    .hide-on-mobile {
+        display: none;
+    }
+
+    footer {
+        margin-top: 500px;
+    }
+
+    .card-deck .galleryCard {
+        margin-bottom: 200px; !important;
+    }
+
+
+}
