@@ -27,18 +27,27 @@
                     <div class="card-body">
                         <form th:action="@{/teacher/edit}" method="post" th:object="${user}">
                             <input type="hidden" class="form-control" th:field="*{id}" />
+                            <input type="hidden" class="form-control" th:field="*{password}"/>
+                            <input type="hidden" class="form-control" th:field="*{employee}"/>
                             <div class="input-group">
                                 <div class="form-group" style="width: 50%">
                                     <label for="firstName" style="float: left">First Name</label>
                                     <br />
-                                    <input id="firstName" class="form-control"  type="text" th:field="*{first_name}">
+                                    <input id="firstName" class="form-control"  type="text" th:field="*{first_name}"/>
                                 </div>
                                 <div class="form-group" style="width: 50%">
                                     <label for="lastName" style="float: left">Last Name</label>
                                     <br />
-                                    <input id="lastName" class="form-control"  type="text" th:field="*{last_name}">
+                                    <input id="lastName" class="form-control"  type="text" th:field="*{last_name}"/>
                                 </div>
                             </div>
+                            <label for="email" style="float: left">Email</label>
+                            <input type="email" class="form-control"  id="email" th:field="*{email}"/>
+                            <br />
+                            <label for="phone" style="float: left">Phone</label>
+                            <input for="phone" type="text" class="form-control"  id="phone" th:field="*{phone}"/>
+                            <br />
+
                             <!--<div class="justify-content-center">-->
                                 <!--<input class="post-title" style="width: 100%;" th:field="*{first_name}" />-->
                                 <!--<input th:field="*{last_name}"/>-->
