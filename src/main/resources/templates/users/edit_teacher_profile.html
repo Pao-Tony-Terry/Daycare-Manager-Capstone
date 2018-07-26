@@ -7,23 +7,57 @@
 <div class="container">
     <nav th:replace="fragments/navbar :: navbar-partial"></nav>
 
-    <div class="content-area p-4">
-    <form th:action="@{/teacher/edit}" method="post" th:object="${user}">
-        <input type="hidden" th:field="*{id}" />
-            <div class="justify-content-center">
-                <input class="post-title" style="width: 100%;" th:field="*{first_name}" />
-                <input th:field="*{last_name}"/>
-                <input th:field="*{username}"/>
-                <input type="hidden" th:field="*{password}"/>
-                <input th:field="*{email}"/>
-                <input th:field="*{phone}"/>
-                <input th:field="*{gender}"/>
-                <input type="hidden" th:field="*{employee}"/>
+    <div class="content-area p-4 rounded">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card card-border">
+                    <div class="card-header">
+                        <h2>Profile picture</h2>
+                    </div>
+                    <div class="card-body">
+                        <img class="mb-5" id="profile_pic" style="height: 150px; width: 150px; margin: 0 auto" src="/img/user_pic.png" alt=""/>
+                    </div>
+                </div>
             </div>
-            <div class="col-lg-3 mt-4" style="margin: 0 auto">
-                <input type="submit" class="btn btn-warning btn-block" />
+            <div class="col-md-8">
+                <div class="card card-border">
+                    <div class="card-header">
+                        <h2>Edit your profile</h2>
+                    </div>
+                    <div class="card-body">
+                        <form th:action="@{/teacher/edit}" method="post" th:object="${user}">
+                            <input type="hidden" class="form-control" th:field="*{id}" />
+                            <div class="input-group">
+                                <div class="form-group" style="width: 50%">
+                                    <label for="firstName" style="float: left">First Name</label>
+                                    <br />
+                                    <input id="firstName" class="form-control"  type="text" th:field="*{first_name}">
+                                </div>
+                                <div class="form-group" style="width: 50%">
+                                    <label for="lastName" style="float: left">Last Name</label>
+                                    <br />
+                                    <input id="lastName" class="form-control"  type="text" th:field="*{last_name}">
+                                </div>
+                            </div>
+                            <!--<div class="justify-content-center">-->
+                                <!--<input class="post-title" style="width: 100%;" th:field="*{first_name}" />-->
+                                <!--<input th:field="*{last_name}"/>-->
+                                <!--<input th:field="*{username}"/>-->
+                                <!--<input type="hidden" th:field="*{password}"/>-->
+                                <!--<input th:field="*{email}"/>-->
+                                <!--<input th:field="*{phone}"/>-->
+                                <!--<input th:field="*{gender}"/>-->
+                                <!--<input type="hidden" th:field="*{employee}"/>-->
+                            <!--</div>-->
+                            <div class="col-lg-3 mt-4" style="margin: 0 auto">
+                                <input type="submit" class="btn btn-warning btn-block" />
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
-    </form>
+        </div>
+
     </div>
 
 
